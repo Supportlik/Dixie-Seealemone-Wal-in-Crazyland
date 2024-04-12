@@ -1,7 +1,7 @@
 ---
-name: Illustration Request
-about: Issues related to graphic designs or visual elements needed for the project.
-title: "[ILLUSTRATION REQUEST] "
+name: Asset Request
+about: Issues related to graphic designs or assets in general needed for the project.
+title: "[ASSET REQUEST] "
 labels: illustration
 assignees: ''
 
