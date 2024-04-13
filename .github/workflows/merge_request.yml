@@ -13,9 +13,7 @@ env:
 jobs:
   export-windows:
     name: Windows Export
-    runs-on: ubuntu-latest
-    container:
-      image: barichello/godot-ci:mono-4.2.1
+    runs-on: ubuntu-latest    
     steps:
       - name: Checkout
         uses: actions/checkout@v3.3.0
