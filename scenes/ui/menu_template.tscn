@@ -1,0 +1,64 @@
+[gd_scene load_steps=2 format=3 uid="uid://iipjrdqofkbc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pnb5c"]
+font_size = 32
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.235294)
+
+[node name="Panel" type="Panel" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -250.0
+offset_right = 250.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="ColorRect/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Header" type="VBoxContainer" parent="ColorRect/Panel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Title" type="Label" parent="ColorRect/Panel/GridContainer/Header"]
+layout_mode = 2
+text = "Master of Elements"
+label_settings = SubResource("LabelSettings_pnb5c")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Content" type="MarginContainer" parent="ColorRect/Panel/GridContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_right = 30
+
+[node name="Footer" type="HBoxContainer" parent="ColorRect/Panel/GridContainer"]
+layout_mode = 2
