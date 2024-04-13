@@ -1,4 +1,5 @@
 ﻿using Godot;
+using MasterofElements.scripts.singletons.fileaccess;
 
 namespace MasterofElements.scripts.singletons;
 
@@ -8,10 +9,10 @@ namespace MasterofElements.scripts.singletons;
 /// </summary>
 public class AutoLoader
 {
-    public readonly FileAccessService FileAccessService;
+    public readonly file_access_service FileAccessService;
 
     public AutoLoader(Node parent)
     {
-        FileAccessService = parent.GetNode<FileAccessService>("/root/FileAccessService");
+        FileAccessService = parent.GetNode<fileaccess.file_access_service>("/root/FileAccessService");
     }
 }
