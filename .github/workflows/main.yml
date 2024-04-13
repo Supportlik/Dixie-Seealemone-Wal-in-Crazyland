@@ -12,8 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3.3.0
+        uses: actions/checkout@latest
         with:
+          fetch-depth: 0
           lfs: true
       - name: install wine
         id: wine_install
@@ -25,6 +26,7 @@ jobs:
         run: |
           printenv
           ls -la
+          ls -la scripts/singletons/fileaccess
       - name: export game
         id: export
         # Use latest version (see releases for all versions)
