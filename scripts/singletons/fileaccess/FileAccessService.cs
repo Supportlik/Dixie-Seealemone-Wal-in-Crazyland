@@ -7,7 +7,6 @@ namespace MasterofElements.scripts.singletons.fileaccess;
 /// <summary>
 /// Die FileAccessService Klasse stellt Methoden zum Lesen und Schreiben von Dateien, JSON-Daten und Objekten bereit.
 /// </summary>
-/// 
 public partial class FileAccessService : Node
 {
     /// <summary>

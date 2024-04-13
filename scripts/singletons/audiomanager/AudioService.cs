@@ -24,7 +24,8 @@ public partial class AudioService : Node
 
     public override void _Ready()
     {
-        _autoLoader = GetNode<AutoLoader>("/root/AutoLoader");
+        GD.Print("Hi");
+        _autoLoader = new AutoLoader(this);
 
         _setUpAudio();
     }
@@ -55,6 +56,7 @@ public partial class AudioService : Node
         if (audioOptions == null)
         {
             audioOptions = new AudioOptions(false, 0.5f, false, 0.5f, false, 0.5f);
+            _audioOptions = audioOptions;
             _persistAudioOptions();
         }
 
@@ -139,17 +141,17 @@ public partial class AudioService : Node
         _autoLoader.FileAccessService.WriteObject(UserFiles.AudioOptionsFile, _audioOptions);
     }
 
-    public async Task PlaySFX(string streamName)
+    public async Task PlaySFX(string streamName, Node root)
     {
-        await _playAudio(streamName, _sfxLibrary);
+        await _playAudio(streamName, _sfxLibrary, root);
     }
 
-    public async Task PlayMusic(string streamName)
+    public async Task PlayMusic(string streamName, Node root)
     {
-        await _playAudio(streamName, _musicLibrary);
+        await _playAudio(streamName, _musicLibrary, root);
     }
 
-    private async Task _playAudio(string streamName, AudioLibrary audioLibrary)
+    private async Task _playAudio(string streamName, AudioLibrary audioLibrary, Node root)
     {
         AudioStreamPlayer asp = new AudioStreamPlayer();
         AudioStream stream = audioLibrary.GetAudioStream(streamName);
@@ -159,7 +161,8 @@ public partial class AudioService : Node
         asp.Name = $"{audioLibrary.GetBusName()}_${streamName}";
         asp.Bus = audioLibrary.GetBusName();
 
-        AddChild(asp);
+        root.AddChild(asp);
+
         asp.Play();
 
         await ToSignal(asp, "finished");
