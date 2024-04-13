@@ -1,6 +1,5 @@
 using Godot;
 using MasterofElements.scripts.singletons;
-using MasterofElements.scripts.singletons.fileaccess;
 
 public partial class Main : Node2D
 {
@@ -9,8 +8,9 @@ public partial class Main : Node2D
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
+        GD.Print("HI");
         _autoLoader = new AutoLoader(this);
-        _autoLoader.FileAccessService.ReadFile(UserFiles.AudioOptionsFile);
+        _autoLoader.AudioService.PlayMusic("Ludum_Dare_55_Game_Background_Music.mp3");
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.

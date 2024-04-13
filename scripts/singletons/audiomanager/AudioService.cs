@@ -24,7 +24,8 @@ public partial class AudioService : Node
 
     public override void _Ready()
     {
-        _autoLoader = GetNode<AutoLoader>("/root/AutoLoader");
+        GD.Print("Hi");
+        _autoLoader = new AutoLoader(this);
 
         _setUpAudio();
     }
@@ -55,6 +56,7 @@ public partial class AudioService : Node
         if (audioOptions == null)
         {
             audioOptions = new AudioOptions(false, 0.5f, false, 0.5f, false, 0.5f);
+            _audioOptions = audioOptions;
             _persistAudioOptions();
         }
 
