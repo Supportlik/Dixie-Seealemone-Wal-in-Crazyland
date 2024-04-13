@@ -25,6 +25,7 @@ jobs:
         run: |
           printenv
           ls -la
+          ls -la scripts/singletons/fileaccess
       - name: export game
         id: export
         # Use latest version (see releases for all versions)
