@@ -1,14 +1,15 @@
 ﻿name: Run on Pull Request
 
 on:
-  pull_request:
+  push:
     branches:
       - main
+
 
 jobs:
   export-windows:
     name: Windows Export
-    runs-on: ubuntu-latest    
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3.3.0
@@ -31,19 +32,18 @@ jobs:
         with:
           # Defining all the required inputs
           godot_executable_download_url: https://downloads.tuxfamily.org/godotengine/4.2.1/Godot_v4.2.1-stable_linux.x86_64.zip
-          godot_export_templates_download_url: https://downloads.tuxfamily.org/godotengine/4.2.1/mono/Godot_v4.2.1-stable_mono_export_templates.tpz          
+          godot_export_templates_download_url: https://downloads.tuxfamily.org/godotengine/4.2.1/mono/Godot_v4.2.1-stable_mono_export_templates.tpz
           relative_project_path: ./
           archive_output: true
           cache: true
           wine_path: ${{ steps.wine_install.outputs.WINE_PATH }} # set the wine path here which is the output of the wine_install step
       - uses: ncipollo/release-action@v1
         with:
-          artifacts: ${{ steps.export.outputs.archive_directory }}/*          
+          artifacts: ${{ steps.export.outputs.archive_directory }}/*
           generateReleaseNotes: true
-          name: ${{ github.ref_name }}         
+          name: ${{ github.ref_name }}
           artefactErrorsFailBuild: true
           updateOnlyUnreleased: true
-          allowUpdates: true
-          prerelease: true
-          makeLatest: false
-          
+          allowUpdates: false
+          prerelease: false
+          makeLatest: true
