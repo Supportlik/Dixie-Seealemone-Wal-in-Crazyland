@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://cq5bwt6dqi8op"]
+[gd_scene load_steps=2 format=3 uid="uid://bab4puji7uoy3"]
 
 [ext_resource type="Script" path="res://scripts/nodes/Main.cs" id="1_lvfrc"]
 
@@ -9,7 +9,5 @@ script = ExtResource("1_lvfrc")
 wait_time = 3.0
 one_shot = true
 autostart = true
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 
 [connection signal="timeout" from="Timer" to="." method="OnTimerTimeout"]

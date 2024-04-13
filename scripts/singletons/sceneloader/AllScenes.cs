@@ -10,15 +10,13 @@ public class AllScenes
     /// <summary>
     /// Das Hauptmenü.
     /// </summary>
-    public static readonly SceneInfo MainMenu = new("res://scenes/main.tscn"),
-        SecondScene = new SceneInfo("res://scenes/second.tscn");
+    public static readonly SceneInfo BaseLevel = new("res://scenes/level/base_level.tscn");
 
     /// <summary>
     /// Eine Liste aller Szenen. Neue Szennen sollen hierhinzugefügt werden.
     /// </summary>
     public static readonly List<SceneInfo> AllScenesList = new()
     {
-        MainMenu,
-        SecondScene
+        BaseLevel
     };
 }
