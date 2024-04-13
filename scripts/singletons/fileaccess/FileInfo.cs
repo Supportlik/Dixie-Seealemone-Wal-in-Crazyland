@@ -1,4 +1,4 @@
-﻿namespace Masterofelements.scripts;
+﻿namespace Masterofelements.scripts.fileaccess;
 
 /// <summary>
 /// Die FileInfo Klasse repräsentiert eine Datei im Spiel. Alle Dateien müssen in UserFiles definiert werden.

@@ -1,4 +1,4 @@
-﻿namespace Masterofelements.scripts.services.fileaccess;
+﻿namespace Masterofelements.scripts.fileaccess;
 
 /// <summary>
 /// Die UserFiles Klasse enthält alle Dateien, die von unserem Spiel verwendet werden.

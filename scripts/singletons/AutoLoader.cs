@@ -1,5 +1,5 @@
 using Godot;
-using Masterofelements.scripts.services.fileaccess;
+using Masterofelements.scripts.fileaccess;
 
 /// <summary>
 /// Die AutoLoader Klasse ist verantwortlich für das Laden und Bereitstellen von Diensten.
