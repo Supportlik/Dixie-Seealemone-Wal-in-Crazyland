@@ -12,19 +12,23 @@ namespace MasterofElements.scripts.singletons;
 /// </summary>
 public class AutoLoader
 {
+    public readonly SignalManager SignalManager;
     public readonly FileAccessService FileAccessService;
     public readonly SceneSwitcherService SceneSwitcherService;
     public readonly ScoreService ScoreService;
     public readonly AudioService AudioService;
+    public readonly PackedSceneFactory PackedSceneFactory;
 
     /// <summary>
     /// Lädt einfach alle Autoloaded Singletons. Convienience!
     /// </summary>
     public AutoLoader(Node parent)
     {
+        SignalManager = parent.GetNode<SignalManager>("/root/SignalManager");
         FileAccessService = parent.GetNode<FileAccessService>("/root/FileAccessService");
         SceneSwitcherService = parent.GetNode<SceneSwitcherService>("/root/SceneSwitcherService");
         ScoreService = parent.GetNode<ScoreService>("/root/ScoreService");
         AudioService = parent.GetNode<AudioService>("/root/AudioService");
+        PackedSceneFactory = parent.GetNode<PackedSceneFactory>("/root/PackedSceneFactory");
     }
 }
