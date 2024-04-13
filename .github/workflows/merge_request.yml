@@ -24,6 +24,7 @@ jobs:
         run: |
           sudo apt install wine64
           echo "WINE_PATH=$(which wine64)" >> $GITHUB_OUTPUT
+          ls -la
       - name: export game
         id: export
         # Use latest version (see releases for all versions)
@@ -36,5 +37,5 @@ jobs:
           archive_output: true
           cache: true
           wine_path: ${{ steps.wine_install.outputs.WINE_PATH }} # set the wine path here which is the output of the wine_install step
-        run: |
-          ls -la
+        
+          
