@@ -18,6 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 FileAccessService="*res://scripts/singletons/fileaccess/FileAccessService.cs"
+SceneSwitcherService="*res://scripts/singletons/sceneloader/SceneSwitcherService.cs"
+ScoreService="*res://scripts/singletons/score/ScoreService.cs"
 
 [display]
 
