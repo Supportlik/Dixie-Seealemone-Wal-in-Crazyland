@@ -171,4 +171,9 @@ public partial class player : CharacterBody2D
 		get => _playerState;
 		set => _playerState = value;
 	}
+
+	private void OnAnimationFinished()
+	{
+		_animationFinish = true;
+	}
 }
