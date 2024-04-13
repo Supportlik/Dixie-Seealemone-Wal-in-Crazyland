@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using Godot;
 using MasterofElements.scripts.singletons.fileaccess;
 
@@ -141,31 +140,58 @@ public partial class AudioService : Node
         _autoLoader.FileAccessService.WriteObject(UserFiles.AudioOptionsFile, _audioOptions);
     }
 
-    public async Task PlaySFX(string streamName, Node root)
+    public AudioStreamPlayer PlaySfx(string streamName, Node root, string playKey = null)
     {
-        await _playAudio(streamName, _sfxLibrary, root);
+        return _playAudio(streamName, _sfxLibrary, root, playKey);
     }
 
-    public async Task PlayMusic(string streamName, Node root)
+    public AudioStreamPlayer PlayMusic(string streamName, Node root, string playKey = null)
     {
-        await _playAudio(streamName, _musicLibrary, root);
+        return _playAudio(streamName, _musicLibrary, root, playKey);
     }
 
-    private async Task _playAudio(string streamName, AudioLibrary audioLibrary, Node root)
+    public void StopPlayBackAndQueueFree(Node root, string playKey)
     {
+        if (playKey == null)
+            return;
+
+        var audioStreamPlayer = root.GetNodeOrNull<AudioStreamPlayer>(playKey);
+        if (audioStreamPlayer == null)
+            return;
+
+        audioStreamPlayer.Stop();
+        audioStreamPlayer.EmitSignal("finished");
+        audioStreamPlayer.QueueFree();
+    }
+
+
+    private AudioStreamPlayer _playAudio(string streamName, AudioLibrary audioLibrary, Node root, string playKey)
+    {
+        if (playKey == null)
+        {
+            playKey = $"{audioLibrary.GetBusName()}_{streamName}_{Guid.NewGuid().ToString()}";
+        }
+        else
+        {
+            var audioStreamPlayer = root.GetNodeOrNull<AudioStreamPlayer>(playKey);
+            if (audioStreamPlayer != null)
+            {
+                return audioStreamPlayer;
+            }
+        }
+
         AudioStreamPlayer asp = new AudioStreamPlayer();
         AudioStream stream = audioLibrary.GetAudioStream(streamName);
 
         asp.Stream = stream;
 
-        asp.Name = $"{audioLibrary.GetBusName()}_${streamName}";
+        asp.Name = playKey;
         asp.Bus = audioLibrary.GetBusName();
 
         root.AddChild(asp);
 
         asp.Play();
-
-        await ToSignal(asp, "finished");
-        asp.QueueFree();
+        asp.Connect("finished", Callable.From(() => asp.QueueFree()));
+        return asp;
     }
 }
