@@ -11,8 +11,11 @@ public class AutoLoader
 {
     public readonly FileAccessService FileAccessService;
 
+    public readonly AudioManager AudioManager;
+
     public AutoLoader(Node parent)
     {
         FileAccessService = parent.GetNode<FileAccessService>("/root/FileAccessService");
+        AudioManager = parent.GetNode<AudioManager>("/root/AudioManager");
     }
 }
