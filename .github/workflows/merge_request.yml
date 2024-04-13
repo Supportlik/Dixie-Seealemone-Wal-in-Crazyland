@@ -8,7 +8,7 @@ on:
 env:
   GODOT_VERSION: 4.2.1
   EXPORT_NAME: MasterOfElements
-  PROJECT_PATH: test-project
+  PROJECT_PATH: .
 
 jobs:
   export-windows:
