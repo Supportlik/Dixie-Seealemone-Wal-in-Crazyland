@@ -14,14 +14,16 @@ public class AutoLoader
     public readonly FileAccessService FileAccessService;
     public readonly SceneSwitcherService SceneSwitcherService;
     public readonly ScoreService ScoreService;
+    public readonly AudioService AudioService;
 
     /// <summary>
     /// Lädt einfach alle Autoloaded Singletons. Convienience!
     /// </summary>
     public AutoLoader(Node parent)
     {
-        FileAccessService = parent.GetNode<FileAccessService>("/root/FileAccessService");
+        FileAccessService = parent.GetNode<FileAccessService>("/root/FileAccessService");        
         SceneSwitcherService = parent.GetNode<SceneSwitcherService>("/root/SceneSwitcherService");
         ScoreService = parent.GetNode<ScoreService>("/root/ScoreService");
+        AudioService = parent.GetNode<AudioService>("/root/AudioService");
     }
 }
