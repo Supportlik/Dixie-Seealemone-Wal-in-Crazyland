@@ -18,7 +18,9 @@ config/icon="res://icon.svg"
 [autoload]
 
 FileAccessService="*res://scripts/singletons/fileaccess/FileAccessService.cs"
-AudioManager="*res://scripts/singletons/audiomanager/AudioManager.cs"
+SceneSwitcherService="*res://scripts/singletons/sceneloader/SceneSwitcherService.cs"
+ScoreService="*res://scripts/singletons/score/ScoreService.cs"
+AudioService="*res://scripts/singletons/audiomanager/AudioService.cs"
 
 [display]
 

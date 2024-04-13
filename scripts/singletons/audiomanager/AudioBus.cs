@@ -1,29 +1,41 @@
+using System;
 using System.Collections.Generic;
 using Godot;
 
-public static class AudioBus{
+public class AudioBus
+{
+    private static Dictionary<string, int> _audioBuses;
 
-    private static Dictionary<string,int> _audioBuses;
-    static AudioBus(){
+    public AudioBus()
+    {
         _audioBuses = new Dictionary<string, int>();
         SetAudioBuses();
     }
-    public static void SetAudioBuses(){
-        int busCount = AudioServer.BusCount;
-        for (int i = 0; i < busCount; i++)
+
+    public void SetAudioBuses()
+    {
+        var busCount = AudioServer.BusCount;
+        for (var i = 0; i < busCount; i++)
         {
-            string busName = AudioServer.GetBusName(i);
-            _audioBuses.TryAdd(busName,i);
+            var busName = AudioServer.GetBusName(i);
+            _audioBuses.TryAdd(busName, i);
         }
     }
-    public static Dictionary<string,int> GetAudioBuses(){
+
+    public static Dictionary<string, int> GetAudioBuses()
+    {
         return _audioBuses;
     }
-    public static void SetBusVolume(string busName, float volumeDb){
-        AudioServer.SetBusVolumeDb(_audioBuses[busName], volumeDb);
+
+    public void SetBusVolume(string busName, float volume)
+    {
+        var newVolume = Math.Clamp(volume, 0, 1);
+        var decibelValue = (float)Math.Log10(newVolume) * 20;
+        AudioServer.SetBusVolumeDb(_audioBuses[busName], decibelValue);
     }
 
-    public static void SetBusMute(string busName, bool enable){
+    public void SetBusMute(string busName, bool enable)
+    {
         AudioServer.SetBusMute(_audioBuses[busName], enable);
     }
 }
