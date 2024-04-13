@@ -1,11 +1,13 @@
-using Godot;
-using Dixieseealemonewalincrazyland.scripts.singletons.fileaccess;
+﻿using Godot;
+using MasterofElements.scripts.singletons.fileaccess;
+
+namespace MasterofElements.scripts.singletons;
 
 /// <summary>
 /// Die AutoLoader Klasse ist verantwortlich für das Laden und Bereitstellen von Diensten.
 /// Alle Singletons oder Services (auch wenn sie keine Nodes brauchen), sollten hier geladen werden.
 /// </summary>
-public partial class AutoLoader : Node
+public class AutoLoader
 {
     public readonly FileAccessService FileAccessService;
 
