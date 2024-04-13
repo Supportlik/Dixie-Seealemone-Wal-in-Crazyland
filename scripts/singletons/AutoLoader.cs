@@ -1,4 +1,5 @@
 ﻿using Godot;
+using MasterofElements.scripts.singletons.audiomanager;
 using MasterofElements.scripts.singletons.fileaccess;
 using MasterofElements.scripts.singletons.sceneloader;
 using MasterofElements.scripts.singletons.score;
@@ -21,7 +22,7 @@ public class AutoLoader
     /// </summary>
     public AutoLoader(Node parent)
     {
-        FileAccessService = parent.GetNode<FileAccessService>("/root/FileAccessService");        
+        FileAccessService = parent.GetNode<FileAccessService>("/root/FileAccessService");
         SceneSwitcherService = parent.GetNode<SceneSwitcherService>("/root/SceneSwitcherService");
         ScoreService = parent.GetNode<ScoreService>("/root/ScoreService");
         AudioService = parent.GetNode<AudioService>("/root/AudioService");
