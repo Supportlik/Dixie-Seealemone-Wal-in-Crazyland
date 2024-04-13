@@ -1,5 +1,4 @@
-﻿namespace Masterofelements.scripts.fileaccess;
-
+﻿namespace Dixieseealemonewalincrazyland.scripts.singletons.fileaccess;
 /// <summary>
 /// Die FileInfo Klasse repräsentiert eine Datei im Spiel. Alle Dateien müssen in UserFiles definiert werden.
 /// </summary>
