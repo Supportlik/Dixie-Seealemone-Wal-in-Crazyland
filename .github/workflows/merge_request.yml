@@ -40,7 +40,8 @@ jobs:
         with:
           artifacts: ${{ steps.export.outputs.archive_directory }}/*          
           generateReleaseNotes: true
-          name: ${{ github.ref_name }}         
+          name: pr-${{ github.ref_name }}
+          tag: pr-${{ github.ref_name }}
           artefactErrorsFailBuild: true
           updateOnlyUnreleased: true
           allowUpdates: true
