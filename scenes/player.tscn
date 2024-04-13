@@ -1,352 +1,7 @@
-[gd_scene load_steps=54 format=3 uid="uid://b4hefber1c2d3"]
+[gd_scene load_steps=17 format=3 uid="uid://b4hefber1c2d3"]
 
 [ext_resource type="Script" path="res://scripts/nodes/player.cs" id="1_q1k4f"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_y75ka"]
-load_path = "res://.godot/imported/Wizard_death-Sheet.png-70da17856aa91b770d03ce332b5a0d73.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3muw5"]
-atlas = SubResource("CompressedTexture2D_y75ka")
-region = Rect2(0, 0, 80, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vdxq8"]
-atlas = SubResource("CompressedTexture2D_y75ka")
-region = Rect2(80, 0, 80, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xp56d"]
-atlas = SubResource("CompressedTexture2D_y75ka")
-region = Rect2(160, 0, 80, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_acj2n"]
-atlas = SubResource("CompressedTexture2D_y75ka")
-region = Rect2(240, 0, 80, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ddulj"]
-atlas = SubResource("CompressedTexture2D_y75ka")
-region = Rect2(320, 0, 80, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7xmdv"]
-atlas = SubResource("CompressedTexture2D_y75ka")
-region = Rect2(400, 0, 80, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6qmfn"]
-atlas = SubResource("CompressedTexture2D_y75ka")
-region = Rect2(480, 0, 80, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5v25y"]
-atlas = SubResource("CompressedTexture2D_y75ka")
-region = Rect2(560, 0, 80, 64)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ilfjw"]
-load_path = "res://.godot/imported/Wizard_Jump-Sheet.png-ce8cc8cdb69100cec57492ba48824105.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xmajs"]
-atlas = SubResource("CompressedTexture2D_ilfjw")
-region = Rect2(160, 0, 80, 64)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_y52uj"]
-load_path = "res://.godot/imported/Wizard_dmg-Sheet.png-85a06e141559fc49f90d3121aee67bdf.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ly62t"]
-atlas = SubResource("CompressedTexture2D_y52uj")
-region = Rect2(0, 0, 80, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gdo7r"]
-atlas = SubResource("CompressedTexture2D_y52uj")
-region = Rect2(80, 0, 80, 64)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_014pj"]
-load_path = "res://.godot/imported/Wizard_idle-Sheet.png-60911f39d8581c67602f1f47016c3f29.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ugbcl"]
-atlas = SubResource("CompressedTexture2D_014pj")
-region = Rect2(0, 0, 80, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5bb4j"]
-atlas = SubResource("CompressedTexture2D_014pj")
-region = Rect2(80, 0, 80, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ivarh"]
-atlas = SubResource("CompressedTexture2D_ilfjw")
-region = Rect2(80, 0, 80, 64)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fgoss"]
-load_path = "res://.godot/imported/Wizard_air-Sheet.png-5b3896b687d27c879b8197e1d7d986d8.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nmpey"]
-atlas = SubResource("CompressedTexture2D_fgoss")
-region = Rect2(0, 0, 80, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3indq"]
-atlas = SubResource("CompressedTexture2D_fgoss")
-region = Rect2(80, 0, 80, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hslry"]
-atlas = SubResource("CompressedTexture2D_fgoss")
-region = Rect2(160, 0, 80, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ef0ia"]
-atlas = SubResource("CompressedTexture2D_fgoss")
-region = Rect2(240, 0, 80, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7oiri"]
-atlas = SubResource("CompressedTexture2D_fgoss")
-region = Rect2(320, 0, 80, 64)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_u4os6"]
-load_path = "res://.godot/imported/Wizard_earth-Sheet.png-166ca3b71637ac6c700538bd90fd6341.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4muev"]
-atlas = SubResource("CompressedTexture2D_u4os6")
-region = Rect2(0, 0, 80, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_362ot"]
-atlas = SubResource("CompressedTexture2D_u4os6")
-region = Rect2(80, 0, 80, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nr8m1"]
-atlas = SubResource("CompressedTexture2D_u4os6")
-region = Rect2(160, 0, 80, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_k38mv"]
-atlas = SubResource("CompressedTexture2D_u4os6")
-region = Rect2(240, 0, 80, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vli4a"]
-atlas = SubResource("CompressedTexture2D_u4os6")
-region = Rect2(320, 0, 80, 64)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_18e24"]
-load_path = "res://.godot/imported/Wizard_fire-Sheet.png-befcd4d0207d413d79ed3649d563f91a.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_25q71"]
-atlas = SubResource("CompressedTexture2D_18e24")
-region = Rect2(0, 0, 80, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_uvtpu"]
-atlas = SubResource("CompressedTexture2D_18e24")
-region = Rect2(80, 0, 80, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6rs8p"]
-atlas = SubResource("CompressedTexture2D_18e24")
-region = Rect2(160, 0, 80, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_t7ijo"]
-atlas = SubResource("CompressedTexture2D_18e24")
-region = Rect2(240, 0, 80, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_w3gjb"]
-atlas = SubResource("CompressedTexture2D_18e24")
-region = Rect2(320, 0, 80, 64)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nu8ex"]
-load_path = "res://.godot/imported/Wizard_water-Sheet.png-2be4754ef2a36b66ca9e718041a518d9.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qrj5n"]
-atlas = SubResource("CompressedTexture2D_nu8ex")
-region = Rect2(0, 0, 80, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q1r15"]
-atlas = SubResource("CompressedTexture2D_nu8ex")
-region = Rect2(80, 0, 80, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_x8ei2"]
-atlas = SubResource("CompressedTexture2D_nu8ex")
-region = Rect2(160, 0, 80, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pqmir"]
-atlas = SubResource("CompressedTexture2D_nu8ex")
-region = Rect2(240, 0, 80, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vc1vi"]
-atlas = SubResource("CompressedTexture2D_nu8ex")
-region = Rect2(320, 0, 80, 64)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2omth"]
-load_path = "res://.godot/imported/Wizard_walk-Sheet.png-0e79376d1e23e0593682afece22541d1.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xsbft"]
-atlas = SubResource("CompressedTexture2D_2omth")
-region = Rect2(0, 0, 80, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wqpgq"]
-atlas = SubResource("CompressedTexture2D_2omth")
-region = Rect2(80, 0, 80, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ahopw"]
-atlas = SubResource("CompressedTexture2D_2omth")
-region = Rect2(160, 0, 80, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c2d7j"]
-atlas = SubResource("CompressedTexture2D_2omth")
-region = Rect2(240, 0, 80, 64)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_cgu8f"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3muw5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vdxq8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xp56d")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_acj2n")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ddulj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7xmdv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6qmfn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5v25y")
-}],
-"loop": false,
-"name": &"death",
-"speed": 8.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xmajs")
-}],
-"loop": false,
-"name": &"fall",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ly62t")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gdo7r")
-}],
-"loop": false,
-"name": &"hurt",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ugbcl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5bb4j")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 3.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ivarh")
-}],
-"loop": false,
-"name": &"jump",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nmpey")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3indq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hslry")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ef0ia")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7oiri")
-}],
-"loop": false,
-"name": &"summon_air",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4muev")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_362ot")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nr8m1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_k38mv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vli4a")
-}],
-"loop": false,
-"name": &"summon_earth",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_25q71")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uvtpu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6rs8p")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_t7ijo")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_w3gjb")
-}],
-"loop": false,
-"name": &"summon_fire",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qrj5n")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q1r15")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_x8ei2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pqmir")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vc1vi")
-}],
-"loop": false,
-"name": &"summon_water",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xsbft")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wqpgq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ahopw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_c2d7j")
-}],
-"loop": true,
-"name": &"walk",
-"speed": 6.0
-}]
+[ext_resource type="Texture2D" uid="uid://cdbb1acnva1x7" path="res://assets/sprites/Player/Wizard_all animations.png" id="2_agxy8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wlr0r"]
 radius = 6.0
@@ -356,21 +11,206 @@ radius = 6.0
 
 [sub_resource type="Animation" id="Animation_lfhal"]
 resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_78lnf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_d7iha"]
+resource_name = "death"
+length = 1.05
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6, 0.75, 0.92, 1.05),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1), Vector2i(3, 1), Vector2i(4, 1), Vector2i(5, 1), Vector2i(6, 1), Vector2i(7, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_bqayr"]
+resource_name = "jump"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(1, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_lghed"]
+resource_name = "fall"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(2, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_8qnpn"]
+resource_name = "summon_fire"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 3), Vector2i(1, 3), Vector2i(2, 3), Vector2i(3, 3), Vector2i(4, 3)]
+}
+
+[sub_resource type="Animation" id="Animation_h32of"]
+resource_name = "summon_water"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 5), Vector2i(1, 5), Vector2i(2, 5), Vector2i(3, 5), Vector2i(4, 5)]
+}
+
+[sub_resource type="Animation" id="Animation_g28ft"]
+resource_name = "summon_air"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 6), Vector2i(1, 6), Vector2i(2, 6), Vector2i(3, 6), Vector2i(4, 6)]
+}
+
+[sub_resource type="Animation" id="Animation_xq1tl"]
+resource_name = "summon_earth"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 4), Vector2i(1, 4), Vector2i(2, 4), Vector2i(3, 4), Vector2i(4, 4)]
+}
+
+[sub_resource type="Animation" id="Animation_bb2j8"]
+resource_name = "walk"
+length = 0.6
+loop_mode = 1
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 7), Vector2i(1, 7), Vector2i(2, 7), Vector2i(3, 7)]
+}
+
+[sub_resource type="Animation" id="Animation_a6u14"]
+resource_name = "hurt"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2i(0, 8), Vector2i(1, 8)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bkxqy"]
 _data = {
-"idle": SubResource("Animation_lfhal")
+"RESET": SubResource("Animation_78lnf"),
+"death": SubResource("Animation_d7iha"),
+"fall": SubResource("Animation_lghed"),
+"hurt": SubResource("Animation_a6u14"),
+"idle": SubResource("Animation_lfhal"),
+"jump": SubResource("Animation_bqayr"),
+"summon_air": SubResource("Animation_g28ft"),
+"summon_earth": SubResource("Animation_xq1tl"),
+"summon_fire": SubResource("Animation_8qnpn"),
+"summon_water": SubResource("Animation_h32of"),
+"walk": SubResource("Animation_bb2j8")
 }
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(12, -13)
 script = ExtResource("1_q1k4f")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-visible = false
-sprite_frames = SubResource("SpriteFrames_cgu8f")
-animation = &"walk"
-autoplay = "idle"
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -2)
+texture = ExtResource("2_agxy8")
+hframes = 8
+vframes = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-14, 14)
@@ -388,7 +228,6 @@ shape = SubResource("CapsuleShape2D_b1pve")
 libraries = {
 "": SubResource("AnimationLibrary_bkxqy")
 }
+autoplay = "idle"
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-
-[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="OnAnimationFinished"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="OnAnimationFinished"]

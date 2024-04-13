@@ -17,11 +17,11 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-SignalManager="*res://scripts/singletons/signalmanager/SignalManager.cs"
 FileAccessService="*res://scripts/singletons/fileaccess/FileAccessService.cs"
 SceneSwitcherService="*res://scripts/singletons/sceneloader/SceneSwitcherService.cs"
 ScoreService="*res://scripts/singletons/score/ScoreService.cs"
 AudioService="*res://scripts/singletons/audiomanager/AudioService.cs"
+SignalManager="*res://scripts/singletons/signalmanager/SignalManager.cs"
 PackedSceneFactory="*res://scripts/singletons/packedscenefactory/PackedSceneFactory.cs"
 
 [display]

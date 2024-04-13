@@ -11,8 +11,9 @@ public partial class player : CharacterBody2D
 
 	public float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
 
-	private AnimatedSprite2D _playerSprite2D;
+	private Sprite2D _playerSprite2D;
 	private AudioStreamPlayer2D _audioStreamPlayer2D;
+	private AnimationPlayer _animationPlayer;
 	private PlayerState _playerState;
 	private bool _animationFinish = true;
 
@@ -20,7 +21,8 @@ public partial class player : CharacterBody2D
 	{
 		base._Ready();
 		_autoLoader = new AutoLoader(this);
-		_playerSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+		_animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
+		_playerSprite2D = GetNode<Sprite2D>("Sprite2D");
 		_audioStreamPlayer2D = GetNode<AudioStreamPlayer2D>("AudioStreamPlayer2D");
 	}
 
@@ -142,33 +144,32 @@ public partial class player : CharacterBody2D
 		switch (_playerState)
 		{
 			case PlayerState.Idle:
-				_playerSprite2D.Play("idle");
+				_animationPlayer.Play("idle");
 				break;
 			case PlayerState.Walk:
-				_playerSprite2D.Play("walk");
+				_animationPlayer.Play("walk");
 				break;
 			case PlayerState.Jump:
-				_playerSprite2D.Play("jump");
+				_animationPlayer.Play("jump");
 				_autoLoader.AudioService.PlaySFX("jump.mp3", this);
 				break;
 			case PlayerState.Fall:
-				_playerSprite2D.Play("fall");
+				_animationPlayer.Play("fall");
 				break;
 			case PlayerState.Death:
-				_playerSprite2D.Play("death");
+				_animationPlayer.Play("death");
 				break;
 			case PlayerState.SummonEarth:
-				_playerSprite2D.Play("summon_earth");
-				
+				_animationPlayer.Play("summon_earth");
 				break;
 			case PlayerState.SummonAir:
-				_playerSprite2D.Play("summon_air");
+				_animationPlayer.Play("summon_air");
 				break;
 			case PlayerState.SummonFire:
-				_playerSprite2D.Play("summon_fire");
+				_animationPlayer.Play("summon_fire");
 				break;
 			case PlayerState.SummonWater:
-				_playerSprite2D.Play("summon_water");
+				_animationPlayer.Play("summon_water");
 				
 				break;
 			case PlayerState.Hurt:
