@@ -1,8 +1,8 @@
-﻿using System.Text.Json;
-using System.Text.Json.Nodes;
 using Godot;
-
-namespace Dixieseealemonewalincrazyland.scripts.singletons.fileaccess;
+using System;
+using System.Text.Json;
+using System.Text.Json.Nodes;
+using MasterofElements.scripts.singletons.fileaccess;
 
 /// <summary>
 /// Die FileAccessService Klasse stellt Methoden zum Lesen und Schreiben von Dateien, JSON-Daten und Objekten bereit.

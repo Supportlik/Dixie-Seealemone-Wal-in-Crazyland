@@ -4,12 +4,6 @@
     <TargetFramework Condition=" '$(GodotTargetPlatform)' == 'android' ">net7.0</TargetFramework>
     <TargetFramework Condition=" '$(GodotTargetPlatform)' == 'ios' ">net8.0</TargetFramework>
     <EnableDynamicLoading>true</EnableDynamicLoading>
-    <RootNamespace>MasterOfElements</RootNamespace>
+    <RootNamespace>MasterofElements</RootNamespace>
   </PropertyGroup>
-  <ItemGroup>
-    <Folder Include="scripts\models\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="scripts\nodes\.gitkeep" />
-  </ItemGroup>
 </Project>

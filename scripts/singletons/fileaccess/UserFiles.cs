@@ -1,4 +1,4 @@
-﻿namespace Dixieseealemonewalincrazyland.scripts.singletons.fileaccess;
+﻿namespace MasterofElements.scripts.singletons.fileaccess;
 
 /// <summary>
 /// Die UserFiles Klasse enthält alle Dateien, die von unserem Spiel verwendet werden.
