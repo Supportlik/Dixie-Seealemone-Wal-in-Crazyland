@@ -15,6 +15,9 @@ public class AutoLoader
     public readonly SceneSwitcherService SceneSwitcherService;
     public readonly ScoreService ScoreService;
 
+    /// <summary>
+    /// Lädt einfach alle Autoloaded Singletons. Convienience!
+    /// </summary>
     public AutoLoader(Node parent)
     {
         FileAccessService = parent.GetNode<FileAccessService>("/root/FileAccessService");
