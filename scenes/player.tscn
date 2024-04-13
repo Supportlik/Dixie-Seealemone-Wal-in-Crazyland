@@ -1,166 +1,184 @@
-[gd_scene load_steps=52 format=3 uid="uid://b4hefber1c2d3"]
+[gd_scene load_steps=54 format=3 uid="uid://b4hefber1c2d3"]
 
 [ext_resource type="Script" path="res://scripts/nodes/player.cs" id="1_q1k4f"]
-[ext_resource type="Texture2D" uid="uid://ddpc2acxgc063" path="res://assets/sprites/Player/Wizard_death-Sheet.png" id="2_glgnl"]
-[ext_resource type="Texture2D" uid="uid://d2ff45ssb11io" path="res://assets/sprites/Player/Wizard_Jump-Sheet.png" id="3_epo2f"]
-[ext_resource type="Texture2D" uid="uid://b0nym8y5xw84r" path="res://assets/sprites/Player/Wizard_dmg-Sheet.png" id="4_ykpej"]
-[ext_resource type="Texture2D" uid="uid://cd314hnboq41h" path="res://assets/sprites/Player/Wizard_idle-Sheet.png" id="5_3f475"]
-[ext_resource type="Texture2D" uid="uid://wtunjywnv0pm" path="res://assets/sprites/Player/Wizard_water-Sheet.png" id="6_2ykgr"]
-[ext_resource type="Texture2D" uid="uid://b5txq33wjmvq0" path="res://assets/sprites/Player/Wizard_air-Sheet.png" id="7_fsq8r"]
-[ext_resource type="Texture2D" uid="uid://bsam5m8hlin30" path="res://assets/sprites/Player/Wizard_earth-Sheet.png" id="8_hfug8"]
-[ext_resource type="Texture2D" uid="uid://b03p3inrxxdoh" path="res://assets/sprites/Player/Wizard_fire-Sheet.png" id="9_r5sju"]
-[ext_resource type="Texture2D" uid="uid://bfxib8j4i5gki" path="res://assets/sprites/Player/Wizard_walk-Sheet.png" id="10_pqemf"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_y75ka"]
+load_path = "res://.godot/imported/Wizard_death-Sheet.png-70da17856aa91b770d03ce332b5a0d73.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3muw5"]
-atlas = ExtResource("2_glgnl")
+atlas = SubResource("CompressedTexture2D_y75ka")
 region = Rect2(0, 0, 80, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vdxq8"]
-atlas = ExtResource("2_glgnl")
+atlas = SubResource("CompressedTexture2D_y75ka")
 region = Rect2(80, 0, 80, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xp56d"]
-atlas = ExtResource("2_glgnl")
+atlas = SubResource("CompressedTexture2D_y75ka")
 region = Rect2(160, 0, 80, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_acj2n"]
-atlas = ExtResource("2_glgnl")
+atlas = SubResource("CompressedTexture2D_y75ka")
 region = Rect2(240, 0, 80, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ddulj"]
-atlas = ExtResource("2_glgnl")
+atlas = SubResource("CompressedTexture2D_y75ka")
 region = Rect2(320, 0, 80, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7xmdv"]
-atlas = ExtResource("2_glgnl")
+atlas = SubResource("CompressedTexture2D_y75ka")
 region = Rect2(400, 0, 80, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6qmfn"]
-atlas = ExtResource("2_glgnl")
+atlas = SubResource("CompressedTexture2D_y75ka")
 region = Rect2(480, 0, 80, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5v25y"]
-atlas = ExtResource("2_glgnl")
+atlas = SubResource("CompressedTexture2D_y75ka")
 region = Rect2(560, 0, 80, 64)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ilfjw"]
+load_path = "res://.godot/imported/Wizard_Jump-Sheet.png-ce8cc8cdb69100cec57492ba48824105.ctex"
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_xmajs"]
-atlas = ExtResource("3_epo2f")
+atlas = SubResource("CompressedTexture2D_ilfjw")
 region = Rect2(160, 0, 80, 64)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_y52uj"]
+load_path = "res://.godot/imported/Wizard_dmg-Sheet.png-85a06e141559fc49f90d3121aee67bdf.ctex"
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_ly62t"]
-atlas = ExtResource("4_ykpej")
+atlas = SubResource("CompressedTexture2D_y52uj")
 region = Rect2(0, 0, 80, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gdo7r"]
-atlas = ExtResource("4_ykpej")
+atlas = SubResource("CompressedTexture2D_y52uj")
 region = Rect2(80, 0, 80, 64)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_014pj"]
+load_path = "res://.godot/imported/Wizard_idle-Sheet.png-60911f39d8581c67602f1f47016c3f29.ctex"
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_ugbcl"]
-atlas = ExtResource("5_3f475")
+atlas = SubResource("CompressedTexture2D_014pj")
 region = Rect2(0, 0, 80, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5bb4j"]
-atlas = ExtResource("5_3f475")
+atlas = SubResource("CompressedTexture2D_014pj")
 region = Rect2(80, 0, 80, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ivarh"]
-atlas = ExtResource("3_epo2f")
+atlas = SubResource("CompressedTexture2D_ilfjw")
 region = Rect2(80, 0, 80, 64)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fgoss"]
+load_path = "res://.godot/imported/Wizard_air-Sheet.png-5b3896b687d27c879b8197e1d7d986d8.ctex"
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_nmpey"]
-atlas = ExtResource("7_fsq8r")
+atlas = SubResource("CompressedTexture2D_fgoss")
 region = Rect2(0, 0, 80, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3indq"]
-atlas = ExtResource("7_fsq8r")
+atlas = SubResource("CompressedTexture2D_fgoss")
 region = Rect2(80, 0, 80, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hslry"]
-atlas = ExtResource("7_fsq8r")
+atlas = SubResource("CompressedTexture2D_fgoss")
 region = Rect2(160, 0, 80, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ef0ia"]
-atlas = ExtResource("7_fsq8r")
+atlas = SubResource("CompressedTexture2D_fgoss")
 region = Rect2(240, 0, 80, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7oiri"]
-atlas = ExtResource("7_fsq8r")
+atlas = SubResource("CompressedTexture2D_fgoss")
 region = Rect2(320, 0, 80, 64)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_u4os6"]
+load_path = "res://.godot/imported/Wizard_earth-Sheet.png-166ca3b71637ac6c700538bd90fd6341.ctex"
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_4muev"]
-atlas = ExtResource("8_hfug8")
+atlas = SubResource("CompressedTexture2D_u4os6")
 region = Rect2(0, 0, 80, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_362ot"]
-atlas = ExtResource("8_hfug8")
+atlas = SubResource("CompressedTexture2D_u4os6")
 region = Rect2(80, 0, 80, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nr8m1"]
-atlas = ExtResource("8_hfug8")
+atlas = SubResource("CompressedTexture2D_u4os6")
 region = Rect2(160, 0, 80, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k38mv"]
-atlas = ExtResource("8_hfug8")
+atlas = SubResource("CompressedTexture2D_u4os6")
 region = Rect2(240, 0, 80, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vli4a"]
-atlas = ExtResource("8_hfug8")
+atlas = SubResource("CompressedTexture2D_u4os6")
 region = Rect2(320, 0, 80, 64)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_18e24"]
+load_path = "res://.godot/imported/Wizard_fire-Sheet.png-befcd4d0207d413d79ed3649d563f91a.ctex"
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_25q71"]
-atlas = ExtResource("9_r5sju")
+atlas = SubResource("CompressedTexture2D_18e24")
 region = Rect2(0, 0, 80, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uvtpu"]
-atlas = ExtResource("9_r5sju")
+atlas = SubResource("CompressedTexture2D_18e24")
 region = Rect2(80, 0, 80, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6rs8p"]
-atlas = ExtResource("9_r5sju")
+atlas = SubResource("CompressedTexture2D_18e24")
 region = Rect2(160, 0, 80, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t7ijo"]
-atlas = ExtResource("9_r5sju")
+atlas = SubResource("CompressedTexture2D_18e24")
 region = Rect2(240, 0, 80, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w3gjb"]
-atlas = ExtResource("9_r5sju")
+atlas = SubResource("CompressedTexture2D_18e24")
 region = Rect2(320, 0, 80, 64)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nu8ex"]
+load_path = "res://.godot/imported/Wizard_water-Sheet.png-2be4754ef2a36b66ca9e718041a518d9.ctex"
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_qrj5n"]
-atlas = ExtResource("6_2ykgr")
+atlas = SubResource("CompressedTexture2D_nu8ex")
 region = Rect2(0, 0, 80, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q1r15"]
-atlas = ExtResource("6_2ykgr")
+atlas = SubResource("CompressedTexture2D_nu8ex")
 region = Rect2(80, 0, 80, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x8ei2"]
-atlas = ExtResource("6_2ykgr")
+atlas = SubResource("CompressedTexture2D_nu8ex")
 region = Rect2(160, 0, 80, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pqmir"]
-atlas = ExtResource("6_2ykgr")
+atlas = SubResource("CompressedTexture2D_nu8ex")
 region = Rect2(240, 0, 80, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vc1vi"]
-atlas = ExtResource("6_2ykgr")
+atlas = SubResource("CompressedTexture2D_nu8ex")
 region = Rect2(320, 0, 80, 64)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2omth"]
+load_path = "res://.godot/imported/Wizard_walk-Sheet.png-0e79376d1e23e0593682afece22541d1.ctex"
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_xsbft"]
-atlas = ExtResource("10_pqemf")
+atlas = SubResource("CompressedTexture2D_2omth")
 region = Rect2(0, 0, 80, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wqpgq"]
-atlas = ExtResource("10_pqemf")
+atlas = SubResource("CompressedTexture2D_2omth")
 region = Rect2(80, 0, 80, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ahopw"]
-atlas = ExtResource("10_pqemf")
+atlas = SubResource("CompressedTexture2D_2omth")
 region = Rect2(160, 0, 80, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c2d7j"]
-atlas = ExtResource("10_pqemf")
+atlas = SubResource("CompressedTexture2D_2omth")
 region = Rect2(240, 0, 80, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cgu8f"]
@@ -336,13 +354,22 @@ radius = 6.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b1pve"]
 radius = 6.0
 
+[sub_resource type="Animation" id="Animation_lfhal"]
+resource_name = "idle"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bkxqy"]
+_data = {
+"idle": SubResource("Animation_lfhal")
+}
+
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(12, -13)
 script = ExtResource("1_q1k4f")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
 sprite_frames = SubResource("SpriteFrames_cgu8f")
-animation = &"summon_air"
+animation = &"walk"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -356,5 +383,12 @@ position = Vector2(-14, 14)
 shape = SubResource("CapsuleShape2D_b1pve")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_bkxqy")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="OnAnimationFinished"]

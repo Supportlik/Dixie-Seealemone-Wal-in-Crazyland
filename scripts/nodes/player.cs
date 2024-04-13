@@ -1,13 +1,14 @@
 using Godot;
 using System;
 using MasterofElements.scripts.models;
+using MasterofElements.scripts.singletons;
 
 public partial class player : CharacterBody2D
 {
+	private AutoLoader _autoLoader;
 	public const float Speed = 20000.0f;
 	public const float JumpVelocity = -400.0f;
 
-	// Get the gravity from the project settings to be synced with RigidBody nodes.
 	public float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
 
 	private AnimatedSprite2D _playerSprite2D;
@@ -18,6 +19,7 @@ public partial class player : CharacterBody2D
 	public override void _Ready()
 	{
 		base._Ready();
+		_autoLoader = new AutoLoader(this);
 		_playerSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		_audioStreamPlayer2D = GetNode<AudioStreamPlayer2D>("AudioStreamPlayer2D");
 	}
@@ -69,9 +71,9 @@ public partial class player : CharacterBody2D
 			return;
 		}
 
-		if (IsOnFloor())
+		if (_animationFinish)
 		{
-			if (_animationFinish)
+			if (IsOnFloor())
 			{
 				if (Velocity.X == 0)
 				{
@@ -109,10 +111,12 @@ public partial class player : CharacterBody2D
 			if (Velocity.Y > 0)
 			{
 				SetPlayerState(PlayerState.Fall);
+				_animationFinish = false;
 			}
 			else
 			{
 				SetPlayerState(PlayerState.Jump);
+				_animationFinish = false;
 			}
 		}
 	}
@@ -145,12 +149,17 @@ public partial class player : CharacterBody2D
 				break;
 			case PlayerState.Jump:
 				_playerSprite2D.Play("jump");
+				_autoLoader.AudioService.PlaySFX("jump.mp3", this);
 				break;
 			case PlayerState.Fall:
 				_playerSprite2D.Play("fall");
 				break;
+			case PlayerState.Death:
+				_playerSprite2D.Play("death");
+				break;
 			case PlayerState.SummonEarth:
 				_playerSprite2D.Play("summon_earth");
+				
 				break;
 			case PlayerState.SummonAir:
 				_playerSprite2D.Play("summon_air");
@@ -160,6 +169,7 @@ public partial class player : CharacterBody2D
 				break;
 			case PlayerState.SummonWater:
 				_playerSprite2D.Play("summon_water");
+				
 				break;
 			case PlayerState.Hurt:
 				break;
@@ -170,6 +180,11 @@ public partial class player : CharacterBody2D
 	{
 		get => _playerState;
 		set => _playerState = value;
+	}
+
+	public void PlayWalkSound()
+	{
+		_autoLoader.AudioService.PlaySFX("Walk.mp3", this);
 	}
 
 	private void OnAnimationFinished()
