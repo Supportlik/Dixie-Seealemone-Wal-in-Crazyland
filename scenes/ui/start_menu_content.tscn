@@ -98,3 +98,4 @@ ignore_texture_size = true
 
 [connection signal="pressed" from="VBoxContainer/StartButtonControl/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/OptionButtonControl/OptionButton" to="." method="_on_option_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButtonControl/QuitButton" to="." method="_on_quit_button_pressed"]

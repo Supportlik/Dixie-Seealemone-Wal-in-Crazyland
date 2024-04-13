@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bysakf5qeahvc"]
+[gd_scene load_steps=5 format=3 uid="uid://bysakf5qeahvc"]
 
 [ext_resource type="PackedScene" uid="uid://iipjrdqofkbc" path="res://scenes/ui/menu_template.tscn" id="1_1rtdv"]
+[ext_resource type="Script" path="res://scenes/ui/StartMenu.cs" id="1_3x62h"]
 [ext_resource type="PackedScene" uid="uid://dh7r0hmrr21vd" path="res://scenes/ui/start_menu_content.tscn" id="2_2q3jc"]
+[ext_resource type="PackedScene" uid="uid://56wu2dh3f57t" path="res://scenes/ui/settings_menu_content.tscn" id="3_xteil"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -10,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_3x62h")
 
 [node name="Control" parent="." instance=ExtResource("1_1rtdv")]
 layout_mode = 1
@@ -18,6 +21,10 @@ layout_mode = 1
 size_flags_vertical = 3
 
 [node name="StartMenuContent" parent="Control/ColorRect/Panel/GridContainer/Content" index="0" instance=ExtResource("2_2q3jc")]
+layout_mode = 2
+
+[node name="SettingsMenuContent" parent="Control/ColorRect/Panel/GridContainer/Content" index="1" instance=ExtResource("3_xteil")]
+visible = false
 layout_mode = 2
 
 [editable path="Control"]
