@@ -6,4 +6,7 @@
     <EnableDynamicLoading>true</EnableDynamicLoading>
     <RootNamespace>MasterofElements</RootNamespace>
   </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="scripts\nodes\" />
+  </ItemGroup>
 </Project>
