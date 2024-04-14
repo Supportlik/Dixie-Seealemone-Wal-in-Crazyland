@@ -1,7 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://bomdoi28oivy3"]
+[gd_scene load_steps=5 format=3 uid="uid://bomdoi28oivy3"]
 
 [ext_resource type="PackedScene" uid="uid://bysakf5qeahvc" path="res://scenes/ui/start_menu.tscn" id="1_jvaoh"]
+[ext_resource type="PackedScene" uid="uid://dfnryuic1k8ol" path="res://scenes/nodes/parallax_background.tscn" id="2_6ol0d"]
+[ext_resource type="PackedScene" uid="uid://c3o5h3mbim5ft" path="res://scenes/nodes/player_cam.tscn" id="3_rr011"]
+[ext_resource type="Script" path="res://scripts/nodes/MenuCam.cs" id="4_5bovv"]
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[node name="CanvasLayer" type="Node2D"]
 
-[node name="Control" parent="." instance=ExtResource("1_jvaoh")]
+[node name="ParallaxBackground" parent="." instance=ExtResource("2_6ol0d")]
+
+[node name="PlayerCam" parent="." node_paths=PackedStringArray("Target") instance=ExtResource("3_rr011")]
+Target = NodePath("../Node2D")
+
+[node name="LevelLimitRT" parent="PlayerCam" index="1"]
+position = Vector2(1.92e+07, 0)
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(1457, 597)
+script = ExtResource("4_5bovv")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" parent="CanvasLayer" instance=ExtResource("1_jvaoh")]
+
+[editable path="PlayerCam"]

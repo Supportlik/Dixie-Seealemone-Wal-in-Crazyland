@@ -1,13 +1,14 @@
 using Godot;
 using MasterofElements.scripts.singletons;
-using System;
-using System.Reflection.Metadata;
 
 public partial class StartMenu : Control
 {
+
+
     private StartMenuController startMenuController;
     private SettingsMenuController settingsMenuController;
     private AutoLoader _autoLoader;
+
     public override void _Ready()
     {
         _autoLoader = new AutoLoader(this);
@@ -17,6 +18,8 @@ public partial class StartMenu : Control
         settingsMenuController = GetNode<SettingsMenuController>("Control/ColorRect/Panel/GridContainer/Content/SettingsMenuContent");
         settingsMenuController.CloseSettingsMenu += HandleCloseSettingsMenu;
     }
+
+
 
     private void HandleCloseSettingsMenu()
     {
@@ -30,5 +33,4 @@ public partial class StartMenu : Control
         startMenuController.Visible = false;
         settingsMenuController.Visible = true;
     }
-
 }
