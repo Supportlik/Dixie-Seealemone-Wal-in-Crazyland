@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://3pj3bk3k1elv"]
+[gd_scene load_steps=40 format=3 uid="uid://ct54jpnx0uupj"]
 
 [ext_resource type="Script" path="res://scripts/nodes/AirElemental.cs" id="1_juddw"]
 [ext_resource type="Texture2D" uid="uid://csynt11polyqj" path="res://assets/sprites/elemental/air-Sheet.png" id="1_tn2if"]
