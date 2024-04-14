@@ -283,11 +283,7 @@ public partial class PlayerChar : CharacterBody2D
 
     private void OnBodyEntered(Node2D node2D)
     {
-        GD.Print("OnBodyEntered:\n" + node2D.GetTreeStringPretty());
-        if (node2D.IsInGroup(GroupNames.Enemy))
-        {
-            HurtPlayer();
-        }
+        _handleEntered(node2D);
     }
 
     private void OnBodyExited(Node2D node2D)
@@ -296,16 +292,16 @@ public partial class PlayerChar : CharacterBody2D
 
     private void OnAreaEntered(Area2D area2D)
     {
-        GD.Print("ON AREA ENTERED:\n" + area2D.GetTreeStringPretty());
-        if (area2D.IsInGroup(GroupNames.Enemy))
+        _handleEntered(area2D);
+    }
+
+    private void _handleEntered(Node2D node2D)
+    {
+        GD.Print("OnBodyEntered:\n" + node2D.GetTreeStringPretty());
+        if (node2D.IsInGroup(GroupNames.Enemy))
         {
             HurtPlayer();
         }
-    }
-
-    private void handleEntered(Node2D node2D)
-    {
-        GetTree().GetFirstNodeInGroup(GroupNames.AirElemental);
     }
 
     private void OnAreaExited(Area2D area2D)
