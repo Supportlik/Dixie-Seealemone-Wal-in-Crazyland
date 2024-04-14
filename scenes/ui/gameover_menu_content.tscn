@@ -1,0 +1,100 @@
+[gd_scene load_steps=10 format=3 uid="uid://bmo0fkunv5av0"]
+
+[ext_resource type="Script" path="res://scripts/ui/GameOverMenuController.cs" id="1_3hean"]
+[ext_resource type="Texture2D" uid="uid://bn1t704pasq0i" path="res://assets/sprites/ui/Menu_Button_Unpressed.png" id="1_jjgvg"]
+[ext_resource type="FontFile" uid="uid://cuuirbvl1k68g" path="res://assets/fonts/Kenney Pixel Square.ttf" id="2_6cqd5"]
+[ext_resource type="Texture2D" uid="uid://cav3rwpmf4qwh" path="res://assets/sprites/ui/Menu_Button_Pressed.png" id="2_yesxt"]
+[ext_resource type="Texture2D" uid="uid://cu3bf2ivv7orn" path="res://assets/sprites/ui/Restart_Button_Unpressed.png" id="3_cv5oe"]
+[ext_resource type="Texture2D" uid="uid://cs0pki212svwu" path="res://assets/sprites/ui/Restart_Button_Pressed.png" id="4_rd0es"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_r6fwt"]
+font = ExtResource("2_6cqd5")
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_kvany"]
+font = ExtResource("2_6cqd5")
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_gy5sv"]
+font = ExtResource("2_6cqd5")
+font_size = 32
+
+[node name="VBoxContainer" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+alignment = 1
+script = ExtResource("1_3hean")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="GameOverTitle" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+text = "Game Over"
+label_settings = SubResource("LabelSettings_r6fwt")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameOverSubTitle" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+text = "Try Again Buddy"
+label_settings = SubResource("LabelSettings_kvany")
+horizontal_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+text = "Score: 000"
+label_settings = SubResource("LabelSettings_gy5sv")
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="MenuButtonControl" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="MenuButton" type="TextureButton" parent="VBoxContainer/MenuButtonControl"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -40.0
+offset_right = -36.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+texture_normal = ExtResource("1_jjgvg")
+texture_pressed = ExtResource("2_yesxt")
+
+[node name="RestartButtonControl" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="RestartButton" type="TextureButton" parent="VBoxContainer/RestartButtonControl"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -120.0
+offset_top = -40.0
+offset_right = -40.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+texture_normal = ExtResource("3_cv5oe")
+texture_pressed = ExtResource("4_rd0es")
+
+[connection signal="pressed" from="VBoxContainer/MenuButtonControl/MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/RestartButtonControl/RestartButton" to="." method="_on_restart_button_pressed"]
