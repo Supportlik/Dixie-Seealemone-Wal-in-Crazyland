@@ -31,6 +31,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 
 [node name="TextureButton" type="TextureButton" parent="Settings/Control"]
+process_mode = 1
 texture_filter = 1
 layout_mode = 0
 offset_left = -96.0
