@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvjqi3xpjg6h3"
-path="res://.godot/imported/clouds_4.png-b6bb4f942e13afa90cbc5cc408a3b2ae.ctex"
+uid="uid://dcc3mk8c2ikwa"
+path="res://.godot/imported/waterslime-Sheet.png-394fe0980916e464a8b28c647d625187.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/placeholder_parallax/bg1/clouds_4.png"
-dest_files=["res://.godot/imported/clouds_4.png-b6bb4f942e13afa90cbc5cc408a3b2ae.ctex"]
+source_file="res://assets/sprites/slimes/waterslime-Sheet.png"
+dest_files=["res://.godot/imported/waterslime-Sheet.png-394fe0980916e464a8b28c647d625187.ctex"]
 
 [params]
 

@@ -7,4 +7,7 @@ public partial class SignalManager : Node
 
     [Signal]
     public delegate void OnLevelCompleteEventHandler();
+
+    [Signal]
+    public delegate void OnPlayerHurtEventHandler();
 }

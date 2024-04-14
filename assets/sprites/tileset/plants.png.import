@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://txhm2pdd6mqm"
-path="res://.godot/imported/rocks_2.png-14bc65a1c738ea8beb657f0ac29a05a4.ctex"
+uid="uid://bus2s84ockbn8"
+path="res://.godot/imported/plants.png-6844a2554e12d0b3921a5ab1e7183fcc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/placeholder_parallax/bg1/rocks_2.png"
-dest_files=["res://.godot/imported/rocks_2.png-14bc65a1c738ea8beb657f0ac29a05a4.ctex"]
+source_file="res://assets/sprites/tileset/plants.png"
+dest_files=["res://.godot/imported/plants.png-6844a2554e12d0b3921a5ab1e7183fcc.ctex"]
 
 [params]
 

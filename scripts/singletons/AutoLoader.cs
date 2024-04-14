@@ -18,6 +18,7 @@ public class AutoLoader
     public readonly ScoreService ScoreService;
     public readonly AudioService AudioService;
     public readonly PackedSceneFactory PackedSceneFactory;
+    public readonly DialogManager DialogManager;
 
     /// <summary>
     /// Lädt einfach alle Autoloaded Singletons. Convienience!
@@ -30,5 +31,6 @@ public class AutoLoader
         ScoreService = parent.GetNode<ScoreService>("/root/ScoreService");
         AudioService = parent.GetNode<AudioService>("/root/AudioService");
         PackedSceneFactory = parent.GetNode<PackedSceneFactory>("/root/PackedSceneFactory");
+        DialogManager = parent.GetNode<DialogManager>("/root/DialogManager");
     }
 }
