@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rtffha6uunrm"
-path="res://.godot/imported/0_parallax-forest-back-trees.png-3e8fa7587dd4307eafecd53a6f6a4a75.ctex"
+uid="uid://coebqnl2vtj3s"
+path="res://.godot/imported/clouds_1.png-18fb29cfb283047345ef74e5d02b48ce.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/placeholder_parallax/bg1/0_parallax-forest-back-trees.png"
-dest_files=["res://.godot/imported/0_parallax-forest-back-trees.png-3e8fa7587dd4307eafecd53a6f6a4a75.ctex"]
+source_file="res://assets/sprites/placeholder_parallax/bg1/clouds_1.png"
+dest_files=["res://.godot/imported/clouds_1.png-18fb29cfb283047345ef74e5d02b48ce.ctex"]
 
 [params]
 

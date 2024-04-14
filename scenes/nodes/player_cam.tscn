@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://c3o5h3mbim5ft"]
 
-[ext_resource type="Script" path="res://scenes/nodes/PlayerCam.cs" id="1_5j3kd"]
+[ext_resource type="Script" path="res://scripts/nodes/PlayerCam.cs" id="1_o4vd3"]
 
 [node name="PlayerCam" type="Node2D"]
-script = ExtResource("1_5j3kd")
+script = ExtResource("1_o4vd3")
 
 [node name="LevelLimitLB" type="Marker2D" parent="."]
 

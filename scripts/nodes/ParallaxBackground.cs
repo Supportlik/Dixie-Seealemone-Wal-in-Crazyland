@@ -7,18 +7,18 @@ public partial class ParallaxBackground : Godot.ParallaxBackground
     {
         new Array<CompressedTexture2D>
         {
-            GD.Load<CompressedTexture2D>(
-                "res://assets/sprites/placeholder_parallax/bg1/0_parallax-forest-back-trees.png"),
-            GD.Load<CompressedTexture2D>("res://assets/sprites/placeholder_parallax/bg1/1_parallax-forest-lights.png"),
-            GD.Load<CompressedTexture2D>(
-                "res://assets/sprites/placeholder_parallax/bg1/2_parallax-forest-middle-trees.png"),
-            GD.Load<CompressedTexture2D>(
-                "res://assets/sprites/placeholder_parallax/bg1/3_parallax-forest-front-trees.png"),
+            GD.Load<CompressedTexture2D>("res://assets/sprites/placeholder_parallax/bg1/sky.png"),
+            GD.Load<CompressedTexture2D>("res://assets/sprites/placeholder_parallax/bg1/clouds_1.png"),
+            GD.Load<CompressedTexture2D>("res://assets/sprites/placeholder_parallax/bg1/clouds_2.png"),
+            GD.Load<CompressedTexture2D>("res://assets/sprites/placeholder_parallax/bg1/clouds_3.png"),
+            GD.Load<CompressedTexture2D>("res://assets/sprites/placeholder_parallax/bg1/clouds_4.png"),
+            GD.Load<CompressedTexture2D>("res://assets/sprites/placeholder_parallax/bg1/rocks_1.png"),
+            GD.Load<CompressedTexture2D>("res://assets/sprites/placeholder_parallax/bg1/rocks_2.png")
         }
     };
 
     [Export(PropertyHint.Range, "0,0,1")] public int Level;
-    [Export] public Vector2 OffSetBackground = new(0, 0);
+    [Export] public Vector2 OffSetBackground = new(0, 540);
 
     private TextureRect _exampleTextureRect;
 
@@ -28,16 +28,14 @@ public partial class ParallaxBackground : Godot.ParallaxBackground
         _exampleTextureRect = GetNode<TextureRect>("Example");
         _exampleTextureRect.Hide();
         var backgrounds = _backgrounds[Level];
-        var inc = 1 / backgrounds.Count;
-
-        Scale = new Vector2(1920, 1080) / backgrounds[0].GetSize();
+        var inc = 1f / backgrounds.Count;
 
         for (var i = 0; i < backgrounds.Count; i++)
         {
             var texture = backgrounds[i];
 
 
-            var motionScale = inc == 0 ? 1 : inc * i;
+            var motionScale = i == 0 ? 1 : inc * i;
             var layer = new ParallaxLayer
             {
                 MotionScale = new Vector2(motionScale, 1),
