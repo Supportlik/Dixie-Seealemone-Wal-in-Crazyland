@@ -7,13 +7,11 @@ public partial class ParallaxBackground : Godot.ParallaxBackground
     {
         new Array<CompressedTexture2D>
         {
-            GD.Load<CompressedTexture2D>("res://assets/sprites/placeholder_parallax/bg1/sky.png"),
-            GD.Load<CompressedTexture2D>("res://assets/sprites/placeholder_parallax/bg1/clouds_1.png"),
-            GD.Load<CompressedTexture2D>("res://assets/sprites/placeholder_parallax/bg1/clouds_2.png"),
-            GD.Load<CompressedTexture2D>("res://assets/sprites/placeholder_parallax/bg1/clouds_3.png"),
-            GD.Load<CompressedTexture2D>("res://assets/sprites/placeholder_parallax/bg1/clouds_4.png"),
-            GD.Load<CompressedTexture2D>("res://assets/sprites/placeholder_parallax/bg1/rocks_1.png"),
-            GD.Load<CompressedTexture2D>("res://assets/sprites/placeholder_parallax/bg1/rocks_2.png")
+            GD.Load<CompressedTexture2D>("res://assets/sprites/parallax/0.png"),
+            GD.Load<CompressedTexture2D>("res://assets/sprites/parallax/1.png"),
+            GD.Load<CompressedTexture2D>("res://assets/sprites/parallax/2.png"),
+            GD.Load<CompressedTexture2D>("res://assets/sprites/parallax/3.png"),
+            GD.Load<CompressedTexture2D>("res://assets/sprites/parallax/4.png")
         }
     };
 

@@ -25,6 +25,7 @@ position = Vector2(3840, 0)
 [node name="ParallaxBackground" parent="." instance=ExtResource("3_74gx7")]
 
 [node name="Player" parent="." instance=ExtResource("4_issuh")]
+position = Vector2(1055, 841)
 
 [node name="PlatformSet" parent="." instance=ExtResource("5_abrru")]
 position = Vector2(665, 761)
@@ -37,6 +38,8 @@ Speed = 100.0
 
 [node name="EndPos" parent="PlatformSet" index="1"]
 position = Vector2(833, -60)
+
+[node name="SpawnGroup" type="Node2D" parent="." groups=["Spawn"]]
 
 [editable path="PlayerCam"]
 [editable path="PlatformSet"]

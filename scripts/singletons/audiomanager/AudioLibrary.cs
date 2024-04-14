@@ -46,7 +46,7 @@ public class AudioLibrary
                         // GD.Print($"File without import: {path + fileName}");
                         if (ext is ".mp3" or ".wav")
                         {
-                            GD.Print($"AudioStream file from: {path + fileName}");
+                            // GD.Print($"AudioStream file from: {path + fileName}");
                             AddAudioStream(fileName, GD.Load<AudioStream>(path + fileName));
                         }
                     }

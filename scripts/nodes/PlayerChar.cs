@@ -1,5 +1,6 @@
 using Godot;
 using MasterofElements.scripts.models;
+using MasterofElements.scripts.nodes;
 using MasterofElements.scripts.singletons;
 
 public partial class PlayerChar : CharacterBody2D
@@ -8,6 +9,9 @@ public partial class PlayerChar : CharacterBody2D
     [Export] public float JumpVelocity = -700.0f;
 
     private AutoLoader _autoLoader;
+
+
+    private PackedScene _airElemental = GD.Load<PackedScene>("res://scenes/nodes/AirElemental.tscn");
 
 
     public const int PlattformCollisionMask = 7;
@@ -19,6 +23,7 @@ public partial class PlayerChar : CharacterBody2D
     private AnimationPlayer _animationPlayer;
     private PlayerState _playerState;
     private bool _animationFinish = true;
+    private Marker2D _elementalSummonerMarker;
 
     public override void _Ready()
     {
@@ -27,6 +32,8 @@ public partial class PlayerChar : CharacterBody2D
         _animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
         _playerSprite2D = GetNode<Sprite2D>("PlayerSprite2D");
         _audioStreamPlayer2D = GetNode<AudioStreamPlayer2D>("AudioStreamPlayer2D");
+        _airElemental.Instantiate();
+        _elementalSummonerMarker = GetNode<Marker2D>("ElementalSummonerMarker");
     }
 
     public override void _PhysicsProcess(double delta)
@@ -142,6 +149,31 @@ public partial class PlayerChar : CharacterBody2D
                 SetPlayerState(PlayerState.Jump);
             }
         }
+    }
+
+    public void SummonAirElemental()
+    {
+        var spawnNode = GetTree().GetFirstNodeInGroup(GroupNames.SpawnGroup);
+
+        if (spawnNode == null)
+        {
+            GD.PrintErr("SPAWN GROUP NOT FOUND!");
+            return;
+        }
+
+
+        if (GetTree().GetFirstNodeInGroup(GroupNames.AirElemental) != null)
+            return;
+
+        var summonPosition = _elementalSummonerMarker.GlobalPosition;
+        if (_playerSprite2D.FlipH)
+            // Offset, wenn der Charakter nach links schaut, damit es beim Stab entsteht.
+            summonPosition += new Vector2(-60, 0);
+
+        var newAirElemental = _airElemental.Instantiate<AirElemental>();
+
+        newAirElemental.GlobalPosition = summonPosition;
+        spawnNode.AddChild(newAirElemental);
     }
 
     private void SetPlayerState(PlayerState newPlayerState)
