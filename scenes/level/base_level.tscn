@@ -1,13 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://cr7u7plx48sxr"]
+[gd_scene load_steps=9 format=3 uid="uid://cr7u7plx48sxr"]
 
 [ext_resource type="TileSet" uid="uid://bwxywrir2jgu0" path="res://assets/sprites/tileset/tileset_jungle.tres" id="1_lojut"]
+[ext_resource type="Script" path="res://scripts/nodes/BaseLevel.cs" id="1_uynxf"]
 [ext_resource type="PackedScene" uid="uid://c3o5h3mbim5ft" path="res://scenes/nodes/player_cam.tscn" id="2_sb354"]
 [ext_resource type="PackedScene" uid="uid://dfnryuic1k8ol" path="res://scenes/nodes/parallax_background.tscn" id="3_74gx7"]
 [ext_resource type="PackedScene" uid="uid://d2udsxyfw30as" path="res://scenes/player.tscn" id="4_issuh"]
 [ext_resource type="PackedScene" uid="uid://c4jfoxxw23kg5" path="res://scenes/nodes/platform_set.tscn" id="5_abrru"]
-[ext_resource type="PackedScene" uid="uid://v0go4tg3t37b" path="res://scenes/ui/hud.tscn" id="6_tayjc"]
+[ext_resource type="PackedScene" uid="uid://dlas5k67473fy" path="res://scenes/ui/hud.tscn" id="6_tayjc"]
+[ext_resource type="PackedScene" uid="uid://cafq6wnt4xfou" path="res://scenes/nodes/slime.tscn" id="8_bt00r"]
 
 [node name="BaseLevel" type="Node2D"]
+script = ExtResource("1_uynxf")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_lojut")
@@ -26,6 +29,7 @@ position = Vector2(3840, 0)
 [node name="ParallaxBackground" parent="." instance=ExtResource("3_74gx7")]
 
 [node name="Player" parent="." instance=ExtResource("4_issuh")]
+position = Vector2(1054, 857)
 
 [node name="PlatformSet" parent="." instance=ExtResource("5_abrru")]
 position = Vector2(665, 761)
@@ -39,7 +43,24 @@ Speed = 100.0
 [node name="EndPos" parent="PlatformSet" index="1"]
 position = Vector2(833, -60)
 
-[node name="CanvasLayer" parent="." instance=ExtResource("6_tayjc")]
+[node name="HUD" parent="." instance=ExtResource("6_tayjc")]
+
+[node name="Slime" parent="." instance=ExtResource("8_bt00r")]
+position = Vector2(1152, 931)
+
+[node name="Slime2" parent="." instance=ExtResource("8_bt00r")]
+position = Vector2(1295, 858)
+
+[node name="Slime3" parent="." instance=ExtResource("8_bt00r")]
+position = Vector2(645, 679)
+
+[node name="Slime4" parent="." instance=ExtResource("8_bt00r")]
+position = Vector2(1254, 867)
+
+[node name="Slime5" parent="." instance=ExtResource("8_bt00r")]
+position = Vector2(951, 897)
+
+[node name="Node2D" type="Node2D" parent="." groups=["Spawn"]]
 
 [editable path="PlayerCam"]
 [editable path="PlatformSet"]

@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cjxwftmi48rw7"]
+[gd_scene load_steps=3 format=3 uid="uid://da87i5eocwwmm"]
 
 [ext_resource type="PackedScene" uid="uid://iipjrdqofkbc" path="res://scenes/ui/menu_template.tscn" id="1_4ufj0"]
-[ext_resource type="PackedScene" uid="uid://dlelx8fosbudv" path="res://scenes/ui/gameover_menu_content.tscn" id="2_c6v50"]
+[ext_resource type="PackedScene" uid="uid://bmo0fkunv5av0" path="res://scenes/ui/gameover_menu_content.tscn" id="2_c6v50"]
 
 [node name="Control" instance=ExtResource("1_4ufj0")]
 
