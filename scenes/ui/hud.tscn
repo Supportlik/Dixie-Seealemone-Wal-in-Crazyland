@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://v0go4tg3t37b"]
+
+[ext_resource type="Script" path="res://scripts/ui/Hud.cs" id="1_gxds2"]
+[ext_resource type="FontFile" uid="uid://de2l1ue2b5npb" path="res://assets/fonts/Kenney Pixel Square.ttf" id="2_eyiip"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qkwc5"]
+font = ExtResource("2_eyiip")
+font_size = 32
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_gxds2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "Score: 000"
+label_settings = SubResource("LabelSettings_qkwc5")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="HpContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
