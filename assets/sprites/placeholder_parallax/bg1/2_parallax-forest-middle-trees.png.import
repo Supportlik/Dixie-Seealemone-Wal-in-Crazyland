@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bc2c1vn2njwlc"
-path="res://.godot/imported/placeholder_tileset_platforms.png-aa8b55bfe49d0f3468247f571ae95326.ctex"
+uid="uid://cs4kscx8vxofm"
+path="res://.godot/imported/2_parallax-forest-middle-trees.png-753fef3c0345b938fe42400ce9c2e657.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/placeholder_tileset_platforms.png"
-dest_files=["res://.godot/imported/placeholder_tileset_platforms.png-aa8b55bfe49d0f3468247f571ae95326.ctex"]
+source_file="res://assets/sprites/placeholder_parallax/bg1/2_parallax-forest-middle-trees.png"
+dest_files=["res://.godot/imported/2_parallax-forest-middle-trees.png-753fef3c0345b938fe42400ce9c2e657.ctex"]
 
 [params]
 
