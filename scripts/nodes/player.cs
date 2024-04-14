@@ -59,32 +59,31 @@ public partial class player : CharacterBody2D
 			_playerSprite2D.FlipH = false;
 			direction = Vector2.Right;
 		}
-		
+
 		velocity.X = direction.X * Speed * (float)delta;
-		
+
 		Velocity = velocity;
-		
 	}
-	
+
 	private void HandlePlayerAnimation()
 	{
-		if (_playerState == PlayerState.Hurt)
+		if (_playerState == PlayerState.Hurt || (
+				_playerState is PlayerState.SummonAir or PlayerState.SummonEarth or PlayerState.SummonFire
+					or PlayerState.SummonWater))
 		{
-			return;
+			if (!_animationFinish)
+				return;
 		}
 
-		if (_animationFinish)
+		if (IsOnFloor())
 		{
-			if (IsOnFloor())
+			if (Velocity.X == 0)
 			{
-				if (Velocity.X == 0)
-				{
-					SetPlayerState(PlayerState.Idle);
-				}
-				else
-				{
-					SetPlayerState(PlayerState.Walk);
-				}
+				SetPlayerState(PlayerState.Idle);
+			}
+			else
+			{
+				SetPlayerState(PlayerState.Walk);
 			}
 
 			if (Input.IsActionJustPressed("summon_air"))
@@ -92,16 +91,19 @@ public partial class player : CharacterBody2D
 				SetPlayerState(PlayerState.SummonAir);
 				_animationFinish = false;
 			}
+
 			if (Input.IsActionJustPressed("summon_water"))
 			{
 				SetPlayerState(PlayerState.SummonWater);
 				_animationFinish = false;
 			}
+
 			if (Input.IsActionJustPressed("summon_fire"))
 			{
 				SetPlayerState(PlayerState.SummonFire);
 				_animationFinish = false;
 			}
+
 			if (Input.IsActionJustPressed("summon_earth"))
 			{
 				SetPlayerState(PlayerState.SummonEarth);
@@ -110,15 +112,13 @@ public partial class player : CharacterBody2D
 		}
 		else
 		{
-			if (Velocity.Y > 0)
+			if (Velocity.Y >= 0)
 			{
 				SetPlayerState(PlayerState.Fall);
-				_animationFinish = false;
 			}
 			else
 			{
 				SetPlayerState(PlayerState.Jump);
-				_animationFinish = false;
 			}
 		}
 	}
@@ -127,17 +127,17 @@ public partial class player : CharacterBody2D
 	{
 		if (newPlayerState == _playerState)
 		{
-			
+			return;
 		}
 
 		if (_playerState == PlayerState.Fall)
 		{
 			if (newPlayerState == PlayerState.Idle || newPlayerState == PlayerState.Walk)
 			{
-				
+				_autoLoader.AudioService.PlaySfx("PlantHit.mp3", this);
 			}
 		}
-		
+
 
 		_playerState = newPlayerState;
 
@@ -151,32 +151,37 @@ public partial class player : CharacterBody2D
 				break;
 			case PlayerState.Jump:
 				_animationPlayer.Play("jump");
-				//_autoLoader.AudioService.PlaySFX("jump.mp3", this);
+				_autoLoader.AudioService.PlaySfx("jump.mp3", this, "jump");
 				break;
 			case PlayerState.Fall:
 				_animationPlayer.Play("fall");
 				break;
 			case PlayerState.Death:
 				_animationPlayer.Play("death");
+				_autoLoader.AudioService.PlaySfx("characterDamage2.mp3", this);
 				break;
 			case PlayerState.SummonEarth:
 				_animationPlayer.Play("summon_earth");
+				_autoLoader.AudioService.PlaySfx("Summoning2.mp3", this, "summon_earth");
 				break;
 			case PlayerState.SummonAir:
 				_animationPlayer.Play("summon_air");
+				_autoLoader.AudioService.PlaySfx("Summoning2.mp3", this, "summon_air");
 				break;
 			case PlayerState.SummonFire:
 				_animationPlayer.Play("summon_fire");
+				_autoLoader.AudioService.PlaySfx("Summoning2.mp3", this, "summon_fire");
 				break;
 			case PlayerState.SummonWater:
 				_animationPlayer.Play("summon_water");
-				
+				_autoLoader.AudioService.PlaySfx("Summoning2.mp3", this, "summon_water");
 				break;
 			case PlayerState.Hurt:
+				_autoLoader.AudioService.PlaySfx("characterDamage2.mp3", this);
 				break;
 		}
 	}
-	
+
 	public PlayerState PlayerState
 	{
 		get => _playerState;
@@ -188,7 +193,7 @@ public partial class player : CharacterBody2D
 		//_autoLoader.AudioService.PlaySFX("Walk.mp3", this);
 	}
 
-	private void OnAnimationFinished()
+	private void OnAnimationFinished(StringName stringName)
 	{
 		_animationFinish = true;
 	}
