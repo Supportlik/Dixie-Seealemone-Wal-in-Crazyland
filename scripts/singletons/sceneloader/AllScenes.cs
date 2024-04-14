@@ -12,11 +12,14 @@ public class AllScenes
     /// </summary>
     public static readonly SceneInfo BaseLevel = new("res://scenes/level/base_level.tscn");
 
+    public static readonly SceneInfo StartMenu = new("res://scenes/ui/main_menu.tscn");
+
     /// <summary>
     /// Eine Liste aller Szenen. Neue Szennen sollen hierhinzugefügt werden.
     /// </summary>
     public static readonly List<SceneInfo> AllScenesList = new()
     {
-        BaseLevel
+        BaseLevel,
+        StartMenu
     };
 }

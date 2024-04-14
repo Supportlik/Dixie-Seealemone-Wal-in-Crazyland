@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://cq4578knhw0u"]
+
+[ext_resource type="PackedScene" uid="uid://iipjrdqofkbc" path="res://scenes/ui/menu_template.tscn" id="1_mcvbp"]
+[ext_resource type="Script" path="res://scripts/ui/PauseMenu.cs" id="2_8xvw1"]
+[ext_resource type="PackedScene" uid="uid://cojfhm6pn1mgo" path="res://scenes/ui/pause_menu_content.tscn" id="2_dnsvs"]
+[ext_resource type="PackedScene" uid="uid://56wu2dh3f57t" path="res://scenes/ui/settings_menu_content.tscn" id="3_fj1o8"]
+
+[node name="Control" instance=ExtResource("1_mcvbp")]
+script = ExtResource("2_8xvw1")
+
+[node name="PauseMenuContent" parent="ColorRect/Panel/GridContainer/Content" index="0" instance=ExtResource("2_dnsvs")]
+layout_mode = 2
+
+[node name="SettingsMenuContent" parent="ColorRect/Panel/GridContainer/Content" index="1" instance=ExtResource("3_fj1o8")]
+visible = false
+layout_mode = 2
