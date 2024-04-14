@@ -28,7 +28,9 @@ public partial class PlayerChar : CharacterBody2D
 
     private Timer _invincibleTimer;
     private bool _invincible = false;
-
+    
+    
+    
     public override void _Ready()
     {
         base._Ready();
@@ -299,6 +301,11 @@ public partial class PlayerChar : CharacterBody2D
         {
             HurtPlayer();
         }
+    }
+
+    private void handleEntered(Node2D node2D)
+    {
+        GetTree().GetFirstNodeInGroup(GroupNames.AirElemental);
     }
 
     private void OnAreaExited(Area2D area2D)

@@ -65,8 +65,15 @@ position = Vector2(1362, 815)
 [node name="Slime5" parent="." instance=ExtResource("8_bt00r")]
 position = Vector2(910, 908)
 
+[node name="Slime7" parent="." instance=ExtResource("8_bt00r")]
+position = Vector2(958, 900)
+Hp = 0
+
 [node name="Slime3" parent="." instance=ExtResource("8_bt00r")]
 position = Vector2(1406, 803)
+
+[node name="Slime6" parent="." instance=ExtResource("8_bt00r")]
+position = Vector2(1219, 453)
 
 [editable path="PlayerCam"]
 [editable path="PlatformSet"]

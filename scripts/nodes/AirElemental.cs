@@ -82,9 +82,6 @@ public partial class AirElemental : Node2D
             // muss bei überschneidung gesetzt werden.
             case ElementalState.OnAttack:
                 break;
-            // muss bei jump auf das elementar gesetzt werden.
-            case ElementalState.OnBounce:
-                break;
             // nicht benötigt animation player
             case ElementalState.OnDisapear:
                 break;
@@ -119,9 +116,19 @@ public partial class AirElemental : Node2D
         _animationTree.Set("parameters/conditions/on_bounce", true);
     }
 
+    public void AfterBounce()
+    {
+        _animationTree.Set("parameters/conditions/on_bounce", false);
+    }
+
     public void CallOnBounceComplete()
     {
         _animationTree.Set("parameters/conditions/on_bounce", false);
+    }
+
+    public bool CanBounce()
+    {
+        return !(bool)_animationTree.Get("parameters/conditions/on_bounce");
     }
 
 

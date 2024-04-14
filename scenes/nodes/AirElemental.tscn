@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://3pj3bk3k1elv"]
+[gd_scene load_steps=41 format=3 uid="uid://3pj3bk3k1elv"]
 
 [ext_resource type="Script" path="res://scripts/nodes/AirElemental.cs" id="1_juddw"]
 [ext_resource type="Texture2D" uid="uid://csynt11polyqj" path="res://assets/sprites/elemental/air-Sheet.png" id="1_tn2if"]
@@ -105,6 +105,20 @@ tracks/0/keys = {
 "update": 0,
 "values": [6, 10, 6]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"CallOnBounceComplete"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_inemn"]
 resource_name = "bounce_gewitter"
@@ -119,6 +133,20 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [26, 29, 26]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"CallOnBounceComplete"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_371cv"]
@@ -470,6 +498,9 @@ states/summon/position = Vector2(380, -25)
 transitions = ["Start", "summon", SubResource("AnimationNodeStateMachineTransition_o86qu"), "summon", "idle", SubResource("AnimationNodeStateMachineTransition_ebpon"), "idle", "disapear", SubResource("AnimationNodeStateMachineTransition_8e4um"), "idle", "bounce", SubResource("AnimationNodeStateMachineTransition_uyme2"), "idle", "manup", SubResource("AnimationNodeStateMachineTransition_2og08"), "manup", "fly", SubResource("AnimationNodeStateMachineTransition_pl4hc"), "fly", "mandown", SubResource("AnimationNodeStateMachineTransition_6u0ye"), "mandown", "idle", SubResource("AnimationNodeStateMachineTransition_3p36u"), "idle", "gewitter", SubResource("AnimationNodeStateMachineTransition_ryx7v"), "gewitter", "disapear", SubResource("AnimationNodeStateMachineTransition_xnq75"), "bounce", "idle", SubResource("AnimationNodeStateMachineTransition_l74qk"), "gewitter", "bounce_gewitter", SubResource("AnimationNodeStateMachineTransition_uc3du"), "bounce_gewitter", "gewitter", SubResource("AnimationNodeStateMachineTransition_sctk2"), "gewitter", "idle", SubResource("AnimationNodeStateMachineTransition_j6ik3"), "gewitter", "manup", SubResource("AnimationNodeStateMachineTransition_nx00b")]
 graph_offset = Vector2(-25, -156)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0sycn"]
+size = Vector2(32, 11)
+
 [node name="WindElemental" type="Node2D"]
 script = ExtResource("1_juddw")
 
@@ -524,5 +555,11 @@ rotation = 2.53073
 scale = Vector2(2, 2)
 texture = ExtResource("2_gynga")
 hframes = 35
+
+[node name="Area2D" type="Area2D" parent="ElementalChar"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ElementalChar/Area2D" groups=["AirElemental"]]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_0sycn")
 
 [connection signal="timeout" from="DieTimer" to="." method="CallDisapear"]
