@@ -1,5 +1,6 @@
-[gd_scene load_steps=40 format=3 uid="uid://3pj3bk3k1elv"]
+[gd_scene load_steps=41 format=3 uid="uid://3pj3bk3k1elv"]
 
+[ext_resource type="Script" path="res://scripts/nodes/AirElemental.cs" id="1_juddw"]
 [ext_resource type="Texture2D" uid="uid://csynt11polyqj" path="res://assets/sprites/elemental/air-Sheet.png" id="1_tn2if"]
 [ext_resource type="Texture2D" uid="uid://cf6ku8f2oa1e7" path="res://assets/sprites/elemental/air-Sheet_blitze.png" id="2_gynga"]
 
@@ -8,7 +9,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprites/Sprite2DWolke:frame")
+tracks/0/path = NodePath("ElementalChar/Sprites/Sprite2DWolke:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -20,7 +21,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprites/Sprite2DBlitzeKlein:visible")
+tracks/1/path = NodePath("ElementalChar/Sprites/Sprite2DBlitzeKlein:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -32,7 +33,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprites/Sprite2DBlitzeKlein:frame")
+tracks/2/path = NodePath("ElementalChar/Sprites/Sprite2DBlitzeKlein:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -44,7 +45,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprites/Sprite2DBlitze2Mittel:visible")
+tracks/3/path = NodePath("ElementalChar/Sprites/Sprite2DBlitze2Mittel:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -56,7 +57,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Sprites/Sprite2DBlitze3Groß:visible")
+tracks/4/path = NodePath("ElementalChar/Sprites/Sprite2DBlitze3Groß:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -68,7 +69,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Sprites/Sprite2DBlitze3Groß:frame")
+tracks/5/path = NodePath("ElementalChar/Sprites/Sprite2DBlitze3Groß:frame")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -80,7 +81,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Sprites/Sprite2DBlitze2Mittel:frame")
+tracks/6/path = NodePath("ElementalChar/Sprites/Sprite2DBlitze2Mittel:frame")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -95,7 +96,7 @@ resource_name = "bounce"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprites/Sprite2DWolke:frame")
+tracks/0/path = NodePath("ElementalChar/Sprites/Sprite2DWolke:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -104,13 +105,27 @@ tracks/0/keys = {
 "update": 0,
 "values": [6, 10, 6]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"CallOnBounceComplete"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_inemn"]
 resource_name = "bounce_gewitter"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprites/Sprite2DWolke:frame")
+tracks/0/path = NodePath("ElementalChar/Sprites/Sprite2DWolke:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -119,6 +134,20 @@ tracks/0/keys = {
 "update": 0,
 "values": [26, 29, 26]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"CallOnBounceComplete"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_371cv"]
 resource_name = "disapear"
@@ -126,7 +155,7 @@ length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprites/Sprite2DWolke:frame")
+tracks/0/path = NodePath("ElementalChar/Sprites/Sprite2DWolke:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -134,6 +163,20 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [30, 34]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"Die"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_wofl2"]
@@ -143,7 +186,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprites/Sprite2DWolke:frame")
+tracks/0/path = NodePath("ElementalChar/Sprites/Sprite2DWolke:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -160,7 +203,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprites/Sprite2DWolke:frame")
+tracks/0/path = NodePath("ElementalChar/Sprites/Sprite2DWolke:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -172,7 +215,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprites/Sprite2DBlitzeKlein:visible")
+tracks/1/path = NodePath("ElementalChar/Sprites/Sprite2DBlitzeKlein:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -184,7 +227,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprites/Sprite2DBlitzeKlein:frame")
+tracks/2/path = NodePath("ElementalChar/Sprites/Sprite2DBlitzeKlein:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -196,7 +239,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprites/Sprite2DBlitze2Mittel:visible")
+tracks/3/path = NodePath("ElementalChar/Sprites/Sprite2DBlitze2Mittel:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -208,7 +251,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Sprites/Sprite2DBlitze3Groß:visible")
+tracks/4/path = NodePath("ElementalChar/Sprites/Sprite2DBlitze3Groß:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -220,7 +263,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Sprites/Sprite2DBlitze3Groß:frame")
+tracks/5/path = NodePath("ElementalChar/Sprites/Sprite2DBlitze3Groß:frame")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -232,7 +275,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Sprites/Sprite2DBlitze2Mittel:frame")
+tracks/6/path = NodePath("ElementalChar/Sprites/Sprite2DBlitze2Mittel:frame")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -249,7 +292,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprites/Sprite2DWolke:frame")
+tracks/0/path = NodePath("ElementalChar/Sprites/Sprite2DWolke:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -266,7 +309,7 @@ step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprites/Sprite2DWolke:frame")
+tracks/0/path = NodePath("ElementalChar/Sprites/Sprite2DWolke:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -282,7 +325,7 @@ length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprites/Sprite2DWolke:frame")
+tracks/0/path = NodePath("ElementalChar/Sprites/Sprite2DWolke:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -291,6 +334,20 @@ tracks/0/keys = {
 "update": 0,
 "values": [10, 12]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [3],
+"method": &"SetState"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_jeexv"]
 resource_name = "summon"
@@ -298,7 +355,7 @@ length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprites/Sprite2DWolke:frame")
+tracks/0/path = NodePath("ElementalChar/Sprites/Sprite2DWolke:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -412,10 +469,6 @@ advance_mode = 2
 advance_expression = "!self.get(\"parameters/conditions/on_attack\")
  "
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_iamle"]
-switch_mode = 2
-advance_mode = 2
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nx00b"]
 advance_mode = 2
 advance_condition = &"on_fly"
@@ -442,44 +495,21 @@ states/manup/node = SubResource("AnimationNodeAnimation_4kt4s")
 states/manup/position = Vector2(469, 435)
 states/summon/node = SubResource("AnimationNodeAnimation_551kk")
 states/summon/position = Vector2(380, -25)
-transitions = ["Start", "summon", SubResource("AnimationNodeStateMachineTransition_o86qu"), "summon", "idle", SubResource("AnimationNodeStateMachineTransition_ebpon"), "idle", "disapear", SubResource("AnimationNodeStateMachineTransition_8e4um"), "idle", "bounce", SubResource("AnimationNodeStateMachineTransition_uyme2"), "idle", "manup", SubResource("AnimationNodeStateMachineTransition_2og08"), "manup", "fly", SubResource("AnimationNodeStateMachineTransition_pl4hc"), "fly", "mandown", SubResource("AnimationNodeStateMachineTransition_6u0ye"), "mandown", "idle", SubResource("AnimationNodeStateMachineTransition_3p36u"), "idle", "gewitter", SubResource("AnimationNodeStateMachineTransition_ryx7v"), "gewitter", "disapear", SubResource("AnimationNodeStateMachineTransition_xnq75"), "bounce", "idle", SubResource("AnimationNodeStateMachineTransition_l74qk"), "gewitter", "bounce_gewitter", SubResource("AnimationNodeStateMachineTransition_uc3du"), "bounce_gewitter", "gewitter", SubResource("AnimationNodeStateMachineTransition_sctk2"), "gewitter", "idle", SubResource("AnimationNodeStateMachineTransition_j6ik3"), "disapear", "summon", SubResource("AnimationNodeStateMachineTransition_iamle"), "gewitter", "manup", SubResource("AnimationNodeStateMachineTransition_nx00b")]
+transitions = ["Start", "summon", SubResource("AnimationNodeStateMachineTransition_o86qu"), "summon", "idle", SubResource("AnimationNodeStateMachineTransition_ebpon"), "idle", "disapear", SubResource("AnimationNodeStateMachineTransition_8e4um"), "idle", "bounce", SubResource("AnimationNodeStateMachineTransition_uyme2"), "idle", "manup", SubResource("AnimationNodeStateMachineTransition_2og08"), "manup", "fly", SubResource("AnimationNodeStateMachineTransition_pl4hc"), "fly", "mandown", SubResource("AnimationNodeStateMachineTransition_6u0ye"), "mandown", "idle", SubResource("AnimationNodeStateMachineTransition_3p36u"), "idle", "gewitter", SubResource("AnimationNodeStateMachineTransition_ryx7v"), "gewitter", "disapear", SubResource("AnimationNodeStateMachineTransition_xnq75"), "bounce", "idle", SubResource("AnimationNodeStateMachineTransition_l74qk"), "gewitter", "bounce_gewitter", SubResource("AnimationNodeStateMachineTransition_uc3du"), "bounce_gewitter", "gewitter", SubResource("AnimationNodeStateMachineTransition_sctk2"), "gewitter", "idle", SubResource("AnimationNodeStateMachineTransition_j6ik3"), "gewitter", "manup", SubResource("AnimationNodeStateMachineTransition_nx00b")]
 graph_offset = Vector2(-25, -156)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0sycn"]
+size = Vector2(32, 11)
+
 [node name="WindElemental" type="Node2D"]
+script = ExtResource("1_juddw")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_bsjxg")
 }
 
-[node name="Sprites" type="Node2D" parent="."]
-
-[node name="Sprite2DBlitzeKlein" type="Sprite2D" parent="Sprites"]
-visible = false
-rotation = 0.575959
-texture = ExtResource("2_gynga")
-hframes = 35
-
-[node name="Sprite2DWolke" type="Sprite2D" parent="Sprites"]
-texture = ExtResource("1_tn2if")
-hframes = 35
-frame = 4
-
-[node name="Sprite2DBlitze2Mittel" type="Sprite2D" parent="Sprites"]
-visible = false
-rotation = 1.5708
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("2_gynga")
-hframes = 35
-
-[node name="Sprite2DBlitze3Groß" type="Sprite2D" parent="Sprites"]
-visible = false
-rotation = 2.53073
-scale = Vector2(2, 2)
-texture = ExtResource("2_gynga")
-hframes = 35
-
-[node name="AnimationTree" type="AnimationTree" parent="."]
+[node name="AnimationTree" type="AnimationTree" parent="." groups=["AirElemental", "Elemental"]]
 libraries = {
 "": SubResource("AnimationLibrary_bsjxg")
 }
@@ -489,3 +519,47 @@ parameters/conditions/on_attack = false
 parameters/conditions/on_bounce = false
 parameters/conditions/on_disapear = false
 parameters/conditions/on_fly = false
+
+[node name="DieTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[node name="PlayerClickMarker" type="Marker2D" parent="."]
+
+[node name="ElementalChar" type="Node2D" parent="."]
+
+[node name="Sprites" type="Node2D" parent="ElementalChar"]
+
+[node name="Sprite2DBlitzeKlein" type="Sprite2D" parent="ElementalChar/Sprites"]
+visible = false
+rotation = 0.575959
+texture = ExtResource("2_gynga")
+hframes = 35
+
+[node name="Sprite2DWolke" type="Sprite2D" parent="ElementalChar/Sprites"]
+texture = ExtResource("1_tn2if")
+hframes = 35
+frame = 4
+
+[node name="Sprite2DBlitze2Mittel" type="Sprite2D" parent="ElementalChar/Sprites"]
+visible = false
+rotation = 1.5708
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_gynga")
+hframes = 35
+
+[node name="Sprite2DBlitze3Groß" type="Sprite2D" parent="ElementalChar/Sprites"]
+visible = false
+rotation = 2.53073
+scale = Vector2(2, 2)
+texture = ExtResource("2_gynga")
+hframes = 35
+
+[node name="Area2D" type="Area2D" parent="ElementalChar"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ElementalChar/Area2D" groups=["AirElemental"]]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_0sycn")
+
+[connection signal="timeout" from="DieTimer" to="." method="CallDisapear"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://f82ir4udmnin"
-path="res://.godot/imported/clouds_2.png-71cdba6d2ce3576f7e886412664221b8.ctex"
+uid="uid://io5at0qr34pf"
+path="res://.godot/imported/explotion-Sheet.png-b9019707099b560af9b0a76439988283.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/placeholder_parallax/bg1/clouds_2.png"
-dest_files=["res://.godot/imported/clouds_2.png-71cdba6d2ce3576f7e886412664221b8.ctex"]
+source_file="res://assets/sprites/slimes/explotion-Sheet.png"
+dest_files=["res://.godot/imported/explotion-Sheet.png-b9019707099b560af9b0a76439988283.ctex"]
 
 [params]
 

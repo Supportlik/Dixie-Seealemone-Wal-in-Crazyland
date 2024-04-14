@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1752johr171c"
-path="res://.godot/imported/rocks_1.png-d1acbae756c01915b7c46fdf259be3c3.ctex"
+uid="uid://cyipbgnpm7nl6"
+path="res://.godot/imported/Fireslmie-Sheet.png-f04660ac51736a4113f6d34e0ffc34e2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/placeholder_parallax/bg1/rocks_1.png"
-dest_files=["res://.godot/imported/rocks_1.png-d1acbae756c01915b7c46fdf259be3c3.ctex"]
+source_file="res://assets/sprites/slimes/Fireslmie-Sheet.png"
+dest_files=["res://.godot/imported/Fireslmie-Sheet.png-f04660ac51736a4113f6d34e0ffc34e2.ctex"]
 
 [params]
 

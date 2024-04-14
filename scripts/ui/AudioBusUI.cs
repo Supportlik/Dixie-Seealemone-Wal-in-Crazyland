@@ -76,7 +76,7 @@ public partial class AudioBusUI : VBoxContainer{
             switch (_name)
             {
                 case "Master":
-                GD.Print(value);
+                // GD.Print(value);
                 _autoLoader.AudioService.SetMasterVolume((float)value);
                 break;
                 case "Music":

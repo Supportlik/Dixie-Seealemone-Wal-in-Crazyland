@@ -25,19 +25,21 @@ public partial class ScoreService : Node
     /// </summary>
     /// <param name="score">Die Anzahl der Punkte, die bei diesem Ereignis erzielt wurden.</param>
     /// <param name="scoreType">Der Typ des Ereignisses, bei dem die Punkte erzielt wurden.</param>
-    private void OnScoreEvent(int score, ScoreType scoreType)
+    public void OnScoreEvent(int score, ScoreType scoreType)
     {
         _score += score;
         var scoreEvent = new ScoreEvent(score, scoreType, DateTime.Now);
         _scoreEvents.AddLast(scoreEvent);
     }
 
+    public int Score => _score;
+
     /// <summary>
     /// Summiert die Punkte für einen bestimmten ScoreType.
     /// </summary>
     /// <param name="scoreType">Der Typ des Ereignisses, für das die Punkte summiert werden sollen.</param>
     /// <returns>Die Summe der Punkte für den gegebenen ScoreType.</returns>
-    private int SummarizeScoreForType(ScoreType scoreType)
+    public int SummarizeScoreForType(ScoreType scoreType)
     {
         return _scoreEvents
             .Where(scoreEvent => scoreEvent.ScoreType == scoreType)
@@ -47,7 +49,7 @@ public partial class ScoreService : Node
     /// <summary>
     /// Setzt die Punktzahl zurück und löscht alle ScoreEvent-Objekte aus der Liste.
     /// </summary>
-    private void ResetScore(ScoreEvent scoreEvent)
+    public void ResetScore(ScoreEvent scoreEvent)
     {
         _score = 0;
         _scoreEvents.Clear();
