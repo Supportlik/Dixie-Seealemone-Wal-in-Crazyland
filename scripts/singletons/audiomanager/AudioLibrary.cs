@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using Godot;
 
 public class AudioLibrary
@@ -40,10 +39,16 @@ public class AudioLibrary
                 {
                     // GD.Print($"Found file: {fileName}");
                     var ext = Path.GetExtension(fileName);
-                    if (ext is ".mp3" or ".wav")
+                    if (ext is ".import")
                     {
-                        // GD.Print($"AudioStream file from: {path + fileName}");
-                        AddAudioStream(fileName, GD.Load<AudioStream>(path + fileName));
+                        fileName = Path.GetFileNameWithoutExtension(fileName);
+                        ext = Path.GetExtension(fileName);
+                        // GD.Print($"File without import: {path + fileName}");
+                        if (ext is ".mp3" or ".wav")
+                        {
+                            GD.Print($"AudioStream file from: {path + fileName}");
+                            AddAudioStream(fileName, GD.Load<AudioStream>(path + fileName));
+                        }
                     }
                 }
 

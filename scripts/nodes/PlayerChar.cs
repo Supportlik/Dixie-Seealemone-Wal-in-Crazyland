@@ -4,9 +4,11 @@ using MasterofElements.scripts.singletons;
 
 public partial class PlayerChar : CharacterBody2D
 {
+    [Export] public float Speed = 20000.0f;
+    [Export] public float JumpVelocity = -700.0f;
+
     private AutoLoader _autoLoader;
-    public const float Speed = 20000.0f;
-    public const float JumpVelocity = -400.0f;
+
 
     public const int PlattformCollisionMask = 7;
 
