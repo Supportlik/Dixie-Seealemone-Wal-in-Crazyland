@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cr7u7plx48sxr"]
 
-[ext_resource type="PackedScene" path="res://scenes/nodes/info_board.tscn" id="1_jifd4"]
+[ext_resource type="PackedScene" uid="uid://bj51g11mi4xsh" path="res://scenes/nodes/info_board.tscn" id="1_jifd4"]
 [ext_resource type="TileSet" uid="uid://bwxywrir2jgu0" path="res://assets/sprites/tileset/tileset_jungle.tres" id="1_lojut"]
 [ext_resource type="PackedScene" uid="uid://c3o5h3mbim5ft" path="res://scenes/nodes/player_cam.tscn" id="2_sb354"]
 [ext_resource type="PackedScene" uid="uid://dfnryuic1k8ol" path="res://scenes/nodes/parallax_background.tscn" id="3_74gx7"]
@@ -13,8 +13,8 @@
 [node name="Enviroment" type="Node2D" parent="."]
 
 [node name="InfoBoard" parent="Enviroment" instance=ExtResource("1_jifd4")]
-position = Vector2(117, 932)
-InfoText = "Michi ist doof"
+position = Vector2(119, 948)
+InfoText = "Pascal ist doof"
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_lojut")

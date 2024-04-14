@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://valyxbf62rqk"]
+[gd_scene load_steps=4 format=3 uid="uid://bj51g11mi4xsh"]
 
 [ext_resource type="Texture2D" uid="uid://cuava3v0mejc" path="res://assets/sprites/Wooden_Board.png" id="1_de65m"]
 [ext_resource type="Script" path="res://scripts/nodes/InfoBoard.cs" id="1_n40jh"]
@@ -7,8 +7,9 @@
 size = Vector2(40, 50)
 
 [node name="InfoBoard" type="Area2D"]
-collision_layer = 128
-collision_mask = 2
+z_index = -1
+collision_layer = 0
+collision_mask = 128
 script = ExtResource("1_n40jh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
