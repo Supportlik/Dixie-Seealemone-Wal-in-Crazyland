@@ -1,0 +1,73 @@
+[gd_scene load_steps=8 format=3 uid="uid://cojfhm6pn1mgo"]
+
+[ext_resource type="Texture2D" uid="uid://b46pmmcyhonii" path="res://assets/sprites/ui/Option_Button_Unpressed.png" id="1_sx0ed"]
+[ext_resource type="Texture2D" uid="uid://bn1t704pasq0i" path="res://assets/sprites/ui/Menu_Button_Unpressed.png" id="1_u6nvj"]
+[ext_resource type="Script" path="res://scripts/ui/PauseMenuController.cs" id="1_wk532"]
+[ext_resource type="Texture2D" uid="uid://buosoaxqakyhm" path="res://assets/sprites/ui/Option_Button_Pressed.png" id="2_57rbh"]
+[ext_resource type="Texture2D" uid="uid://cav3rwpmf4qwh" path="res://assets/sprites/ui/Menu_Button_Pressed.png" id="2_xa10i"]
+[ext_resource type="Texture2D" uid="uid://uli1bv6yvuux" path="res://assets/sprites/ui/Resume_Button_Unpressed.png" id="5_8qged"]
+[ext_resource type="Texture2D" uid="uid://cahp206r5a7rc" path="res://assets/sprites/ui/Resume_Button_Pressed.png" id="6_qxxld"]
+
+[node name="PauseMenuContent" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+script = ExtResource("1_wk532")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="MenuButtonControl" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="MenuButton" type="TextureButton" parent="VBoxContainer/MenuButtonControl"]
+process_mode = 1
+texture_filter = 1
+layout_mode = 0
+offset_left = -96.0
+offset_top = -48.0
+offset_right = -32.0
+offset_bottom = -8.0
+scale = Vector2(3, 3)
+texture_normal = ExtResource("1_u6nvj")
+texture_pressed = ExtResource("2_xa10i")
+
+[node name="OptionButtonControl" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="OptionButton" type="TextureButton" parent="VBoxContainer/OptionButtonControl"]
+process_mode = 1
+texture_filter = 1
+layout_mode = 0
+offset_left = -120.0
+offset_top = -48.0
+offset_right = -40.0
+offset_bottom = -8.0
+scale = Vector2(3, 3)
+texture_normal = ExtResource("1_sx0ed")
+texture_pressed = ExtResource("2_57rbh")
+
+[node name="ResumeButtonControl" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="ResumeButton" type="TextureButton" parent="VBoxContainer/ResumeButtonControl"]
+process_mode = 1
+texture_filter = 1
+layout_mode = 0
+offset_left = -120.0
+offset_top = -48.0
+offset_right = -40.0
+offset_bottom = -8.0
+scale = Vector2(3, 3)
+texture_normal = ExtResource("5_8qged")
+texture_pressed = ExtResource("6_qxxld")
+
+[connection signal="pressed" from="VBoxContainer/MenuButtonControl/MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/OptionButtonControl/OptionButton" to="." method="_on_option_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ResumeButtonControl/ResumeButton" to="." method="_on_resume_button_pressed"]

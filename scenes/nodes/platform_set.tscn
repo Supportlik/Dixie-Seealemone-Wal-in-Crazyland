@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4jfoxxw23kg5"]
+
+[ext_resource type="PackedScene" uid="uid://be6wwkxqo480y" path="res://scenes/nodes/movable_platform.tscn" id="1_8ilqd"]
+[ext_resource type="TileSet" uid="uid://cs6upsotfmx8t" path="res://assets/sprites/tileset/tileset_jungle_no_physics.tres" id="2_brxir"]
+
+[node name="PlatformSet" type="Node2D"]
+
+[node name="StartPos" type="Node2D" parent="."]
+
+[node name="Start" type="Marker2D" parent="StartPos"]
+
+[node name="MovablePlatform" parent="StartPos" node_paths=PackedStringArray("StartMarker", "EndMarker", "Shadow") instance=ExtResource("1_8ilqd")]
+StartMarker = NodePath("../Start")
+EndMarker = NodePath("../../EndPos/End")
+Shadow = NodePath("../../EndPos/TileMap")
+
+[node name="EndPos" type="Node2D" parent="."]
+position = Vector2(-85, 2)
+metadata/_edit_group_ = true
+
+[node name="End" type="Marker2D" parent="EndPos"]
+
+[node name="TileMap" type="TileMap" parent="EndPos"]
+modulate = Color(1, 1, 1, 0.360784)
+tile_set = ExtResource("2_brxir")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 327684, 5, 1, 393220, 5)

@@ -6,8 +6,10 @@
 script = ExtResource("1_o4vd3")
 
 [node name="LevelLimitLB" type="Marker2D" parent="."]
+position = Vector2(0, 1080)
 
 [node name="LevelLimitRT" type="Marker2D" parent="."]
+position = Vector2(1920, 0)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)

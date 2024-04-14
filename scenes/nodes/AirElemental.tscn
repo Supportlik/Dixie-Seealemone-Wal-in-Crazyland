@@ -1,0 +1,491 @@
+[gd_scene load_steps=40 format=3 uid="uid://3pj3bk3k1elv"]
+
+[ext_resource type="Texture2D" uid="uid://csynt11polyqj" path="res://assets/sprites/elemental/air-Sheet.png" id="1_tn2if"]
+[ext_resource type="Texture2D" uid="uid://cf6ku8f2oa1e7" path="res://assets/sprites/elemental/air-Sheet_blitze.png" id="2_gynga"]
+
+[sub_resource type="Animation" id="Animation_312t3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprites/Sprite2DWolke:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprites/Sprite2DBlitzeKlein:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprites/Sprite2DBlitzeKlein:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprites/Sprite2DBlitze2Mittel:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprites/Sprite2DBlitze3Groß:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprites/Sprite2DBlitze3Groß:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sprites/Sprite2DBlitze2Mittel:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_cabsx"]
+resource_name = "bounce"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprites/Sprite2DWolke:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [6, 10, 6]
+}
+
+[sub_resource type="Animation" id="Animation_inemn"]
+resource_name = "bounce_gewitter"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprites/Sprite2DWolke:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [26, 29, 26]
+}
+
+[sub_resource type="Animation" id="Animation_371cv"]
+resource_name = "disapear"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprites/Sprite2DWolke:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [30, 34]
+}
+
+[sub_resource type="Animation" id="Animation_wofl2"]
+resource_name = "fly"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprites/Sprite2DWolke:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [13, 14]
+}
+
+[sub_resource type="Animation" id="Animation_qpyu3"]
+resource_name = "gewitter"
+length = 0.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprites/Sprite2DWolke:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [19, 22, 25]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprites/Sprite2DBlitzeKlein:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprites/Sprite2DBlitzeKlein:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [22, 25]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprites/Sprite2DBlitze2Mittel:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprites/Sprite2DBlitze3Groß:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprites/Sprite2DBlitze3Groß:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [22, 25]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sprites/Sprite2DBlitze2Mittel:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [22, 25]
+}
+
+[sub_resource type="Animation" id="Animation_b16kl"]
+resource_name = "idle"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprites/Sprite2DWolke:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_jxqnb"]
+resource_name = "mandown"
+length = 0.4
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprites/Sprite2DWolke:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [15, 18]
+}
+
+[sub_resource type="Animation" id="Animation_fawch"]
+resource_name = "manup"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprites/Sprite2DWolke:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [10, 12]
+}
+
+[sub_resource type="Animation" id="Animation_jeexv"]
+resource_name = "summon"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprites/Sprite2DWolke:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bsjxg"]
+_data = {
+"RESET": SubResource("Animation_312t3"),
+"bounce": SubResource("Animation_cabsx"),
+"bounce_gewitter": SubResource("Animation_inemn"),
+"disapear": SubResource("Animation_371cv"),
+"fly": SubResource("Animation_wofl2"),
+"gewitter": SubResource("Animation_qpyu3"),
+"idle": SubResource("Animation_b16kl"),
+"mandown": SubResource("Animation_jxqnb"),
+"manup": SubResource("Animation_fawch"),
+"summon": SubResource("Animation_jeexv")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ph6my"]
+animation = &"bounce"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hyys1"]
+animation = &"bounce_gewitter"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7qkuo"]
+animation = &"disapear"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_f2607"]
+animation = &"fly"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_a3aco"]
+animation = &"gewitter"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qas8w"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wyama"]
+animation = &"mandown"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4kt4s"]
+animation = &"manup"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_551kk"]
+animation = &"summon"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_o86qu"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ebpon"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8e4um"]
+advance_mode = 2
+advance_condition = &"on_disapear"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uyme2"]
+advance_mode = 2
+advance_condition = &"on_bounce"
+advance_expression = "!self.get(\"parameters/conditions/on_disapear\")"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2og08"]
+advance_mode = 2
+advance_condition = &"on_fly"
+advance_expression = "!self.get(\"parameters/conditions/on_disapear\")"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pl4hc"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6u0ye"]
+advance_mode = 2
+advance_expression = "!self.get(\"parameters/conditions/on_fly\") ||
+self.get(\"parameters/conditions/on_disapear\")
+ "
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3p36u"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ryx7v"]
+advance_mode = 2
+advance_condition = &"on_attack"
+advance_expression = "!self.get(\"parameters/conditions/on_disapear\")"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xnq75"]
+advance_mode = 2
+advance_condition = &"on_disapear"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_l74qk"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uc3du"]
+advance_mode = 2
+advance_condition = &"on_bounce"
+advance_expression = "!self.get(\"parameters/conditions/on_disapear\")"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sctk2"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_j6ik3"]
+advance_mode = 2
+advance_expression = "!self.get(\"parameters/conditions/on_attack\")
+ "
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_iamle"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nx00b"]
+advance_mode = 2
+advance_condition = &"on_fly"
+advance_expression = "!self.get(\"parameters/conditions/on_disapear\")
+ "
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ix4kb"]
+states/Start/position = Vector2(281, -86)
+states/bounce/node = SubResource("AnimationNodeAnimation_ph6my")
+states/bounce/position = Vector2(355, 113)
+states/bounce_gewitter/node = SubResource("AnimationNodeAnimation_hyys1")
+states/bounce_gewitter/position = Vector2(951, 323)
+states/disapear/node = SubResource("AnimationNodeAnimation_7qkuo")
+states/disapear/position = Vector2(759, 100)
+states/fly/node = SubResource("AnimationNodeAnimation_f2607")
+states/fly/position = Vector2(583, 309)
+states/gewitter/node = SubResource("AnimationNodeAnimation_a3aco")
+states/gewitter/position = Vector2(820, 214)
+states/idle/node = SubResource("AnimationNodeAnimation_qas8w")
+states/idle/position = Vector2(558, 100)
+states/mandown/node = SubResource("AnimationNodeAnimation_wyama")
+states/mandown/position = Vector2(589, 235)
+states/manup/node = SubResource("AnimationNodeAnimation_4kt4s")
+states/manup/position = Vector2(469, 435)
+states/summon/node = SubResource("AnimationNodeAnimation_551kk")
+states/summon/position = Vector2(380, -25)
+transitions = ["Start", "summon", SubResource("AnimationNodeStateMachineTransition_o86qu"), "summon", "idle", SubResource("AnimationNodeStateMachineTransition_ebpon"), "idle", "disapear", SubResource("AnimationNodeStateMachineTransition_8e4um"), "idle", "bounce", SubResource("AnimationNodeStateMachineTransition_uyme2"), "idle", "manup", SubResource("AnimationNodeStateMachineTransition_2og08"), "manup", "fly", SubResource("AnimationNodeStateMachineTransition_pl4hc"), "fly", "mandown", SubResource("AnimationNodeStateMachineTransition_6u0ye"), "mandown", "idle", SubResource("AnimationNodeStateMachineTransition_3p36u"), "idle", "gewitter", SubResource("AnimationNodeStateMachineTransition_ryx7v"), "gewitter", "disapear", SubResource("AnimationNodeStateMachineTransition_xnq75"), "bounce", "idle", SubResource("AnimationNodeStateMachineTransition_l74qk"), "gewitter", "bounce_gewitter", SubResource("AnimationNodeStateMachineTransition_uc3du"), "bounce_gewitter", "gewitter", SubResource("AnimationNodeStateMachineTransition_sctk2"), "gewitter", "idle", SubResource("AnimationNodeStateMachineTransition_j6ik3"), "disapear", "summon", SubResource("AnimationNodeStateMachineTransition_iamle"), "gewitter", "manup", SubResource("AnimationNodeStateMachineTransition_nx00b")]
+graph_offset = Vector2(-25, -156)
+
+[node name="WindElemental" type="Node2D"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_bsjxg")
+}
+
+[node name="Sprites" type="Node2D" parent="."]
+
+[node name="Sprite2DBlitzeKlein" type="Sprite2D" parent="Sprites"]
+visible = false
+rotation = 0.575959
+texture = ExtResource("2_gynga")
+hframes = 35
+
+[node name="Sprite2DWolke" type="Sprite2D" parent="Sprites"]
+texture = ExtResource("1_tn2if")
+hframes = 35
+frame = 4
+
+[node name="Sprite2DBlitze2Mittel" type="Sprite2D" parent="Sprites"]
+visible = false
+rotation = 1.5708
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_gynga")
+hframes = 35
+
+[node name="Sprite2DBlitze3Groß" type="Sprite2D" parent="Sprites"]
+visible = false
+rotation = 2.53073
+scale = Vector2(2, 2)
+texture = ExtResource("2_gynga")
+hframes = 35
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_bsjxg")
+}
+tree_root = SubResource("AnimationNodeStateMachine_ix4kb")
+anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/on_attack = false
+parameters/conditions/on_bounce = false
+parameters/conditions/on_disapear = false
+parameters/conditions/on_fly = false

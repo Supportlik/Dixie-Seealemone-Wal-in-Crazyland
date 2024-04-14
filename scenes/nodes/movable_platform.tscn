@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://be6wwkxqo480y"]
+
+[ext_resource type="Script" path="res://scripts/nodes/MovablePlatform.cs" id="1_jtj7u"]
+[ext_resource type="TileSet" uid="uid://cs6upsotfmx8t" path="res://assets/sprites/tileset/tileset_jungle_no_physics.tres" id="2_5i2vq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oq085"]
+size = Vector2(63, 31)
+
+[node name="MovablePlatform" type="AnimatableBody2D"]
+collision_layer = 64
+collision_mask = 0
+script = ExtResource("1_jtj7u")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("2_5i2vq")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 720900, 3, 1, 851972, 3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(32.5, 15.5)
+shape = SubResource("RectangleShape2D_oq085")
+one_way_collision = true
