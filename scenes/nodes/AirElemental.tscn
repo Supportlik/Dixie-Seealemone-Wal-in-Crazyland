@@ -490,6 +490,7 @@ parameters/conditions/on_disapear = false
 parameters/conditions/on_fly = false
 
 [node name="DieTimer" type="Timer" parent="."]
+wait_time = 10.0
 one_shot = true
 autostart = true
 

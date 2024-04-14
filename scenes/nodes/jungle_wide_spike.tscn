@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://daxx4hurhhut2"]
+
+[ext_resource type="PackedScene" uid="uid://b48xpaicg7oit" path="res://scenes/nodes/wide_spike.tscn" id="1_p4boh"]
+
+[node name="JungleWideSpike" instance=ExtResource("1_p4boh")]
+
+[node name="TileMap" parent="." index="0"]
+layer_0/tile_data = PackedInt32Array(0, 1376256, 12, 1, 1441792, 12, -65535, 1441792, 11, -65534, 1507328, 11, 2, 1507328, 12, 3, 1572864, 12)

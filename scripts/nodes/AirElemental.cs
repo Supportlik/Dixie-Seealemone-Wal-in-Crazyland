@@ -12,6 +12,7 @@ public partial class AirElemental : Node2D
 
     private ElementalState _elementalState;
     private Node2D _elementalChar;
+    private Sprite2D _sprite;
 
     [Export] public float Speed = 500;
 
@@ -22,13 +23,37 @@ public partial class AirElemental : Node2D
         _animationTree = GetNode<AnimationTree>("AnimationTree");
         _playerClickMarker = GetNode<Marker2D>("PlayerClickMarker");
         _elementalChar = GetNode<Node2D>("ElementalChar");
+        _sprite = GetNode<Sprite2D>("ElementalChar/Sprites/Sprite2DWolke");
         _elementalState = ElementalState.OnIdle;
     }
 
-    // Called every frame. 'delta' is the elapsed time since the previous frame.
-    public override void _Process(double delta)
+    public override void _PhysicsProcess(double delta)
     {
-        
+        HandleMovement(delta);
+    }
+
+    public void HandleMovement(double delta)
+    {
+        if (_elementalState == ElementalState.OnFly)
+        {
+            var direction = (_playerClickMarker.GlobalPosition - _elementalChar.GlobalPosition).Normalized();
+            if (direction.X >= 0)
+            {
+                _sprite.FlipH = true;
+            }
+            else
+            {
+                _sprite.FlipH = false;
+            }
+
+            _elementalChar.GlobalPosition += direction * Speed * (float)delta;
+
+            if (_elementalChar.GlobalPosition.DistanceTo(_playerClickMarker.GlobalPosition) < 5)
+            {
+                SetState(ElementalState.OnIdle);
+                CallOnFly(false);
+            }
+        }
     }
 
     public override void _Input(InputEvent @event)
@@ -36,22 +61,22 @@ public partial class AirElemental : Node2D
         if (Input.IsActionJustPressed("move_summon"))
         {
             var mousePosition = GetGlobalMousePosition();
-            
-            
-            
             _playerClickMarker.GlobalPosition = mousePosition;
+            CallOnFly(true);
         }
 
         if (Input.IsActionJustPressed("event_summon"))
         {
-            
-        }    
+        }
     }
-
 
 
     public void SetState(ElementalState state)
     {
+        var oldState = _elementalState;
+        var newState = state;
+        _elementalState = state;
+
         switch (_elementalState)
         {
             // muss bei überschneidung gesetzt werden.
@@ -86,6 +111,7 @@ public partial class AirElemental : Node2D
     public void CallDisapear()
     {
         _animationTree.Set("parameters/conditions/on_disapear", true);
+        SetState(ElementalState.OnDisapear);
     }
 
     public void CallOnBounce()

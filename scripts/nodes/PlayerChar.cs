@@ -7,6 +7,7 @@ public partial class PlayerChar : CharacterBody2D
 {
     [Export] public float Speed = 20000.0f;
     [Export] public float JumpVelocity = -700.0f;
+    [Export] public float HurtVelocity = -200.0f;
 
     private AutoLoader _autoLoader;
 
@@ -25,6 +26,9 @@ public partial class PlayerChar : CharacterBody2D
     private bool _animationFinish = true;
     private Marker2D _elementalSummonerMarker;
 
+    private Timer _invincibleTimer;
+    private bool _invincible = false;
+
     public override void _Ready()
     {
         base._Ready();
@@ -34,6 +38,29 @@ public partial class PlayerChar : CharacterBody2D
         _audioStreamPlayer2D = GetNode<AudioStreamPlayer2D>("AudioStreamPlayer2D");
         _airElemental.Instantiate();
         _elementalSummonerMarker = GetNode<Marker2D>("ElementalSummonerMarker");
+        _invincibleTimer = GetNode<Timer>("InvincibleTimer");
+    }
+
+    public void HurtPlayer()
+    {
+        if (_invincible)
+            return;
+        _invincible = true;
+        _invincibleTimer.Start();
+        _autoLoader.AudioService.PlaySfx("characterDamage2.mp3", this, "hurt");
+        double time = _invincibleTimer.WaitTime;
+        Velocity += new Vector2(0, HurtVelocity);
+        var tween = CreateTween();
+
+        tween.TweenProperty(_playerSprite2D, "modulate:a", 0, (float)time / 4);
+        tween.TweenProperty(_playerSprite2D, "modulate:a", 1, (float)time / 4);
+        tween.TweenProperty(_playerSprite2D, "modulate:a", 0, (float)time / 4);
+        tween.TweenProperty(_playerSprite2D, "modulate:a", 1, (float)time / 4);
+    }
+
+    public void OnInvincibleTimerTimeout()
+    {
+        _invincible = false;
     }
 
     public override void _PhysicsProcess(double delta)
@@ -153,6 +180,7 @@ public partial class PlayerChar : CharacterBody2D
 
     public void SummonAirElemental()
     {
+        HurtPlayer();
         var spawnNode = GetTree().GetFirstNodeInGroup(GroupNames.SpawnGroup);
 
         if (spawnNode == null)
@@ -249,5 +277,31 @@ public partial class PlayerChar : CharacterBody2D
     private void OnAnimationFinished(StringName stringName)
     {
         _animationFinish = true;
+    }
+
+    private void OnBodyEntered(Node2D node2D)
+    {
+        GD.Print("OnBodyEntered:\n" + node2D.GetTreeStringPretty());
+        if (node2D.IsInGroup(GroupNames.Enemy))
+        {
+            HurtPlayer();
+        }
+    }
+
+    private void OnBodyExited(Node2D node2D)
+    {
+    }
+
+    private void OnAreaEntered(Area2D area2D)
+    {
+        GD.Print("ON AREA ENTERED:\n" + area2D.GetTreeStringPretty());
+        if (area2D.IsInGroup(GroupNames.Enemy))
+        {
+            HurtPlayer();
+        }
+    }
+
+    private void OnAreaExited(Area2D area2D)
+    {
     }
 }
