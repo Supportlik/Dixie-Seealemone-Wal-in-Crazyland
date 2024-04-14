@@ -11,7 +11,7 @@ public partial class player : CharacterBody2D
 
 	public float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
 
-	private Sprite2D _playerSprite2D;
+	private Godot.Sprite2D _playerSprite2D;
 	private AudioStreamPlayer2D _audioStreamPlayer2D;
 	private AnimationPlayer _animationPlayer;
 	private PlayerState _playerState;
@@ -22,7 +22,7 @@ public partial class player : CharacterBody2D
 		base._Ready();
 		_autoLoader = new AutoLoader(this);
 		_animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
-		_playerSprite2D = GetNode<Sprite2D>("Sprite2D");
+		_playerSprite2D = GetNode<Godot.Sprite2D>("PlayerSprite2D");
 		_audioStreamPlayer2D = GetNode<AudioStreamPlayer2D>("AudioStreamPlayer2D");
 	}
 
@@ -127,7 +127,7 @@ public partial class player : CharacterBody2D
 	{
 		if (newPlayerState == _playerState)
 		{
-            
+			
 		}
 
 		if (_playerState == PlayerState.Fall)
@@ -137,7 +137,7 @@ public partial class player : CharacterBody2D
 				
 			}
 		}
-        
+		
 
 		_playerState = newPlayerState;
 
@@ -151,7 +151,7 @@ public partial class player : CharacterBody2D
 				break;
 			case PlayerState.Jump:
 				_animationPlayer.Play("jump");
-				_autoLoader.AudioService.PlaySFX("jump.mp3", this);
+				//_autoLoader.AudioService.PlaySFX("jump.mp3", this);
 				break;
 			case PlayerState.Fall:
 				_animationPlayer.Play("fall");
@@ -176,7 +176,7 @@ public partial class player : CharacterBody2D
 				break;
 		}
 	}
-    
+	
 	public PlayerState PlayerState
 	{
 		get => _playerState;
@@ -185,7 +185,7 @@ public partial class player : CharacterBody2D
 
 	public void PlayWalkSound()
 	{
-		_autoLoader.AudioService.PlaySFX("Walk.mp3", this);
+		//_autoLoader.AudioService.PlaySFX("Walk.mp3", this);
 	}
 
 	private void OnAnimationFinished()
