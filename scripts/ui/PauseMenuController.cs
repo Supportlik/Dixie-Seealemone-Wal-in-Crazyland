@@ -14,17 +14,17 @@ public partial class PauseMenuController : VBoxContainer
         _autoLoader = new AutoLoader(this);
     }
     private void _on_menu_button_pressed(){
-        GD.Print("test");
+        // GD.Print("test");
         _autoLoader.SceneSwitcherService.SwitchScene(AllScenes.StartMenu);
     }
 
     private void _on_option_button_pressed(){
-        GD.Print("test");
+        // GD.Print("test");
         EmitSignal(SignalName.ClosePauseMenu);
     }
 
     private void _on_resume_button_pressed(){
-        GD.Print("test");
+        // GD.Print("test");
         EmitSignal(SignalName.ResumeGame);
     }
 }

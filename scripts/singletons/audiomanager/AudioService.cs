@@ -23,7 +23,6 @@ public partial class AudioService : Node
 
     public override void _Ready()
     {
-        GD.Print("Hi");
         _autoLoader = new AutoLoader(this);
 
         _setUpAudio();

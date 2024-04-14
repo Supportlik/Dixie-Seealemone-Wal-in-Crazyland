@@ -51,7 +51,6 @@ public partial class Slime : CharacterBody2D
         }
         else
         {
-            GD.Print((int)_facing);
             velocity.X = (int)_facing * MoveSpeed * (float)delta;
         }
 
