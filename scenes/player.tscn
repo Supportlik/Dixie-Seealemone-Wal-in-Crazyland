@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://d2udsxyfw30as"]
+[gd_scene load_steps=17 format=3 uid="uid://coj3y1lml8jy"]
 
 [ext_resource type="Script" path="res://scripts/nodes/PlayerChar.cs" id="1_82quy"]
 [ext_resource type="Texture2D" uid="uid://0kpo36kdo8e2" path="res://assets/sprites/Player/Wizard_all animations3.png" id="2_lwj5a"]
@@ -221,6 +221,8 @@ position = Vector2(0, 14)
 shape = SubResource("CapsuleShape2D_wlr0r")
 
 [node name="HitBox" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 129
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(0, 14)
