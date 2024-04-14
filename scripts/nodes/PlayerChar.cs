@@ -28,9 +28,8 @@ public partial class PlayerChar : CharacterBody2D
 
     private Timer _invincibleTimer;
     private bool _invincible = false;
-    
-    
-    
+
+
     public override void _Ready()
     {
         base._Ready();
@@ -182,7 +181,6 @@ public partial class PlayerChar : CharacterBody2D
 
     public void SummonAirElemental()
     {
-        HurtPlayer();
         var spawnNode = GetTree().GetFirstNodeInGroup(GroupNames.SpawnGroup);
 
         if (spawnNode == null)
