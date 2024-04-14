@@ -40,6 +40,7 @@ public partial class Slime : CharacterBody2D
 		if (Hp <= 0)
 		{
 			Die();
+			return;
 		}
 		
 		Vector2 velocity = Velocity;
