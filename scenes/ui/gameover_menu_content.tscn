@@ -1,18 +1,22 @@
-[gd_scene load_steps=9 format=3 uid="uid://dlelx8fosbudv"]
+[gd_scene load_steps=10 format=3 uid="uid://dlelx8fosbudv"]
 
 [ext_resource type="Script" path="res://scripts/ui/GameOverMenuController.cs" id="1_3hean"]
 [ext_resource type="Texture2D" uid="uid://bn1t704pasq0i" path="res://assets/sprites/ui/Menu_Button_Unpressed.png" id="1_jjgvg"]
+[ext_resource type="FontFile" uid="uid://de2l1ue2b5npb" path="res://assets/fonts/Kenney Pixel Square.ttf" id="2_6cqd5"]
 [ext_resource type="Texture2D" uid="uid://cav3rwpmf4qwh" path="res://assets/sprites/ui/Menu_Button_Pressed.png" id="2_yesxt"]
 [ext_resource type="Texture2D" uid="uid://cu3bf2ivv7orn" path="res://assets/sprites/ui/Restart_Button_Unpressed.png" id="3_cv5oe"]
 [ext_resource type="Texture2D" uid="uid://cs0pki212svwu" path="res://assets/sprites/ui/Restart_Button_Pressed.png" id="4_rd0es"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_r6fwt"]
+font = ExtResource("2_6cqd5")
 font_size = 48
 
 [sub_resource type="LabelSettings" id="LabelSettings_kvany"]
+font = ExtResource("2_6cqd5")
 font_size = 32
 
 [sub_resource type="LabelSettings" id="LabelSettings_gy5sv"]
+font = ExtResource("2_6cqd5")
 font_size = 32
 
 [node name="VBoxContainer" type="VBoxContainer"]
@@ -21,7 +25,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 60
+theme_override_constants/separation = 50
 alignment = 1
 script = ExtResource("1_3hean")
 

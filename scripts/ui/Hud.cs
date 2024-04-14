@@ -14,11 +14,19 @@ public partial class Hud : CanvasLayer
         _score = GetNode<Label>("VBoxContainer/MarginContainer/Label");
     }
 
+    private void ClearHearts(){
+        foreach (var node in _heartContainerList.GetChildren())
+        {
+            _heartContainerList.RemoveChild(node);
+        }
+    }
+
     public void SetScore(int score){
         _score.Text = "Score: " + score.ToString();
     }
 
     public void SetHP(int hp){
+        ClearHearts();
         for (int i = 0; i < hp; i++)
         {
             _heartContainerList.AddChild(_heartContainer.Instantiate<TextureRect>());
