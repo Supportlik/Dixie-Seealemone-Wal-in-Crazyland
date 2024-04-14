@@ -1,15 +1,16 @@
 using Godot;
+using MasterofElements.scripts.singletons;
 
 public partial class BaseLevel : Node2D
 {
-    private Hud _hud;
+    private AutoLoader _autoLoader;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-        _hud = GetNode<Hud>("HUD");
-        _hud.SetScore(9999);
-        _hud.SetHP(5);
+        _autoLoader = new AutoLoader(this);
+        _autoLoader.GameManager.StartGame();
+        _autoLoader.AudioService.PlayMusic("Ludum_Dare_55_Game_Background_Music.mp3", this, "background_music_game");
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.

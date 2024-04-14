@@ -15,11 +15,18 @@ public partial class ScoreService : Node
     /// </summary>
     private int _score = 0;
 
+    private AutoLoader _autoLoader;
+
     /// <summary>
     /// Eine Liste aller ScoreEvent-Objekte, die die erzielten Punkte und den Typ des Ereignisses enthalten.
     /// </summary>
     private readonly LinkedList<ScoreEvent> _scoreEvents = new();
-    
+
+    public override void _Ready()
+    {
+        _autoLoader = new AutoLoader(this);
+    }
+
     /// <summary>
     /// Wird aufgerufen, wenn ein ScoreEvent auftritt. Aktualisiert die Punktzahl und fügt das Ereignis zur Liste hinzu.
     /// </summary>
@@ -28,6 +35,7 @@ public partial class ScoreService : Node
     public void OnScoreEvent(int score, ScoreType scoreType)
     {
         _score += score;
+        _autoLoader.SignalManager.EmitSignal(SignalManager.SignalName.OnScoreChanged);
         var scoreEvent = new ScoreEvent(score, scoreType, DateTime.Now);
         _scoreEvents.AddLast(scoreEvent);
     }
@@ -49,7 +57,7 @@ public partial class ScoreService : Node
     /// <summary>
     /// Setzt die Punktzahl zurück und löscht alle ScoreEvent-Objekte aus der Liste.
     /// </summary>
-    public void ResetScore(ScoreEvent scoreEvent)
+    public void ResetScore()
     {
         _score = 0;
         _scoreEvents.Clear();

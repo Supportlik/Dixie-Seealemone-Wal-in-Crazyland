@@ -10,4 +10,13 @@ public partial class SignalManager : Node
 
     [Signal]
     public delegate void OnPlayerHurtEventHandler();
+
+    [Signal]
+    public delegate void OnPlayerSetHpEventHandler(int hearts);
+
+    [Signal]
+    public delegate void OnPlayerDeadEventHandler();
+
+    [Signal]
+    public delegate void OnScoreChangedEventHandler();
 }

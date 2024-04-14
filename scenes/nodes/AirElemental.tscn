@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://3pj3bk3k1elv"]
+[gd_scene load_steps=42 format=3 uid="uid://3pj3bk3k1elv"]
 
 [ext_resource type="Script" path="res://scripts/nodes/AirElemental.cs" id="1_juddw"]
 [ext_resource type="Texture2D" uid="uid://csynt11polyqj" path="res://assets/sprites/elemental/air-Sheet.png" id="1_tn2if"]
@@ -93,6 +93,7 @@ tracks/6/keys = {
 
 [sub_resource type="Animation" id="Animation_cabsx"]
 resource_name = "bounce"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -100,7 +101,7 @@ tracks/0/path = NodePath("ElementalChar/Sprites/Sprite2DWolke:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.9),
+"times": PackedFloat32Array(0, 0.1, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [6, 10, 6]
@@ -112,7 +113,7 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.2),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -122,6 +123,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_inemn"]
 resource_name = "bounce_gewitter"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -129,7 +131,7 @@ tracks/0/path = NodePath("ElementalChar/Sprites/Sprite2DWolke:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.9),
+"times": PackedFloat32Array(0, 0.1, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [26, 29, 26]
@@ -141,7 +143,7 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.2),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -284,6 +286,20 @@ tracks/6/keys = {
 "update": 0,
 "values": [22, 25]
 }
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"Attack"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_b16kl"]
 resource_name = "idle"
@@ -304,7 +320,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_jxqnb"]
 resource_name = "mandown"
-length = 0.4
+length = 0.2
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -313,7 +329,7 @@ tracks/0/path = NodePath("ElementalChar/Sprites/Sprite2DWolke:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
+"times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [15, 18]
@@ -321,7 +337,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_fawch"]
 resource_name = "manup"
-length = 0.4
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -329,7 +345,7 @@ tracks/0/path = NodePath("ElementalChar/Sprites/Sprite2DWolke:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
+"times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [10, 12]
@@ -341,7 +357,7 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.4),
+"times": PackedFloat32Array(0.2),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [3],
@@ -496,12 +512,15 @@ states/manup/position = Vector2(469, 435)
 states/summon/node = SubResource("AnimationNodeAnimation_551kk")
 states/summon/position = Vector2(380, -25)
 transitions = ["Start", "summon", SubResource("AnimationNodeStateMachineTransition_o86qu"), "summon", "idle", SubResource("AnimationNodeStateMachineTransition_ebpon"), "idle", "disapear", SubResource("AnimationNodeStateMachineTransition_8e4um"), "idle", "bounce", SubResource("AnimationNodeStateMachineTransition_uyme2"), "idle", "manup", SubResource("AnimationNodeStateMachineTransition_2og08"), "manup", "fly", SubResource("AnimationNodeStateMachineTransition_pl4hc"), "fly", "mandown", SubResource("AnimationNodeStateMachineTransition_6u0ye"), "mandown", "idle", SubResource("AnimationNodeStateMachineTransition_3p36u"), "idle", "gewitter", SubResource("AnimationNodeStateMachineTransition_ryx7v"), "gewitter", "disapear", SubResource("AnimationNodeStateMachineTransition_xnq75"), "bounce", "idle", SubResource("AnimationNodeStateMachineTransition_l74qk"), "gewitter", "bounce_gewitter", SubResource("AnimationNodeStateMachineTransition_uc3du"), "bounce_gewitter", "gewitter", SubResource("AnimationNodeStateMachineTransition_sctk2"), "gewitter", "idle", SubResource("AnimationNodeStateMachineTransition_j6ik3"), "gewitter", "manup", SubResource("AnimationNodeStateMachineTransition_nx00b")]
-graph_offset = Vector2(-25, -156)
+graph_offset = Vector2(-2, -90)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0sycn"]
 size = Vector2(32, 11)
 
-[node name="WindElemental" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_xm3p0"]
+radius = 33.0151
+
+[node name="WindElemental" type="Node2D" groups=["AirElementalRoot"]]
 script = ExtResource("1_juddw")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -552,14 +571,25 @@ hframes = 35
 [node name="Sprite2DBlitze3Groß" type="Sprite2D" parent="ElementalChar/Sprites"]
 visible = false
 rotation = 2.53073
-scale = Vector2(2, 2)
+scale = Vector2(1.6, 1.6)
 texture = ExtResource("2_gynga")
 hframes = 35
 
-[node name="Area2D" type="Area2D" parent="ElementalChar"]
+[node name="PlayerJumpArea" type="Area2D" parent="ElementalChar" groups=["AirElemental", "Elemental"]]
+collision_layer = 2
+collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ElementalChar/Area2D" groups=["AirElemental"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ElementalChar/PlayerJumpArea" groups=["AirElemental"]]
 position = Vector2(0, 2.5)
 shape = SubResource("RectangleShape2D_0sycn")
 
-[connection signal="timeout" from="DieTimer" to="." method="CallDisapear"]
+[node name="EnemyDetectionArea" type="Area2D" parent="ElementalChar" groups=["AirElemental", "Elemental"]]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ElementalChar/EnemyDetectionArea"]
+shape = SubResource("CircleShape2D_xm3p0")
+
+[connection signal="timeout" from="DieTimer" to="." method="Disapear"]
+[connection signal="area_entered" from="ElementalChar/EnemyDetectionArea" to="." method="OnEnemyEntered"]
+[connection signal="area_exited" from="ElementalChar/EnemyDetectionArea" to="." method="OnEnemyExited"]

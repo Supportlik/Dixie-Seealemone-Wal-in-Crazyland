@@ -93,4 +93,24 @@ public partial class Slime : CharacterBody2D
     private void OnHitBoxEntered(Area2D area)
     {
     }
+
+    public void OnDamageReceived(int dmg)
+    {
+        Hp -= dmg;
+        _startDamageAnimation();
+    }
+
+    private void _startDamageAnimation()
+    {
+        var tween1 = CreateTween();
+        // Make the sprite flash
+        tween1.TweenProperty(_slimeSprite, "modulate", new Color(0.2f, 0.2f, 0.2f, 1), 0.1f);
+        tween1.TweenProperty(_slimeSprite, "modulate", new Color(1, 1, 1, 1), 0.1f);
+        var tween2 = CreateTween();
+        // Make the sprite jump
+        tween2.TweenProperty(_slimeSprite, "position",
+            new Vector2(_slimeSprite.Position.X, _slimeSprite.Position.Y - 3), 0.2f);
+        tween2.TweenProperty(_slimeSprite, "position", new Vector2(_slimeSprite.Position.X, _slimeSprite.Position.Y),
+            0.2f);
+    }
 }

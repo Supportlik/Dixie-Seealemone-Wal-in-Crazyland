@@ -6,8 +6,11 @@ using MasterofElements.scripts.singletons;
 public partial class PlayerChar : CharacterBody2D
 {
     [Export] public float Speed = 20000.0f;
-    [Export] public float JumpVelocity = -700.0f;
+    [Export] public float JumpVelocity = -350.0f;
     [Export] public float HurtVelocity = -200.0f;
+    [Export] public float AirElementJumpVelocity = -600.0f;
+
+    private bool _isDead = false;
 
     private AutoLoader _autoLoader;
 
@@ -40,17 +43,33 @@ public partial class PlayerChar : CharacterBody2D
         _airElemental.Instantiate();
         _elementalSummonerMarker = GetNode<Marker2D>("ElementalSummonerMarker");
         _invincibleTimer = GetNode<Timer>("InvincibleTimer");
+        _autoLoader.SignalManager.OnPlayerDead += PlayerDied;
+    }
+
+    public override void _ExitTree()
+    {
+        _autoLoader.SignalManager.OnPlayerDead -= PlayerDied;
+    }
+
+    public void PlayerDied()
+    {
+        if (_isDead)
+            return;
+        _isDead = true;
+        SetPlayerState(PlayerState.Death);
     }
 
     public void HurtPlayer()
     {
-        if (_invincible)
+        if (_invincible || _isDead)
             return;
         _invincible = true;
         _invincibleTimer.Start();
         _autoLoader.AudioService.PlaySfx("characterDamage2.mp3", this, "hurt");
         double time = _invincibleTimer.WaitTime;
         Velocity += new Vector2(0, HurtVelocity);
+        _autoLoader.SignalManager.EmitSignal(SignalManager.SignalName.OnPlayerHurt);
+
         var tween = CreateTween();
 
         tween.TweenProperty(_playerSprite2D, "modulate:a", 0, (float)time / 4);
@@ -68,6 +87,8 @@ public partial class PlayerChar : CharacterBody2D
     {
         MovePlayer(delta);
         MoveAndSlide();
+        if (_isDead)
+            return;
         HandlePlayerAnimation();
     }
 
@@ -80,9 +101,16 @@ public partial class PlayerChar : CharacterBody2D
             velocity.Y += gravity * (float)delta;
         }
 
+        if (_isDead)
+        {
+            velocity.X = 0;
+            Velocity = velocity;
+            return;
+        }
+
         if (Input.IsActionPressed("jump") && IsOnFloor() && _playerState is PlayerState.Idle or PlayerState.Walk)
         {
-            velocity.Y += JumpVelocity;
+            velocity.Y = JumpVelocity;
         }
 
         if (Input.IsActionPressed("down"))
@@ -243,19 +271,19 @@ public partial class PlayerChar : CharacterBody2D
                 break;
             case PlayerState.SummonEarth:
                 _animationPlayer.Play("summon_earth");
-                _autoLoader.AudioService.PlaySfx("Summoning2.mp3", this, "summon_earth");
+                _autoLoader.AudioService.PlaySfx("Summoning2.mp3", this);
                 break;
             case PlayerState.SummonAir:
                 _animationPlayer.Play("summon_air");
-                _autoLoader.AudioService.PlaySfx("Summoning2.mp3", this, "summon_air");
+                _autoLoader.AudioService.PlaySfx("Summoning2.mp3", this);
                 break;
             case PlayerState.SummonFire:
                 _animationPlayer.Play("summon_fire");
-                _autoLoader.AudioService.PlaySfx("Summoning2.mp3", this, "summon_fire");
+                _autoLoader.AudioService.PlaySfx("Summoning2.mp3", this);
                 break;
             case PlayerState.SummonWater:
                 _animationPlayer.Play("summon_water");
-                _autoLoader.AudioService.PlaySfx("Summoning2.mp3", this, "summon_water");
+                _autoLoader.AudioService.PlaySfx("Summoning2.mp3", this);
                 break;
             case PlayerState.Hurt:
                 _autoLoader.AudioService.PlaySfx("characterDamage2.mp3", this);
@@ -295,10 +323,21 @@ public partial class PlayerChar : CharacterBody2D
 
     private void _handleEntered(Node2D node2D)
     {
-        GD.Print("OnBodyEntered:\n" + node2D.GetTreeStringPretty());
+        GD.Print("OnPlayerEntered:\n" + node2D.GetTreeStringPretty());
         if (node2D.IsInGroup(GroupNames.Enemy))
         {
             HurtPlayer();
+        }
+
+        if (node2D.IsInGroup(GroupNames.AirElemental))
+        {
+            AirElemental airElemental = (AirElemental)GetTree().GetFirstNodeInGroup(GroupNames.AirElementalRoot);
+            if (airElemental.CanBounce() && !IsOnFloor())
+            {
+                airElemental.CallOnBounce();
+                Velocity = new Vector2(Velocity.X, AirElementJumpVelocity);
+                _autoLoader.AudioService.PlaySfx("windHurt.wav", this);
+            }
         }
     }
 

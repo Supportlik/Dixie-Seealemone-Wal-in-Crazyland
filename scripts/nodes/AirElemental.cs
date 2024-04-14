@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Godot;
 using MasterofElements.scripts.models;
 using MasterofElements.scripts.singletons;
@@ -15,6 +16,9 @@ public partial class AirElemental : Node2D
     private Sprite2D _sprite;
 
     [Export] public float Speed = 500;
+    [Export] public int DamageOnAttack = 40;
+
+    private List<HitBoxDamageInterface> _hitBoxDamageInterfaces = new();
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -29,7 +33,34 @@ public partial class AirElemental : Node2D
 
     public override void _PhysicsProcess(double delta)
     {
+        HandleAttack();
         HandleMovement(delta);
+    }
+
+
+    public void HandleAttack()
+    {
+        if (_hitBoxDamageInterfaces.Count > 0 && !IsAttacking())
+        {
+            CallOnAttack(true);
+        }
+        else if (_hitBoxDamageInterfaces.Count == 0 && IsAttacking())
+        {
+            CallOnAttack(false);
+        }
+    }
+
+    public void Attack()
+    {
+        _autoloader.AudioService.PlaySfx("PlantDeath.mp3", this);
+
+        var queuedForDeletion = _hitBoxDamageInterfaces.FindAll(hitBoxDamageInterface =>
+            hitBoxDamageInterface == null || hitBoxDamageInterface.IsQueuedForDeletion());
+
+        queuedForDeletion.ForEach(hitBoxDamageInterface =>
+            _hitBoxDamageInterfaces.Remove(hitBoxDamageInterface));
+
+        _hitBoxDamageInterfaces.ForEach(hitBoxDamageInterface => hitBoxDamageInterface.OnDamage(DamageOnAttack));
     }
 
     public void HandleMovement(double delta)
@@ -51,7 +82,6 @@ public partial class AirElemental : Node2D
             if (_elementalChar.GlobalPosition.DistanceTo(_playerClickMarker.GlobalPosition) < 5)
             {
                 SetState(ElementalState.OnIdle);
-                CallOnFly(false);
             }
         }
     }
@@ -75,7 +105,27 @@ public partial class AirElemental : Node2D
     {
         var oldState = _elementalState;
         var newState = state;
+        if (oldState == newState)
+            return;
+
         _elementalState = state;
+        switch (oldState)
+        {
+            case ElementalState.OnAttack:
+                CallOnAttack(false);
+                break;
+
+            case ElementalState.OnDisapear:
+                break;
+
+            case ElementalState.OnFly:
+                CallOnFly(false);
+                break;
+
+            case ElementalState.OnIdle:
+            default:
+                break;
+        }
 
         switch (_elementalState)
         {
@@ -105,6 +155,11 @@ public partial class AirElemental : Node2D
         _animationTree.Set("parameters/conditions/on_attack", attack);
     }
 
+    public bool IsAttacking()
+    {
+        return (bool)_animationTree.Get("parameters/conditions/on_attack");
+    }
+
     public void CallDisapear()
     {
         _animationTree.Set("parameters/conditions/on_disapear", true);
@@ -128,12 +183,34 @@ public partial class AirElemental : Node2D
 
     public bool CanBounce()
     {
-        return !(bool)_animationTree.Get("parameters/conditions/on_bounce");
+        return !(bool)_animationTree.Get("parameters/conditions/on_bounce") && _elementalState != ElementalState.OnFly;
     }
 
+    public void OnEnemyEntered(Area2D other)
+    {
+        GD.Print("OnAirElementalEntered:\n" + other.GetTreeStringPretty());
+        if (other is HitBoxDamageInterface hitBoxDamageInterface && other.IsInGroup(GroupNames.Enemy))
+        {
+            _hitBoxDamageInterfaces.Add(hitBoxDamageInterface);
+        }
+    }
+
+    public void OnEnemyExited(Area2D other)
+    {
+        GD.Print("OnAirElementalExited:\n" + other.GetTreeStringPretty());
+        if (other is HitBoxDamageInterface hitBoxDamageInterface && other.IsInGroup(GroupNames.Enemy))
+        {
+            _hitBoxDamageInterfaces.Remove(hitBoxDamageInterface);
+        }
+    }
 
     public void Die()
     {
         QueueFree();
+    }
+
+    public void Disapear()
+    {
+        CallDisapear();
     }
 }

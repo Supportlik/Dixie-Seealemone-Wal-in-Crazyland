@@ -23,7 +23,7 @@ theme_override_constants/margin_right = 50
 
 [node name="Label" type="Label" parent="VBoxContainer/MarginContainer"]
 layout_mode = 2
-text = "Score: 000"
+text = "Score: 00000"
 label_settings = SubResource("LabelSettings_qkwc5")
 horizontal_alignment = 2
 vertical_alignment = 1

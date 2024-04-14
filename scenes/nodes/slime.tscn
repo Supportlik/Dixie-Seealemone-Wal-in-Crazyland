@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://cafq6wnt4xfou"]
+[gd_scene load_steps=11 format=3 uid="uid://cafq6wnt4xfou"]
 
 [ext_resource type="Script" path="res://scripts/nodes/Slime.cs" id="1_2j348"]
 [ext_resource type="Texture2D" uid="uid://cyipbgnpm7nl6" path="res://assets/sprites/slimes/Fireslmie-Sheet.png" id="1_efj5r"]
+[ext_resource type="Script" path="res://scripts/nodes/HitBoxDamageInterface.cs" id="2_bncae"]
 [ext_resource type="Texture2D" uid="uid://io5at0qr34pf" path="res://assets/sprites/slimes/explotion-Sheet.png" id="3_0k5bg"]
 
 [sub_resource type="Animation" id="Animation_dtqj5"]
@@ -140,6 +141,7 @@ collision_mask = 65
 [node name="HitBox" type="Area2D" parent="." groups=["Enemy"]]
 collision_layer = 6
 collision_mask = 16
+script = ExtResource("2_bncae")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 shape = SubResource("CircleShape2D_qgk8x")
@@ -156,4 +158,5 @@ texture = ExtResource("1_efj5r")
 offset = Vector2(2, -8)
 hframes = 4
 
+[connection signal="OnDamageReceived" from="HitBox" to="." method="OnDamageReceived"]
 [connection signal="area_entered" from="HitBox" to="." method="OnHitBoxEntered"]

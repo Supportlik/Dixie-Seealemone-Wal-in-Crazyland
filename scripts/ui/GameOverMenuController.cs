@@ -1,7 +1,6 @@
 using Godot;
 using MasterofElements.scripts.singletons;
 using MasterofElements.scripts.singletons.sceneloader;
-using System;
 
 public partial class GameOverMenuController : VBoxContainer
 {
@@ -18,25 +17,50 @@ public partial class GameOverMenuController : VBoxContainer
         _title = GetNode<Label>("VBoxContainer2/GameOverTitle");
         _subTitle = GetNode<Label>("VBoxContainer2/GameOverSubTitle");
         _scoreLabel = GetNode<Label>("VBoxContainer2/ScoreLabel");
+        _autoLoader.SignalManager.OnScoreChanged += OnScoreChange;
+        _autoLoader.SignalManager.OnLevelComplete += SetLevelCompleted;
+        OnScoreChange();
     }
 
-    private void _on_menu_button_pressed(){
-         _autoLoader.SceneSwitcherService.SwitchScene(AllScenes.StartMenu);
+    public override void _ExitTree()
+    {
+        _autoLoader.SignalManager.OnScoreChanged -= OnScoreChange;
+        _autoLoader.SignalManager.OnLevelComplete -= SetLevelCompleted;
     }
 
-    private void _on_restart_button_pressed(){
+    private void OnScoreChange()
+    {
+        SetScore(_autoLoader.ScoreService.Score);
+    }
+
+    private void _on_menu_button_pressed()
+    {
+        _autoLoader.SceneSwitcherService.SwitchScene(AllScenes.StartMenu);
+    }
+
+    private void _on_restart_button_pressed()
+    {
         GetTree().ReloadCurrentScene();
     }
 
-    public void SetTitle(string title){
+    public void SetLevelCompleted()
+    {
+        SetTitle("Level Completed");
+        SetSubTitle("Congratulations!\n You are one step closer to becoming the Master of Elements!");
+    }
+
+    public void SetTitle(string title)
+    {
         _title.Text = title;
     }
 
-    public void SetSubTitle(string subTitle){
+    public void SetSubTitle(string subTitle)
+    {
         _subTitle.Text = subTitle;
     }
 
-    public void SetScore(int score){
-        _scoreLabel.Text = score.ToString();
+    public void SetScore(int score)
+    {
+        _scoreLabel.Text = score.ToString("D5");
     }
 }
