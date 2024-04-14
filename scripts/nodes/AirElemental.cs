@@ -28,12 +28,12 @@ public partial class AirElemental : Node2D
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
     {
-        HandleInput();
+        
     }
 
     public override void _Input(InputEvent @event)
     {
-        if (Input.IsActionJustPressed("move_summon") && Input.InputEventMouseButton)
+        if (Input.IsActionJustPressed("move_summon"))
         {
             var mousePosition = GetGlobalMousePosition();
             
