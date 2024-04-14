@@ -10,20 +10,17 @@ public partial class Slime : CharacterBody2D
 	[Export] public int Hp = 100;
 	[Export] public int Score = 10;
 	[Export] public Facing Direction = Facing.Right;
+	[Export] public float Gravity = 8500.0f;
 	
 
 	private AutoLoader _autoLoader;
-	
 	private Sprite2D _slimeSprite;
 	private Sprite2D _explosion;
 	private RayCast2D _rayCast2D;
 	private Area2D _hitBox;
 	private Facing _facing;
-	
 	private AnimationPlayer _animationPlayer;
 	
-	
-	private float _gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
 	public override void _Ready()
 	{
 		_autoLoader = new AutoLoader(this);
@@ -40,11 +37,15 @@ public partial class Slime : CharacterBody2D
 	}
 	public override void _PhysicsProcess(double delta)
 	{
+		if (Hp <= 0)
+		{
+			Die();
+		}
 		
 		Vector2 velocity = Velocity;
 		if (!IsOnFloor())
 		{
-			velocity.Y = _gravity * (float)delta;
+			velocity.Y = Gravity * (float)delta;
 		}
 		else
 		{
