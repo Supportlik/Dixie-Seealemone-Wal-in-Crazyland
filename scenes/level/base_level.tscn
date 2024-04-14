@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cr7u7plx48sxr"]
+[gd_scene load_steps=9 format=3 uid="uid://cr7u7plx48sxr"]
 
 [ext_resource type="PackedScene" uid="uid://bj51g11mi4xsh" path="res://scenes/nodes/info_board.tscn" id="1_jifd4"]
 [ext_resource type="TileSet" uid="uid://bwxywrir2jgu0" path="res://assets/sprites/tileset/tileset_jungle.tres" id="1_lojut"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://d2udsxyfw30as" path="res://scenes/player.tscn" id="4_issuh"]
 [ext_resource type="PackedScene" uid="uid://c4jfoxxw23kg5" path="res://scenes/nodes/platform_set.tscn" id="5_abrru"]
 [ext_resource type="PackedScene" uid="uid://daxx4hurhhut2" path="res://scenes/nodes/jungle_wide_spike.tscn" id="6_q3vvm"]
+[ext_resource type="PackedScene" uid="uid://cafq6wnt4xfou" path="res://scenes/nodes/slime.tscn" id="8_bt00r"]
 
 [node name="BaseLevel" type="Node2D"]
 
@@ -51,6 +52,21 @@ position = Vector2(833, -60)
 
 [node name="WideSpike" parent="." instance=ExtResource("6_q3vvm")]
 position = Vector2(1122, 955)
+
+[node name="Slime" parent="." instance=ExtResource("8_bt00r")]
+position = Vector2(1421, 933)
+
+[node name="Slime2" parent="." instance=ExtResource("8_bt00r")]
+position = Vector2(656, 686)
+
+[node name="Slime4" parent="." instance=ExtResource("8_bt00r")]
+position = Vector2(1362, 815)
+
+[node name="Slime5" parent="." instance=ExtResource("8_bt00r")]
+position = Vector2(910, 908)
+
+[node name="Slime3" parent="." instance=ExtResource("8_bt00r")]
+position = Vector2(1406, 803)
 
 [editable path="PlayerCam"]
 [editable path="PlatformSet"]

@@ -1,38 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://bwisxiiw54hqx"]
+[gd_scene load_steps=10 format=3 uid="uid://cafq6wnt4xfou"]
 
 [ext_resource type="Script" path="res://scripts/nodes/Slime.cs" id="1_2j348"]
 [ext_resource type="Texture2D" uid="uid://cyipbgnpm7nl6" path="res://assets/sprites/slimes/Fireslmie-Sheet.png" id="1_efj5r"]
 [ext_resource type="Texture2D" uid="uid://io5at0qr34pf" path="res://assets/sprites/slimes/explotion-Sheet.png" id="3_0k5bg"]
-
-[sub_resource type="Animation" id="Animation_llw23"]
-resource_name = "move"
-length = 0.6
-loop_mode = 1
-step = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../..:_moveSpeed")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [2500.0, 0.0]
-}
 
 [sub_resource type="Animation" id="Animation_dtqj5"]
 length = 0.001
@@ -63,7 +33,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../..:_moveSpeed")
+tracks/2/path = NodePath("../..:MoveSpeed")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -103,6 +73,36 @@ tracks/1/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_llw23"]
+resource_name = "move"
+length = 0.6
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../..:MoveSpeed")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [2500.0, 0.0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ppp7y"]
 _data = {
 "RESET": SubResource("Animation_dtqj5"),
@@ -117,8 +117,8 @@ size = Vector2(18, 17)
 radius = 8.0
 
 [node name="Slime" type="CharacterBody2D"]
-collision_layer = 5
-collision_mask = 5
+collision_layer = 4
+collision_mask = 69
 script = ExtResource("1_2j348")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -135,10 +135,11 @@ shape = SubResource("RectangleShape2D_p1f4u")
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2(-10, 0)
 target_position = Vector2(0, 30)
+collision_mask = 65
 
-[node name="HitBox" type="Area2D" parent="."]
-collision_layer = 2
-collision_mask = 24
+[node name="HitBox" type="Area2D" parent="." groups=["Enemy"]]
+collision_layer = 6
+collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 shape = SubResource("CircleShape2D_qgk8x")
