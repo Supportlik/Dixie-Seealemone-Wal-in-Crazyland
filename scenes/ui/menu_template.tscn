@@ -1,7 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://iipjrdqofkbc"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_pnb5c"]
-font_size = 32
+[ext_resource type="Texture2D" uid="uid://dl2yovqvfkkra" path="res://assets/sprites/ui/Title.png" id="1_d355q"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -27,9 +26,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -250.0
-offset_top = -250.0
-offset_right = 250.0
+offset_left = -400.0
+offset_top = -300.0
+offset_right = 400.0
 offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -47,17 +46,31 @@ layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
-[node name="Title" type="Label" parent="ColorRect/Panel/GridContainer/Header"]
+[node name="Control" type="Control" parent="ColorRect/Panel/GridContainer/Header"]
 layout_mode = 2
-text = "Master of Elements"
-label_settings = SubResource("LabelSettings_pnb5c")
-horizontal_alignment = 1
-vertical_alignment = 1
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/Panel/GridContainer/Header/Control"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -396.0
+offset_right = 396.0
+offset_bottom = 144.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_d355q")
+expand_mode = 1
 
 [node name="Content" type="MarginContainer" parent="ColorRect/Panel/GridContainer"]
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 90
 theme_override_constants/margin_right = 30
 
 [node name="Footer" type="HBoxContainer" parent="ColorRect/Panel/GridContainer"]

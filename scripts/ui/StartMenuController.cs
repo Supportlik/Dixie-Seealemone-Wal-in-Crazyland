@@ -17,7 +17,6 @@ public partial class StartMenuController : VBoxContainer
 
     private void _on_option_button_pressed(){
         EmitSignal(SignalName.CloseStartMenu);
-        GD.Print("Option");
     }
 
     private void _on_quit_button_pressed(){

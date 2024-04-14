@@ -6,9 +6,9 @@ using MasterofElements.scripts.singletons;
 public partial class AudioBusUI : VBoxContainer{
 
     public Label audioLabel;
-
     private AutoLoader _autoLoader;
-    public AudioBusUI(){
+    public override void _Ready()
+    {
         _autoLoader = new AutoLoader(this);
         Name = "AudioSettings";
         audioLabel = new Label();
@@ -30,29 +30,38 @@ public partial class AudioBusUI : VBoxContainer{
     public partial class AudioBusUIElement : VBoxContainer{
 
         private AutoLoader _autoLoader;
-        private const int MAXVALUE = 100;
+        private const int MAXVALUE = 1;
         public Label BusLabel;
         public HSlider BusSlider;
+
+        private PackedScene _busSliderScene;
         public AudioBusUIElement(string label, float initialDb){
-            _autoLoader = new AutoLoader(this);
-            Name = "AudioBusSettings"+label;
+            _busSliderScene = GD.Load<PackedScene>("res://scenes/ui/sprite_slider.tscn");
             BusLabel = new Label();
             BusLabel.Text = label;
             AddChild(BusLabel);
-            BusSlider = new HSlider();
+            BusSlider = _busSliderScene.Instantiate<HSlider>();
             BusSlider.MaxValue = MAXVALUE;
-            BusSlider.Value = 100f * (float)Math.Pow(10, initialDb / 20f);
-            BusSlider.ValueChanged += OnSliderChanged;
+            BusSlider.Value = (float)Math.Pow(10, initialDb / 20f);
+            BusSlider.Step = 0.01;
             AddChild(BusSlider);
+        }
+
+        public override void _Ready()
+        {
+            _autoLoader = new AutoLoader(this);
+            BusSlider.ValueChanged += OnSliderChanged;
         }
 
         private void OnSliderChanged(double value)
         {
-            float decibelValue = (float)Math.Log10(value/100) * 20;
+            float decibelValue = (float)Math.Log10(value) * 20;
             switch (BusLabel.Text)
             {
                 case "Master":
-                _autoLoader.AudioService.SetMasterVolume(decibelValue);
+                GD.Print(value);
+                _autoLoader.AudioService.SetMasterVolume((float)value);
+                GD.Print(AudioServer.GetBusVolumeDb(0));
                 break;
                 case "Music":
                 _autoLoader.AudioService.SetMusicVolume(decibelValue);

@@ -1,4 +1,5 @@
 using Godot;
+using MasterofElements.scripts.singletons;
 using System;
 using System.Reflection.Metadata;
 
@@ -6,8 +7,10 @@ public partial class StartMenu : Control
 {
     private StartMenuController startMenuController;
     private SettingsMenuController settingsMenuController;
+    private AutoLoader _autoLoader;
     public override void _Ready()
     {
+        _autoLoader = new AutoLoader(this);
         startMenuController = GetNode<StartMenuController>("Control/ColorRect/Panel/GridContainer/Content/StartMenuContent");
         startMenuController.CloseStartMenu += HandleCloseStartMenu;
         settingsMenuController = GetNode<SettingsMenuController>("Control/ColorRect/Panel/GridContainer/Content/SettingsMenuContent");

@@ -93,7 +93,7 @@ public partial class AudioService : Node
     public void SetMasterVolume(float volume)
     {
         var newVolume = Math.Clamp(volume, 0, 1);
-        _audioBus.SetBusVolume(SfxBus, newVolume);
+        _audioBus.SetBusVolume(MasterBus, newVolume);
         _audioOptions.MasterVolume = newVolume;
         _autoLoader.FileAccessService.WriteObject(UserFiles.AudioOptionsFile, _audioOptions);
     }
