@@ -164,6 +164,12 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3sqbv")
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
 }],
 "loop": true,
 "name": &"summon",
@@ -177,7 +183,7 @@ script = ExtResource("1_f1g5t")
 z_index = -1
 sprite_frames = SubResource("SpriteFrames_tqwsb")
 autoplay = "default"
-frame_progress = 0.973571
+frame_progress = 0.936804
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
@@ -193,7 +199,7 @@ z_index = -2
 position = Vector2(-13, -41)
 sprite_frames = SubResource("SpriteFrames_27p5f")
 animation = &"summon"
-frame_progress = 0.451945
+frame_progress = 0.415178
 
 [connection signal="area_entered" from="Area2D" to="." method="OnBodyEntered"]
 [connection signal="area_exited" from="Area2D" to="." method="OnBodyExited"]

@@ -1,8 +1,7 @@
-[gd_scene load_steps=42 format=3 uid="uid://3pj3bk3k1elv"]
+[gd_scene load_steps=41 format=3 uid="uid://bvaorxeaupyvm"]
 
-[ext_resource type="Script" path="res://scripts/nodes/AirElemental.cs" id="1_juddw"]
-[ext_resource type="Texture2D" uid="uid://csynt11polyqj" path="res://assets/sprites/elemental/air-Sheet.png" id="1_tn2if"]
-[ext_resource type="Texture2D" uid="uid://cf6ku8f2oa1e7" path="res://assets/sprites/elemental/air-Sheet_blitze.png" id="2_gynga"]
+[ext_resource type="Texture2D" uid="uid://cf6ku8f2oa1e7" path="res://assets/sprites/elemental/air-Sheet_blitze.png" id="1_n6ebe"]
+[ext_resource type="Texture2D" uid="uid://csynt11polyqj" path="res://assets/sprites/elemental/air-Sheet.png" id="2_2bg8u"]
 
 [sub_resource type="Animation" id="Animation_312t3"]
 length = 0.001
@@ -491,7 +490,7 @@ advance_condition = &"on_fly"
 advance_expression = "!self.get(\"parameters/conditions/on_disapear\")
  "
 
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ix4kb"]
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_4l2e7"]
 states/Start/position = Vector2(281, -86)
 states/bounce/node = SubResource("AnimationNodeAnimation_ph6my")
 states/bounce/position = Vector2(355, 113)
@@ -514,14 +513,13 @@ states/summon/position = Vector2(380, -25)
 transitions = ["Start", "summon", SubResource("AnimationNodeStateMachineTransition_o86qu"), "summon", "idle", SubResource("AnimationNodeStateMachineTransition_ebpon"), "idle", "disapear", SubResource("AnimationNodeStateMachineTransition_8e4um"), "idle", "bounce", SubResource("AnimationNodeStateMachineTransition_uyme2"), "idle", "manup", SubResource("AnimationNodeStateMachineTransition_2og08"), "manup", "fly", SubResource("AnimationNodeStateMachineTransition_pl4hc"), "fly", "mandown", SubResource("AnimationNodeStateMachineTransition_6u0ye"), "mandown", "idle", SubResource("AnimationNodeStateMachineTransition_3p36u"), "idle", "gewitter", SubResource("AnimationNodeStateMachineTransition_ryx7v"), "gewitter", "disapear", SubResource("AnimationNodeStateMachineTransition_xnq75"), "bounce", "idle", SubResource("AnimationNodeStateMachineTransition_l74qk"), "gewitter", "bounce_gewitter", SubResource("AnimationNodeStateMachineTransition_uc3du"), "bounce_gewitter", "gewitter", SubResource("AnimationNodeStateMachineTransition_sctk2"), "gewitter", "idle", SubResource("AnimationNodeStateMachineTransition_j6ik3"), "gewitter", "manup", SubResource("AnimationNodeStateMachineTransition_nx00b")]
 graph_offset = Vector2(-2, -90)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0sycn"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3hi02"]
 size = Vector2(32, 11)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_xm3p0"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_25uev"]
 radius = 33.0151
 
-[node name="WindElemental" type="Node2D" groups=["AirElementalRoot"]]
-script = ExtResource("1_juddw")
+[node name="FireElemental" type="Node2D"]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -532,7 +530,7 @@ libraries = {
 libraries = {
 "": SubResource("AnimationLibrary_bsjxg")
 }
-tree_root = SubResource("AnimationNodeStateMachine_ix4kb")
+tree_root = SubResource("AnimationNodeStateMachine_4l2e7")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/on_attack = false
 parameters/conditions/on_bounce = false
@@ -550,14 +548,8 @@ autostart = true
 
 [node name="Sprites" type="Node2D" parent="ElementalChar"]
 
-[node name="Sprite2DBlitzeKlein" type="Sprite2D" parent="ElementalChar/Sprites"]
-visible = false
-rotation = 0.575959
-texture = ExtResource("2_gynga")
-hframes = 35
-
 [node name="Sprite2DWolke" type="Sprite2D" parent="ElementalChar/Sprites"]
-texture = ExtResource("1_tn2if")
+texture = ExtResource("2_2bg8u")
 hframes = 35
 frame = 4
 
@@ -565,14 +557,14 @@ frame = 4
 visible = false
 rotation = 1.5708
 scale = Vector2(1.5, 1.5)
-texture = ExtResource("2_gynga")
+texture = ExtResource("1_n6ebe")
 hframes = 35
 
 [node name="Sprite2DBlitze3Groß" type="Sprite2D" parent="ElementalChar/Sprites"]
 visible = false
 rotation = 2.53073
 scale = Vector2(1.6, 1.6)
-texture = ExtResource("2_gynga")
+texture = ExtResource("1_n6ebe")
 hframes = 35
 
 [node name="PlayerJumpArea" type="Area2D" parent="ElementalChar" groups=["AirElemental", "Elemental"]]
@@ -581,15 +573,11 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ElementalChar/PlayerJumpArea" groups=["AirElemental"]]
 position = Vector2(0, 2.5)
-shape = SubResource("RectangleShape2D_0sycn")
+shape = SubResource("RectangleShape2D_3hi02")
 
 [node name="EnemyDetectionArea" type="Area2D" parent="ElementalChar" groups=["AirElemental", "Elemental"]]
 collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ElementalChar/EnemyDetectionArea"]
-shape = SubResource("CircleShape2D_xm3p0")
-
-[connection signal="timeout" from="DieTimer" to="." method="Disapear"]
-[connection signal="area_entered" from="ElementalChar/EnemyDetectionArea" to="." method="OnEnemyEntered"]
-[connection signal="area_exited" from="ElementalChar/EnemyDetectionArea" to="." method="OnEnemyExited"]
+shape = SubResource("CircleShape2D_25uev")

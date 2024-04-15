@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cr7u7plx48sxr"]
+[gd_scene load_steps=12 format=3 uid="uid://cr7u7plx48sxr"]
 
 [ext_resource type="TileSet" uid="uid://bwxywrir2jgu0" path="res://assets/sprites/tileset/tileset_jungle.tres" id="1_lojut"]
 [ext_resource type="Script" path="res://scripts/nodes/BaseLevel.cs" id="1_uynxf"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cafq6wnt4xfou" path="res://scenes/nodes/slime.tscn" id="8_bt00r"]
 [ext_resource type="PackedScene" uid="uid://da87i5eocwwmm" path="res://scenes/ui/gameover_menu.tscn" id="8_lgctg"]
 [ext_resource type="PackedScene" uid="uid://dnso4ksuvcwk7" path="res://scenes/nodes/air_shrine.tscn" id="10_xusni"]
+[ext_resource type="PackedScene" uid="uid://blqc1j71qm6n4" path="res://scenes/nodes/fire_shrine.tscn" id="11_0b6pv"]
 
 [node name="BaseLevel" type="Node2D"]
 script = ExtResource("1_uynxf")
@@ -68,6 +69,9 @@ visible = false
 
 [node name="AirShrine" parent="." instance=ExtResource("10_xusni")]
 position = Vector2(1147, 931)
+
+[node name="FireShrine" parent="AirShrine" instance=ExtResource("11_0b6pv")]
+position = Vector2(213, -1)
 
 [editable path="PlayerCam"]
 [editable path="PlatformSet"]
