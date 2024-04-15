@@ -19,6 +19,6 @@ public partial class MovablePlatform : AnimatableBody2D
         _tween = GetTree().CreateTween().SetLoops().BindNode(this);
         _tween.TweenProperty(this, "global_position", EndMarker.GlobalPosition, timeToReachEnd);
         _tween.TweenProperty(this, "global_position", StartMarker.GlobalPosition, timeToReachEnd);
-        Shadow?.Hide();
+        Shadow.Hide();
     }
 }

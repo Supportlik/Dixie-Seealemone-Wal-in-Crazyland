@@ -12,7 +12,7 @@
 [node name="MovablePlatform" parent="StartPos" node_paths=PackedStringArray("StartMarker", "EndMarker", "Shadow") instance=ExtResource("1_8ilqd")]
 StartMarker = NodePath("../Start")
 EndMarker = NodePath("../../EndPos/End")
-Shadow = NodePath("../../EndPos/TileMap")
+Shadow = NodePath("../../EndPos/Shadow")
 
 [node name="EndPos" type="Node2D" parent="."]
 position = Vector2(-85, 2)
@@ -20,7 +20,7 @@ metadata/_edit_group_ = true
 
 [node name="End" type="Marker2D" parent="EndPos"]
 
-[node name="TileMap" type="TileMap" parent="EndPos"]
+[node name="Shadow" type="TileMap" parent="EndPos"]
 modulate = Color(1, 1, 1, 0.360784)
 tile_set = ExtResource("2_brxir")
 format = 2

@@ -5,6 +5,7 @@
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
 script = ExtResource("1_w7pm7")
+OffSetBackground = Vector2(0, -1080.85)
 
 [node name="Example" type="TextureRect" parent="."]
 offset_right = 1920.0

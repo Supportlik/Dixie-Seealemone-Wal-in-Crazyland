@@ -16,7 +16,7 @@ public partial class ParallaxBackground : Godot.ParallaxBackground
     };
 
     [Export(PropertyHint.Range, "0,0,1")] public int Level;
-    [Export] public Vector2 OffSetBackground = new(0, 540);
+    [Export] public Vector2 OffSetBackground = new(0, 1080);
 
     private TextureRect _exampleTextureRect;
 
