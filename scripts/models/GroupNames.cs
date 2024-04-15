@@ -3,6 +3,7 @@
 public static class GroupNames
 {
     public static readonly string
+        Collectable = "Collectable",
         AirElemental = "AirElemental",
         AirElementalRoot = "AirElementalRoot",
         FireElemental = "FireElemental",

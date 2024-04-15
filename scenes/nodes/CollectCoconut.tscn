@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dy6j7o26xikbt"]
+
+[ext_resource type="PackedScene" uid="uid://c4l0rn3gjnigj" path="res://scenes/nodes/CollectOrange.tscn" id="1_l5sym"]
+[ext_resource type="Texture2D" uid="uid://c6nqiy0w5m818" path="res://assets/sprites/collectable/kokusnuss.png" id="2_plgjg"]
+
+[node name="CollectibleCoconut" instance=ExtResource("1_l5sym")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_plgjg")

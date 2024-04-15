@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4l0rn3gjnigj"]
+
+[ext_resource type="Texture2D" uid="uid://cpaxbopglosik" path="res://assets/sprites/collectable/Orange.png" id="1_glq08"]
+[ext_resource type="Script" path="res://scripts/nodes/CollectOrange.cs" id="1_o2gsm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bxww1"]
+radius = 7.0
+
+[node name="CollectibleOrange" type="Area2D" groups=["Collectable"]]
+collision_layer = 0
+collision_mask = 128
+script = ExtResource("1_o2gsm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+texture = ExtResource("1_glq08")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_bxww1")
+
+[connection signal="area_entered" from="." to="." method="OnAreaEntered"]
