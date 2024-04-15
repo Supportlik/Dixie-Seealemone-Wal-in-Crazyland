@@ -276,18 +276,21 @@ collision_mask = 65
 [node name="Sprites" type="Node2D" parent="ElementalChar"]
 
 [node name="Sprite2DFireElemental" type="Sprite2D" parent="ElementalChar/Sprites"]
+z_index = 5
 texture = ExtResource("1_lybpy")
 hframes = 18
 frame = 5
 
 [node name="Sprite2DExplosionSmall" type="Sprite2D" parent="ElementalChar/Sprites"]
 visible = false
+z_index = 5
 texture = ExtResource("2_37wpa")
 hframes = 18
 frame = 14
 
 [node name="Sprite2DExplosion" type="Sprite2D" parent="ElementalChar/Sprites"]
 visible = false
+z_index = 5
 scale = Vector2(2, 2)
 texture = ExtResource("2_37wpa")
 hframes = 18

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dpevkrfd4k54i"]
+[gd_scene load_steps=5 format=3 uid="uid://dpevkrfd4k54i"]
 
 [ext_resource type="Texture2D" uid="uid://bus2s84ockbn8" path="res://assets/sprites/tileset/plants.png" id="1_udtlb"]
 
@@ -1738,11 +1738,8 @@ physics_layer_0/collision_layer = 2
 physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_wey75")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uvb2t"]
-size = Vector2(64.5, 9)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y5ykw"]
-size = Vector2(7, 16)
+size = Vector2(11, 22)
 
 [node name="Spike" type="StaticBody2D" groups=["Enemy"]]
 collision_layer = 2
@@ -1754,10 +1751,6 @@ tile_set = SubResource("TileSet_7kyrc")
 format = 2
 layer_0/tile_data = PackedInt32Array(-65536, 1638400, 9, 0, 1638400, 10)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(8.5, 11.5)
-shape = SubResource("RectangleShape2D_uvb2t")
-
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(8.5, 2)
+position = Vector2(8.5, 5)
 shape = SubResource("RectangleShape2D_y5ykw")

@@ -552,17 +552,20 @@ autostart = true
 
 [node name="Sprite2DBlitzeKlein" type="Sprite2D" parent="ElementalChar/Sprites"]
 visible = false
+z_index = 5
 rotation = 0.575959
 texture = ExtResource("2_gynga")
 hframes = 35
 
 [node name="Sprite2DWolke" type="Sprite2D" parent="ElementalChar/Sprites"]
+z_index = 5
 texture = ExtResource("1_tn2if")
 hframes = 35
 frame = 4
 
 [node name="Sprite2DBlitze2Mittel" type="Sprite2D" parent="ElementalChar/Sprites"]
 visible = false
+z_index = 5
 rotation = 1.5708
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_gynga")
@@ -570,6 +573,7 @@ hframes = 35
 
 [node name="Sprite2DBlitze3Groß" type="Sprite2D" parent="ElementalChar/Sprites"]
 visible = false
+z_index = 5
 rotation = 2.53073
 scale = Vector2(1.6, 1.6)
 texture = ExtResource("2_gynga")
