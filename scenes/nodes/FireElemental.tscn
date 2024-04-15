@@ -1,238 +1,161 @@
-[gd_scene load_steps=41 format=3 uid="uid://bvaorxeaupyvm"]
+[gd_scene load_steps=23 format=3 uid="uid://bvaorxeaupyvm"]
 
-[ext_resource type="Texture2D" uid="uid://cf6ku8f2oa1e7" path="res://assets/sprites/elemental/air-Sheet_blitze.png" id="1_n6ebe"]
-[ext_resource type="Texture2D" uid="uid://csynt11polyqj" path="res://assets/sprites/elemental/air-Sheet.png" id="2_2bg8u"]
+[ext_resource type="Script" path="res://scripts/nodes/FireElemental.cs" id="1_2dh1i"]
+[ext_resource type="Texture2D" uid="uid://yu0galq3jsla" path="res://assets/sprites/elemental/fire-Sheet.png" id="1_lybpy"]
+[ext_resource type="Texture2D" uid="uid://dvos624e7ra8a" path="res://assets/sprites/elemental/fire-Sheet_explosion.png" id="2_37wpa"]
 
-[sub_resource type="Animation" id="Animation_312t3"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ElementalChar/Sprites/Sprite2DWolke:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ElementalChar/Sprites/Sprite2DBlitze2Mittel:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("ElementalChar/Sprites/Sprite2DBlitze3Groß:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("ElementalChar/Sprites/Sprite2DBlitze3Groß:frame")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("ElementalChar/Sprites/Sprite2DBlitze2Mittel:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("ElementalChar/Sprites/Sprite2DBlitzeKlein:visible")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("ElementalChar/Sprites/Sprite2DBlitzeKlein:frame")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
+[sub_resource type="CircleShape2D" id="CircleShape2D_25uev"]
+radius = 66.04
 
-[sub_resource type="Animation" id="Animation_cabsx"]
-resource_name = "bounce"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ElementalChar/Sprites/Sprite2DWolke:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [6, 10, 6]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.2),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"CallOnBounceComplete"
-}]
-}
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ouvks"]
 
-[sub_resource type="Animation" id="Animation_inemn"]
-resource_name = "bounce_gewitter"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ElementalChar/Sprites/Sprite2DWolke:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [26, 29, 26]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.2),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"CallOnBounceComplete"
-}]
-}
-
-[sub_resource type="Animation" id="Animation_371cv"]
-resource_name = "disapear"
+[sub_resource type="Animation" id="Animation_vqnks"]
+resource_name = "summon"
 length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ElementalChar/Sprites/Sprite2DWolke:frame")
+tracks/0/path = NodePath("ElementalChar/Sprites/Sprite2DFireElemental:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [30, 34]
+"values": [0, 4]
 }
-tracks/1/type = "method"
+
+[sub_resource type="Animation" id="Animation_rn4y6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ElementalChar/Sprites/Sprite2DFireElemental:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".")
+tracks/1/path = NodePath("ElementalChar/Sprites/Sprite2DExplosion:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.4),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"Die"
-}]
+"update": 1,
+"values": [15]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ElementalChar/Sprites/Sprite2DExplosion:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ElementalChar/Sprites/Sprite2DExplosionSmall:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ElementalChar/Sprites/Sprite2DExplosionSmall:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [14]
 }
 
-[sub_resource type="Animation" id="Animation_wofl2"]
-resource_name = "fly"
+[sub_resource type="Animation" id="Animation_h5404"]
+resource_name = "walk"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ElementalChar/Sprites/Sprite2DFireElemental:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [7, 11]
+}
+
+[sub_resource type="Animation" id="Animation_yqeu0"]
+resource_name = "idle"
 length = 0.5
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ElementalChar/Sprites/Sprite2DWolke:frame")
+tracks/0/path = NodePath("ElementalChar/Sprites/Sprite2DFireElemental:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
+"times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [13, 14]
+"values": [5, 6]
 }
 
-[sub_resource type="Animation" id="Animation_qpyu3"]
-resource_name = "gewitter"
+[sub_resource type="Animation" id="Animation_a0g5m"]
+resource_name = "explode"
 length = 0.7
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ElementalChar/Sprites/Sprite2DWolke:frame")
+tracks/0/path = NodePath("ElementalChar/Sprites/Sprite2DFireElemental:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [19, 22, 25]
+"values": [12, 17]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("ElementalChar/Sprites/Sprite2DBlitze2Mittel:visible")
+tracks/1/path = NodePath("ElementalChar/Sprites/Sprite2DExplosion:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.3, 0.5),
+"times": PackedFloat32Array(0, 0.7),
 "transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
+"update": 0,
+"values": [12, 17]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("ElementalChar/Sprites/Sprite2DBlitze3Groß:visible")
+tracks/2/path = NodePath("ElementalChar/Sprites/Sprite2DExplosion:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.3, 0.6),
+"times": PackedFloat32Array(0, 0.7),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -240,26 +163,26 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("ElementalChar/Sprites/Sprite2DBlitze3Groß:frame")
+tracks/3/path = NodePath("ElementalChar/Sprites/Sprite2DExplosionSmall:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.3, 0.6),
+"times": PackedFloat32Array(0, 0.7),
 "transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [22, 25]
+"update": 1,
+"values": [true, false]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("ElementalChar/Sprites/Sprite2DBlitze2Mittel:frame")
+tracks/4/path = NodePath("ElementalChar/Sprites/Sprite2DExplosionSmall:frame")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.3, 0.5),
+"times": PackedFloat32Array(0, 0.7),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [22, 25]
+"values": [12, 17]
 }
 tracks/5/type = "method"
 tracks/5/imported = false
@@ -268,274 +191,76 @@ tracks/5/path = NodePath(".")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0.4),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.3, 0.7),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
-"method": &"Attack"
-}]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("ElementalChar/Sprites/Sprite2DBlitzeKlein:visible")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0.3, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("ElementalChar/Sprites/Sprite2DBlitzeKlein:frame")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0.3, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [22, 25]
-}
-
-[sub_resource type="Animation" id="Animation_b16kl"]
-resource_name = "idle"
-length = 0.6
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ElementalChar/Sprites/Sprite2DWolke:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [4, 5]
-}
-
-[sub_resource type="Animation" id="Animation_jxqnb"]
-resource_name = "mandown"
-length = 0.2
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ElementalChar/Sprites/Sprite2DWolke:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [15, 18]
-}
-
-[sub_resource type="Animation" id="Animation_fawch"]
-resource_name = "manup"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ElementalChar/Sprites/Sprite2DWolke:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [10, 12]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.2),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [3],
-"method": &"SetState"
+"method": &"Explode"
+}, {
+"args": [],
+"method": &"HideAfterExplosion"
 }]
 }
 
-[sub_resource type="Animation" id="Animation_jeexv"]
-resource_name = "summon"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ElementalChar/Sprites/Sprite2DWolke:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0, 3]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_bsjxg"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_klt8f"]
 _data = {
-"RESET": SubResource("Animation_312t3"),
-"bounce": SubResource("Animation_cabsx"),
-"bounce_gewitter": SubResource("Animation_inemn"),
-"disapear": SubResource("Animation_371cv"),
-"fly": SubResource("Animation_wofl2"),
-"gewitter": SubResource("Animation_qpyu3"),
-"idle": SubResource("Animation_b16kl"),
-"mandown": SubResource("Animation_jxqnb"),
-"manup": SubResource("Animation_fawch"),
-"summon": SubResource("Animation_jeexv")
+"RESET": SubResource("Animation_rn4y6"),
+"explode": SubResource("Animation_a0g5m"),
+"idle": SubResource("Animation_yqeu0"),
+"summon": SubResource("Animation_vqnks"),
+"walk": SubResource("Animation_h5404")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ph6my"]
-animation = &"bounce"
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_j2wde"]
+animation = &"explode"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hyys1"]
-animation = &"bounce_gewitter"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7qkuo"]
-animation = &"disapear"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_f2607"]
-animation = &"fly"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_a3aco"]
-animation = &"gewitter"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qas8w"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fbgwy"]
 animation = &"idle"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wyama"]
-animation = &"mandown"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4kt4s"]
-animation = &"manup"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_551kk"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8dskp"]
 animation = &"summon"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_o86qu"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_oq25d"]
+animation = &"walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4owd6"]
 switch_mode = 2
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ebpon"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3268q"]
 switch_mode = 2
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8e4um"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ucp1y"]
 advance_mode = 2
-advance_condition = &"on_disapear"
+advance_condition = &"on_walk"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uyme2"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pwg4s"]
 advance_mode = 2
-advance_condition = &"on_bounce"
-advance_expression = "!self.get(\"parameters/conditions/on_disapear\")"
+advance_expression = "!self.get(\"parameters/conditions/on_walk\")"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2og08"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nkims"]
 advance_mode = 2
-advance_condition = &"on_fly"
-advance_expression = "!self.get(\"parameters/conditions/on_disapear\")"
+advance_condition = &"on_explode"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pl4hc"]
-switch_mode = 2
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lqrn2"]
 advance_mode = 2
+advance_condition = &"on_explode"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6u0ye"]
-advance_mode = 2
-advance_expression = "!self.get(\"parameters/conditions/on_fly\") ||
-self.get(\"parameters/conditions/on_disapear\")
- "
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_npcvv"]
+states/Start/position = Vector2(116, 102)
+states/explode/node = SubResource("AnimationNodeAnimation_j2wde")
+states/explode/position = Vector2(689, 124)
+states/idle/node = SubResource("AnimationNodeAnimation_fbgwy")
+states/idle/position = Vector2(467, 99)
+states/summon/node = SubResource("AnimationNodeAnimation_8dskp")
+states/summon/position = Vector2(294, 101)
+states/walk/node = SubResource("AnimationNodeAnimation_oq25d")
+states/walk/position = Vector2(469, 204)
+transitions = ["Start", "summon", SubResource("AnimationNodeStateMachineTransition_4owd6"), "summon", "idle", SubResource("AnimationNodeStateMachineTransition_3268q"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_ucp1y"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_pwg4s"), "idle", "explode", SubResource("AnimationNodeStateMachineTransition_nkims"), "walk", "explode", SubResource("AnimationNodeStateMachineTransition_lqrn2")]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3p36u"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ryx7v"]
-advance_mode = 2
-advance_condition = &"on_attack"
-advance_expression = "!self.get(\"parameters/conditions/on_disapear\")"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xnq75"]
-advance_mode = 2
-advance_condition = &"on_disapear"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_l74qk"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uc3du"]
-advance_mode = 2
-advance_condition = &"on_bounce"
-advance_expression = "!self.get(\"parameters/conditions/on_disapear\")"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sctk2"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_j6ik3"]
-advance_mode = 2
-advance_expression = "!self.get(\"parameters/conditions/on_attack\")
- "
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nx00b"]
-advance_mode = 2
-advance_condition = &"on_fly"
-advance_expression = "!self.get(\"parameters/conditions/on_disapear\")
- "
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_4l2e7"]
-states/Start/position = Vector2(281, -86)
-states/bounce/node = SubResource("AnimationNodeAnimation_ph6my")
-states/bounce/position = Vector2(355, 113)
-states/bounce_gewitter/node = SubResource("AnimationNodeAnimation_hyys1")
-states/bounce_gewitter/position = Vector2(951, 323)
-states/disapear/node = SubResource("AnimationNodeAnimation_7qkuo")
-states/disapear/position = Vector2(759, 100)
-states/fly/node = SubResource("AnimationNodeAnimation_f2607")
-states/fly/position = Vector2(583, 309)
-states/gewitter/node = SubResource("AnimationNodeAnimation_a3aco")
-states/gewitter/position = Vector2(820, 214)
-states/idle/node = SubResource("AnimationNodeAnimation_qas8w")
-states/idle/position = Vector2(558, 100)
-states/mandown/node = SubResource("AnimationNodeAnimation_wyama")
-states/mandown/position = Vector2(589, 235)
-states/manup/node = SubResource("AnimationNodeAnimation_4kt4s")
-states/manup/position = Vector2(469, 435)
-states/summon/node = SubResource("AnimationNodeAnimation_551kk")
-states/summon/position = Vector2(380, -25)
-transitions = ["Start", "summon", SubResource("AnimationNodeStateMachineTransition_o86qu"), "summon", "idle", SubResource("AnimationNodeStateMachineTransition_ebpon"), "idle", "disapear", SubResource("AnimationNodeStateMachineTransition_8e4um"), "idle", "bounce", SubResource("AnimationNodeStateMachineTransition_uyme2"), "idle", "manup", SubResource("AnimationNodeStateMachineTransition_2og08"), "manup", "fly", SubResource("AnimationNodeStateMachineTransition_pl4hc"), "fly", "mandown", SubResource("AnimationNodeStateMachineTransition_6u0ye"), "mandown", "idle", SubResource("AnimationNodeStateMachineTransition_3p36u"), "idle", "gewitter", SubResource("AnimationNodeStateMachineTransition_ryx7v"), "gewitter", "disapear", SubResource("AnimationNodeStateMachineTransition_xnq75"), "bounce", "idle", SubResource("AnimationNodeStateMachineTransition_l74qk"), "gewitter", "bounce_gewitter", SubResource("AnimationNodeStateMachineTransition_uc3du"), "bounce_gewitter", "gewitter", SubResource("AnimationNodeStateMachineTransition_sctk2"), "gewitter", "idle", SubResource("AnimationNodeStateMachineTransition_j6ik3"), "gewitter", "manup", SubResource("AnimationNodeStateMachineTransition_nx00b")]
-graph_offset = Vector2(-2, -90)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3hi02"]
-size = Vector2(32, 11)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_25uev"]
-radius = 33.0151
-
-[node name="FireElemental" type="Node2D"]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_bsjxg")
-}
-
-[node name="AnimationTree" type="AnimationTree" parent="." groups=["AirElemental", "Elemental"]]
-libraries = {
-"": SubResource("AnimationLibrary_bsjxg")
-}
-tree_root = SubResource("AnimationNodeStateMachine_4l2e7")
-anim_player = NodePath("../AnimationPlayer")
-parameters/conditions/on_attack = false
-parameters/conditions/on_bounce = false
-parameters/conditions/on_disapear = false
-parameters/conditions/on_fly = false
+[node name="FireElemental" type="Node2D" groups=["FireElementalRoot"]]
+script = ExtResource("1_2dh1i")
 
 [node name="DieTimer" type="Timer" parent="."]
 wait_time = 10.0
@@ -544,40 +269,54 @@ autostart = true
 
 [node name="PlayerClickMarker" type="Marker2D" parent="."]
 
-[node name="ElementalChar" type="Node2D" parent="."]
+[node name="ElementalChar" type="CharacterBody2D" parent="."]
+collision_layer = 0
+collision_mask = 65
 
 [node name="Sprites" type="Node2D" parent="ElementalChar"]
 
-[node name="Sprite2DWolke" type="Sprite2D" parent="ElementalChar/Sprites"]
-texture = ExtResource("2_2bg8u")
-hframes = 35
-frame = 4
+[node name="Sprite2DFireElemental" type="Sprite2D" parent="ElementalChar/Sprites"]
+texture = ExtResource("1_lybpy")
+hframes = 18
+frame = 5
 
-[node name="Sprite2DBlitze2Mittel" type="Sprite2D" parent="ElementalChar/Sprites"]
+[node name="Sprite2DExplosionSmall" type="Sprite2D" parent="ElementalChar/Sprites"]
 visible = false
-rotation = 1.5708
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("1_n6ebe")
-hframes = 35
+texture = ExtResource("2_37wpa")
+hframes = 18
+frame = 14
 
-[node name="Sprite2DBlitze3Groß" type="Sprite2D" parent="ElementalChar/Sprites"]
+[node name="Sprite2DExplosion" type="Sprite2D" parent="ElementalChar/Sprites"]
 visible = false
-rotation = 2.53073
-scale = Vector2(1.6, 1.6)
-texture = ExtResource("1_n6ebe")
-hframes = 35
+scale = Vector2(2, 2)
+texture = ExtResource("2_37wpa")
+hframes = 18
+frame = 15
 
-[node name="PlayerJumpArea" type="Area2D" parent="ElementalChar" groups=["AirElemental", "Elemental"]]
-collision_layer = 2
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ElementalChar/PlayerJumpArea" groups=["AirElemental"]]
-position = Vector2(0, 2.5)
-shape = SubResource("RectangleShape2D_3hi02")
-
-[node name="EnemyDetectionArea" type="Area2D" parent="ElementalChar" groups=["AirElemental", "Elemental"]]
+[node name="EnemyDetectionArea" type="Area2D" parent="ElementalChar" groups=["Elemental", "FireElemental"]]
 collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ElementalChar/EnemyDetectionArea"]
 shape = SubResource("CircleShape2D_25uev")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ElementalChar"]
+shape = SubResource("CapsuleShape2D_ouvks")
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_klt8f")
+}
+tree_root = SubResource("AnimationNodeStateMachine_npcvv")
+anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/on_explode = false
+parameters/conditions/on_walk = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_klt8f")
+}
+
+[connection signal="timeout" from="DieTimer" to="." method="OnDieTimerTimeout"]
+[connection signal="area_entered" from="ElementalChar/EnemyDetectionArea" to="." method="OnEnemyEntered"]
+[connection signal="area_exited" from="ElementalChar/EnemyDetectionArea" to="." method="OnEnemyExited"]

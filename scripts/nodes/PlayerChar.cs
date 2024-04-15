@@ -17,6 +17,7 @@ public partial class PlayerChar : CharacterBody2D
 
 
     private PackedScene _airElemental = GD.Load<PackedScene>("res://scenes/nodes/AirElemental.tscn");
+    private PackedScene _fireElemental = GD.Load<PackedScene>("res://scenes/nodes/FireElemental.tscn");
 
 
     public const int PlattformCollisionMask = 7;
@@ -42,6 +43,7 @@ public partial class PlayerChar : CharacterBody2D
         _playerSprite2D = GetNode<Sprite2D>("PlayerSprite2D");
         _audioStreamPlayer2D = GetNode<AudioStreamPlayer2D>("AudioStreamPlayer2D");
         _airElemental.Instantiate();
+        _fireElemental.Instantiate();
         _elementalSummonerMarker = GetNode<Marker2D>("ElementalSummonerMarker");
         _invincibleTimer = GetNode<Timer>("InvincibleTimer");
         _autoLoader.SignalManager.OnPlayerDead += PlayerDied;
@@ -178,19 +180,19 @@ public partial class PlayerChar : CharacterBody2D
                 _animationFinish = false;
             }
 
-            if (Input.IsActionJustPressed("summon_water"))
+            if (Input.IsActionJustPressed("summon_water") && false)
             {
                 SetPlayerState(PlayerState.SummonWater);
                 _animationFinish = false;
             }
 
-            if (Input.IsActionJustPressed("summon_fire"))
+            if (Input.IsActionJustPressed("summon_fire") && CanSummonFireElemental())
             {
                 SetPlayerState(PlayerState.SummonFire);
                 _animationFinish = false;
             }
 
-            if (Input.IsActionJustPressed("summon_earth"))
+            if (Input.IsActionJustPressed("summon_earth") && false)
             {
                 SetPlayerState(PlayerState.SummonEarth);
                 _animationFinish = false;
@@ -211,10 +213,31 @@ public partial class PlayerChar : CharacterBody2D
 
     public bool CanSummonAirElemental()
     {
-        return _autoLoader.GameManager.AirUnlocked && GetTree().GetFirstNodeInGroup(GroupNames.AirElemental) == null;
+        return _autoLoader.GameManager.AirUnlocked &&
+               GetTree().GetFirstNodeInGroup(GroupNames.AirElementalRoot) == null;
+    }
+
+    public bool CanSummonFireElemental()
+    {
+        return _autoLoader.GameManager.FireUnlocked &&
+               GetTree().GetFirstNodeInGroup(GroupNames.FireElementalRoot) == null;
     }
 
     public void SummonAirElemental()
+    {
+        if (!CanSummonAirElemental())
+            return;
+        SummonElemental(_airElemental, SignalManager.SignalName.OnAirStartCd);
+    }
+
+    public void SummonFireElemental()
+    {
+        if (!CanSummonFireElemental())
+            return;
+        SummonElemental(_fireElemental, SignalManager.SignalName.OnFireStartCd);
+    }
+
+    public void SummonElemental(PackedScene elemental, StringName eventName)
     {
         var spawnNode = GetTree().GetFirstNodeInGroup(GroupNames.SpawnGroup);
 
@@ -224,20 +247,16 @@ public partial class PlayerChar : CharacterBody2D
             return;
         }
 
-
-        if (!CanSummonAirElemental())
-            return;
-
         var summonPosition = _elementalSummonerMarker.GlobalPosition;
         if (_playerSprite2D.FlipH)
             // Offset, wenn der Charakter nach links schaut, damit es beim Stab entsteht.
             summonPosition += new Vector2(-60, 0);
 
-        var newAirElemental = _airElemental.Instantiate<AirElemental>();
+        var newElemental = elemental.Instantiate<Node2D>();
 
-        newAirElemental.GlobalPosition = summonPosition;
-        spawnNode.AddChild(newAirElemental);
-        _autoLoader.SignalManager.EmitSignal(SignalManager.SignalName.OnAirStartCd);
+        newElemental.GlobalPosition = summonPosition;
+        spawnNode.AddChild(newElemental);
+        _autoLoader.SignalManager.EmitSignal(eventName);
     }
 
     private void SetPlayerState(PlayerState newPlayerState)

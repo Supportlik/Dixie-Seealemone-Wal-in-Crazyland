@@ -78,7 +78,7 @@ visible = false
 layout_mode = 2
 Key = "2"
 Icon = ExtResource("5_32q5p")
-Cooldown = 15.0
+Cooldown = 10.4
 
 [node name="Control" type="Control" parent="VBoxContainer/MarginContainer2/HBoxContainer"]
 layout_mode = 2

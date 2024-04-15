@@ -183,7 +183,7 @@ script = ExtResource("1_f1g5t")
 z_index = -1
 sprite_frames = SubResource("SpriteFrames_tqwsb")
 autoplay = "default"
-frame_progress = 0.936804
+frame_progress = 0.637052
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
@@ -199,7 +199,7 @@ z_index = -2
 position = Vector2(-13, -41)
 sprite_frames = SubResource("SpriteFrames_27p5f")
 animation = &"summon"
-frame_progress = 0.415178
+frame_progress = 0.115425
 
 [connection signal="area_entered" from="Area2D" to="." method="OnBodyEntered"]
 [connection signal="area_exited" from="Area2D" to="." method="OnBodyExited"]
