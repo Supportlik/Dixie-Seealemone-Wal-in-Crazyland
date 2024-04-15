@@ -5,6 +5,7 @@
 [ext_resource type="FontFile" uid="uid://cuuirbvl1k68g" path="res://assets/fonts/Kenney Pixel Square.ttf" id="2_6cqd5"]
 [ext_resource type="Texture2D" uid="uid://cav3rwpmf4qwh" path="res://assets/sprites/ui/Menu_Button_Pressed.png" id="2_yesxt"]
 [ext_resource type="Texture2D" uid="uid://cu3bf2ivv7orn" path="res://assets/sprites/ui/Restart_Button_Unpressed.png" id="3_cv5oe"]
+[ext_resource type="LabelSettings" uid="uid://pcck8doanfys" path="res://assets/fonts/CDandScoreLabel.tres" id="3_sy8qv"]
 [ext_resource type="Texture2D" uid="uid://cs0pki212svwu" path="res://assets/sprites/ui/Restart_Button_Pressed.png" id="4_rd0es"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_r6fwt"]
@@ -12,10 +13,6 @@ font = ExtResource("2_6cqd5")
 font_size = 48
 
 [sub_resource type="LabelSettings" id="LabelSettings_kvany"]
-font = ExtResource("2_6cqd5")
-font_size = 32
-
-[sub_resource type="LabelSettings" id="LabelSettings_gy5sv"]
 font = ExtResource("2_6cqd5")
 font_size = 32
 
@@ -49,7 +46,7 @@ horizontal_alignment = 1
 [node name="ScoreLabel" type="Label" parent="VBoxContainer2"]
 layout_mode = 2
 text = "Score: 000"
-label_settings = SubResource("LabelSettings_gy5sv")
+label_settings = ExtResource("3_sy8qv")
 horizontal_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]

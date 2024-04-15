@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cr7u7plx48sxr"]
+[gd_scene load_steps=11 format=3 uid="uid://cr7u7plx48sxr"]
 
 [ext_resource type="TileSet" uid="uid://bwxywrir2jgu0" path="res://assets/sprites/tileset/tileset_jungle.tres" id="1_lojut"]
 [ext_resource type="Script" path="res://scripts/nodes/BaseLevel.cs" id="1_uynxf"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dlas5k67473fy" path="res://scenes/ui/hud.tscn" id="6_tayjc"]
 [ext_resource type="PackedScene" uid="uid://cafq6wnt4xfou" path="res://scenes/nodes/slime.tscn" id="8_bt00r"]
 [ext_resource type="PackedScene" uid="uid://da87i5eocwwmm" path="res://scenes/ui/gameover_menu.tscn" id="8_lgctg"]
+[ext_resource type="PackedScene" uid="uid://dnso4ksuvcwk7" path="res://scenes/nodes/air_shrine.tscn" id="10_xusni"]
 
 [node name="BaseLevel" type="Node2D"]
 script = ExtResource("1_uynxf")
@@ -46,9 +47,6 @@ position = Vector2(833, -60)
 
 [node name="HUD" parent="." instance=ExtResource("6_tayjc")]
 
-[node name="Slime" parent="." instance=ExtResource("8_bt00r")]
-position = Vector2(1152, 931)
-
 [node name="Slime2" parent="." instance=ExtResource("8_bt00r")]
 position = Vector2(1295, 858)
 
@@ -67,6 +65,9 @@ position = Vector2(951, 897)
 
 [node name="GameOverControlMenu" parent="GameOverCanvas" instance=ExtResource("8_lgctg")]
 visible = false
+
+[node name="AirShrine" parent="." instance=ExtResource("10_xusni")]
+position = Vector2(1147, 931)
 
 [editable path="PlayerCam"]
 [editable path="PlatformSet"]

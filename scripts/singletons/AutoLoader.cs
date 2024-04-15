@@ -12,7 +12,7 @@ namespace MasterofElements.scripts.singletons;
 /// </summary>
 public class AutoLoader
 {
-    public readonly SignalManager SignalManager;
+    public readonly signalmanager.SignalManager SignalManager;
     public readonly FileAccessService FileAccessService;
     public readonly SceneSwitcherService SceneSwitcherService;
     public readonly ScoreService ScoreService;
@@ -26,7 +26,7 @@ public class AutoLoader
     /// </summary>
     public AutoLoader(Node parent)
     {
-        SignalManager = parent.GetNode<SignalManager>("/root/SignalManager");
+        SignalManager = parent.GetNode<signalmanager.SignalManager>("/root/SignalManager");
         FileAccessService = parent.GetNode<FileAccessService>("/root/FileAccessService");
         SceneSwitcherService = parent.GetNode<SceneSwitcherService>("/root/SceneSwitcherService");
         ScoreService = parent.GetNode<ScoreService>("/root/ScoreService");

@@ -1,0 +1,122 @@
+[gd_scene load_steps=7 format=3 uid="uid://b0n6kx4a2j1qi"]
+
+[ext_resource type="Texture2D" uid="uid://wxq8voguahxx" path="res://assets/sprites/ui/Slider_Area_Filled.png" id="1_m0v87"]
+[ext_resource type="Script" path="res://scripts/ui/SkillCD.cs" id="1_op72p"]
+[ext_resource type="LabelSettings" uid="uid://pcck8doanfys" path="res://assets/fonts/CDandScoreLabel.tres" id="2_dlddx"]
+[ext_resource type="Texture2D" uid="uid://bobngvy2qoj2w" path="res://assets/sprites/elemental/air13.png" id="2_r4jag"]
+[ext_resource type="FontFile" uid="uid://cuuirbvl1k68g" path="res://assets/fonts/Kenney Pixel Square.ttf" id="4_p10tr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_swqel"]
+font = ExtResource("4_p10tr")
+outline_size = 6
+outline_color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="SkillCD" type="Control"]
+custom_minimum_size = Vector2(64, 70)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1856.0
+offset_bottom = -1016.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_op72p")
+Icon = ExtResource("2_r4jag")
+Cooldown = 5.0
+metadata/_edit_horizontal_guides_ = [6.0, 58.0]
+metadata/_edit_vertical_guides_ = [6.0, 58.0]
+
+[node name="Background" type="NinePatchRect" parent="."]
+self_modulate = Color(0.866667, 0.45098, 0.792157, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_m0v87")
+region_rect = Rect2(0, 0, 64, 32)
+patch_margin_left = 6
+patch_margin_top = 9
+patch_margin_right = 6
+patch_margin_bottom = 10
+
+[node name="Control" type="Control" parent="."]
+clip_contents = true
+layout_mode = 2
+anchors_preset = 0
+offset_left = 6.0
+offset_top = 9.0
+offset_right = 58.0
+offset_bottom = 61.0
+
+[node name="IconTextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+texture = ExtResource("2_r4jag")
+expand_mode = 4
+stretch_mode = 3
+
+[node name="CDOverlay" type="ColorRect" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 12.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.603922)
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = -5
+theme_override_constants/margin_bottom = 3
+
+[node name="CDLabel" type="Label" parent="Control/MarginContainer"]
+visible = false
+layout_mode = 2
+text = "1"
+label_settings = ExtResource("2_dlddx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+
+[node name="KeyLabel" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "1"
+label_settings = SubResource("LabelSettings_swqel")
+horizontal_alignment = 2
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="TimedOut"]

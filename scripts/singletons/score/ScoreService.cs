@@ -35,7 +35,7 @@ public partial class ScoreService : Node
     public void OnScoreEvent(int score, ScoreType scoreType)
     {
         _score += score;
-        _autoLoader.SignalManager.EmitSignal(SignalManager.SignalName.OnScoreChanged);
+        _autoLoader.SignalManager.EmitSignal(signalmanager.SignalManager.SignalName.OnScoreChanged);
         var scoreEvent = new ScoreEvent(score, scoreType, DateTime.Now);
         _scoreEvents.AddLast(scoreEvent);
     }

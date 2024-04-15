@@ -2,6 +2,7 @@ using Godot;
 using MasterofElements.scripts.models;
 using MasterofElements.scripts.nodes;
 using MasterofElements.scripts.singletons;
+using MasterofElements.scripts.singletons.signalmanager;
 
 public partial class PlayerChar : CharacterBody2D
 {
@@ -68,7 +69,8 @@ public partial class PlayerChar : CharacterBody2D
         _autoLoader.AudioService.PlaySfx("characterDamage2.mp3", this, "hurt");
         double time = _invincibleTimer.WaitTime;
         Velocity += new Vector2(0, HurtVelocity);
-        _autoLoader.SignalManager.EmitSignal(SignalManager.SignalName.OnPlayerHurt);
+        _autoLoader.SignalManager.EmitSignal(SignalManager.SignalName
+            .OnPlayerHurt);
 
         var tween = CreateTween();
 
@@ -170,7 +172,7 @@ public partial class PlayerChar : CharacterBody2D
                 SetPlayerState(PlayerState.Walk);
             }
 
-            if (Input.IsActionJustPressed("summon_air"))
+            if (Input.IsActionJustPressed("summon_air") && CanSummonAirElemental())
             {
                 SetPlayerState(PlayerState.SummonAir);
                 _animationFinish = false;
@@ -207,6 +209,11 @@ public partial class PlayerChar : CharacterBody2D
         }
     }
 
+    public bool CanSummonAirElemental()
+    {
+        return _autoLoader.GameManager.AirUnlocked && GetTree().GetFirstNodeInGroup(GroupNames.AirElemental) == null;
+    }
+
     public void SummonAirElemental()
     {
         var spawnNode = GetTree().GetFirstNodeInGroup(GroupNames.SpawnGroup);
@@ -218,7 +225,7 @@ public partial class PlayerChar : CharacterBody2D
         }
 
 
-        if (GetTree().GetFirstNodeInGroup(GroupNames.AirElemental) != null)
+        if (!CanSummonAirElemental())
             return;
 
         var summonPosition = _elementalSummonerMarker.GlobalPosition;
@@ -230,6 +237,7 @@ public partial class PlayerChar : CharacterBody2D
 
         newAirElemental.GlobalPosition = summonPosition;
         spawnNode.AddChild(newAirElemental);
+        _autoLoader.SignalManager.EmitSignal(SignalManager.SignalName.OnAirStartCd);
     }
 
     private void SetPlayerState(PlayerState newPlayerState)
