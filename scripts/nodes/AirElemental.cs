@@ -88,6 +88,8 @@ public partial class AirElemental : Node2D
 
     public override void _Input(InputEvent @event)
     {
+        if(_autoloader.GameManager.GameIsOverFlag)
+            return;
         if (Input.IsActionJustPressed("move_summon"))
         {
             var mousePosition = GetGlobalMousePosition();

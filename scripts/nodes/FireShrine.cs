@@ -4,7 +4,7 @@ public partial class FireShrine : AirShrine
 {
     public override string GetDialogText()
     {
-        return "Found the Fire Shrine!\n Press '2' to summon me. I will help you on your journey.\n\n You can send me to your Enemies with 'left mouse click'. \n Burn it all down!";
+        return "Found the Fire Shrine!\n Press '2' to summon me. I will help you on your journey.\n\n You can send me to your Enemies with 'left mouse click'. \n Burn it all down (right mouse click)!";
         ;
     }
     

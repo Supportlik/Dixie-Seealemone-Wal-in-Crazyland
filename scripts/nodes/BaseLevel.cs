@@ -1,4 +1,5 @@
 using Godot;
+using MasterofElements.scripts.models;
 using MasterofElements.scripts.singletons;
 
 public partial class BaseLevel : Node2D
@@ -10,7 +11,15 @@ public partial class BaseLevel : Node2D
     {
         _autoLoader = new AutoLoader(this);
         _autoLoader.GameManager.StartGame();
-        _autoLoader.AudioService.PlayMusic("Ludum_Dare_55_Game_Background_Music.mp3", this, "background_music_game");
+        
+        var spawnNode = GetTree().GetFirstNodeInGroup(GroupNames.SpawnGroup);
+
+        if (spawnNode == null)
+        {
+            GD.PrintErr("SPAWN GROUP NOT FOUND!");
+        }
+        
+        _autoLoader.AudioService.PlayMusic("Ludum_Dare_55_Game_Background_Music.mp3", spawnNode, "background_music_game");
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.

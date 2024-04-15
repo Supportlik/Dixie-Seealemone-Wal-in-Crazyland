@@ -98,6 +98,7 @@ public partial class PlayerChar : CharacterBody2D
 
     private void MovePlayer(double delta)
     {
+        
         Vector2 velocity = Velocity;
 
         if (!IsOnFloor())

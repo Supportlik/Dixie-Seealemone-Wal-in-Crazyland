@@ -12,11 +12,14 @@
 [node name="PlayerCam" parent="." node_paths=PackedStringArray("Target") instance=ExtResource("3_rr011")]
 Target = NodePath("../Node2D")
 
+[node name="LevelLimitLB" parent="PlayerCam" index="0"]
+position = Vector2(0, -1080)
+
 [node name="LevelLimitRT" parent="PlayerCam" index="1"]
-position = Vector2(1.92e+07, 0)
+position = Vector2(7680, -2160)
 
 [node name="Node2D" type="Node2D" parent="."]
-position = Vector2(1457, 597)
+position = Vector2(1067, -170)
 script = ExtResource("4_5bovv")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

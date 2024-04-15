@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cr7u7plx48sxr"]
+[gd_scene load_steps=22 format=3 uid="uid://cr7u7plx48sxr"]
 
 [ext_resource type="TileSet" uid="uid://bwxywrir2jgu0" path="res://assets/sprites/tileset/tileset_jungle.tres" id="1_lojut"]
 [ext_resource type="Script" path="res://scripts/nodes/BaseLevel.cs" id="1_uynxf"]
@@ -18,6 +18,11 @@
 [ext_resource type="PackedScene" uid="uid://c4l0rn3gjnigj" path="res://scenes/nodes/CollectOrange.tscn" id="12_iyt6y"]
 [ext_resource type="PackedScene" uid="uid://dy6j7o26xikbt" path="res://scenes/nodes/CollectCoconut.tscn" id="13_1e5me"]
 [ext_resource type="PackedScene" uid="uid://daxx4hurhhut2" path="res://scenes/nodes/jungle_wide_spike.tscn" id="13_ot56l"]
+[ext_resource type="PackedScene" uid="uid://ugpgjr1oei4" path="res://scenes/nodes/boss.tscn" id="19_mvruj"]
+[ext_resource type="Script" path="res://scripts/nodes/BossArea.cs" id="20_7yv4y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wec55"]
+size = Vector2(688, 58)
 
 [node name="BaseLevel" type="Node2D"]
 script = ExtResource("1_uynxf")
@@ -699,10 +704,12 @@ EndMarker = NodePath("../../../PlatformSet2/EndPos/End")
 [node name="EndPos" parent="Level/Platforms/PlatformSet4" index="1"]
 position = Vector2(-56, -40)
 
-[node name="PlatformSet3" parent="Level/Platforms" instance=ExtResource("5_abrru")]
+[node name="BossPlattform" parent="Level/Platforms" instance=ExtResource("5_abrru")]
 position = Vector2(3264, -608)
 
-[node name="EndPos" parent="Level/Platforms/PlatformSet3" index="1"]
+[node name="MovablePlatform" parent="Level/Platforms/BossPlattform/StartPos" index="1" groups=["BossPlatform"]]
+
+[node name="EndPos" parent="Level/Platforms/BossPlattform" index="1"]
 position = Vector2(-511, -1)
 
 [node name="PlatformSet5" parent="Level/Platforms" instance=ExtResource("5_abrru")]
@@ -813,6 +820,18 @@ position = Vector2(2594, -128)
 
 [node name="JungleWideSpike4" parent="Level/Traps" instance=ExtResource("13_ot56l")]
 position = Vector2(2752, -132)
+
+[node name="JungleSpike4" parent="Level/Traps" instance=ExtResource("12_6ha16")]
+position = Vector2(2816, -488)
+
+[node name="JungleSpike5" parent="Level/Traps" instance=ExtResource("12_6ha16")]
+position = Vector2(3134, -488)
+
+[node name="JungleSpike6" parent="Level/Traps" instance=ExtResource("12_6ha16")]
+position = Vector2(2976, -488)
+
+[node name="JungleSpike7" parent="Level/Traps" instance=ExtResource("12_6ha16")]
+position = Vector2(3250, -488)
 
 [node name="Enemies" type="Node2D" parent="Level"]
 
@@ -939,6 +958,21 @@ position = Vector2(2328, -584)
 [node name="Slime25" parent="Level/Enemies" instance=ExtResource("8_bt00r")]
 position = Vector2(2406, -584)
 
+[node name="Slime42" parent="Level/Enemies" groups=["SummonedSlime"] instance=ExtResource("8_bt00r")]
+position = Vector2(2898, -676)
+
+[node name="Slime43" parent="Level/Enemies" groups=["SummonedSlime"] instance=ExtResource("8_bt00r")]
+position = Vector2(3186, -704)
+
+[node name="Slime44" parent="Level/Enemies" groups=["SummonedSlime"] instance=ExtResource("8_bt00r")]
+position = Vector2(2938, -676)
+
+[node name="Slime45" parent="Level/Enemies" groups=["SummonedSlime"] instance=ExtResource("8_bt00r")]
+position = Vector2(3153, -675)
+
+[node name="Slime46" parent="Level/Enemies" groups=["SummonedSlime"] instance=ExtResource("8_bt00r")]
+position = Vector2(2990, -667)
+
 [node name="HUD" parent="." instance=ExtResource("6_tayjc")]
 
 [node name="GameOverCanvas" type="CanvasLayer" parent="."]
@@ -958,11 +992,31 @@ position = Vector2(0, 0)
 position = Vector2(3392, -1728)
 
 [node name="Player" parent="PlayerRelated" instance=ExtResource("4_issuh")]
-position = Vector2(96, -109)
+position = Vector2(104, -112)
+
+[node name="Boss" parent="." instance=ExtResource("19_mvruj")]
+position = Vector2(3056, -516)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 128
+script = ExtResource("20_7yv4y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(3048, -877)
+shape = SubResource("RectangleShape2D_wec55")
+
+[node name="PlatformTimer" type="Timer" parent="Area2D"]
+wait_time = 5.0
+autostart = true
+
+[connection signal="area_entered" from="Area2D" to="Area2D" method="BossAreaEntered"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="BossAreaEntered"]
+[connection signal="timeout" from="Area2D/PlatformTimer" to="Area2D" method="OnPlatformTimerTimeout"]
 
 [editable path="Level/Platforms/PlatformSet"]
 [editable path="Level/Platforms/PlatformSet2"]
 [editable path="Level/Platforms/PlatformSet4"]
-[editable path="Level/Platforms/PlatformSet3"]
+[editable path="Level/Platforms/BossPlattform"]
 [editable path="Level/Platforms/PlatformSet5"]
 [editable path="PlayerRelated/PlayerCam"]

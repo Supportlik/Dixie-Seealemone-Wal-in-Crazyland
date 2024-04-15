@@ -34,6 +34,8 @@ public partial class FireElemental : Node2D
 
     public override void _Input(InputEvent @event)
     {
+        if (_autoloader.GameManager.GameIsOverFlag)
+            return;
         if (Input.IsActionJustPressed("move_summon") && !IsExploding())
         {
             var mousePosition = GetGlobalMousePosition();
@@ -126,7 +128,7 @@ public partial class FireElemental : Node2D
 
     public void OnDieTimerTimeout()
     {
-        if(!IsExploding())
+        if (!IsExploding())
             StartExplosion();
         QueueFree();
     }

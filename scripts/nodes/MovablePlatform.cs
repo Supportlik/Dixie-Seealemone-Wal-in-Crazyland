@@ -1,5 +1,4 @@
 using Godot;
-using System;
 
 public partial class MovablePlatform : AnimatableBody2D
 {
@@ -21,4 +20,5 @@ public partial class MovablePlatform : AnimatableBody2D
         _tween.TweenProperty(this, "global_position", StartMarker.GlobalPosition, timeToReachEnd);
         Shadow.Hide();
     }
+
 }

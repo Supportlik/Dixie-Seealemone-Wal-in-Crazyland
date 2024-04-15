@@ -46,7 +46,7 @@ public partial class GameOverMenuController : VBoxContainer
     public void SetLevelCompleted()
     {
         SetTitle("Level Completed");
-        SetSubTitle("Congratulations!\n You are one step closer to becoming the Master of Elements!");
+        SetSubTitle("Congratulations! Master of Elements!");
     }
 
     public void SetTitle(string title)

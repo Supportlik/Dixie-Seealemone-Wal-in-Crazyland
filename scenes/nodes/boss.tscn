@@ -1,8 +1,10 @@
-[gd_scene load_steps=27 format=3 uid="uid://ugpgjr1oei4"]
+[gd_scene load_steps=31 format=3 uid="uid://ugpgjr1oei4"]
 
+[ext_resource type="Script" path="res://scripts/nodes/Boss.cs" id="1_1qc80"]
 [ext_resource type="Texture2D" uid="uid://ckt4a64cfgu70" path="res://assets/sprites/slimes/fireboss-Sheet_2.png" id="1_aoxmq"]
 [ext_resource type="Texture2D" uid="uid://51dwekmeegkk" path="res://assets/sprites/slimes/fireboss-explitoin.png" id="2_8rikl"]
 [ext_resource type="Texture2D" uid="uid://io5at0qr34pf" path="res://assets/sprites/slimes/explotion-Sheet.png" id="3_pibvk"]
+[ext_resource type="Script" path="res://scripts/nodes/HitBoxDamageInterface.cs" id="5_borit"]
 
 [sub_resource type="Animation" id="Animation_yq6tc"]
 length = 0.001
@@ -21,7 +23,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("FireBossChar/BossSprite/ExplosionSprite:frame")
+tracks/1/path = NodePath("FireBossChar/BossSprite/SpitSprite:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -33,7 +35,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("FireBossChar/BossSprite/ExplosionSprite:visible")
+tracks/2/path = NodePath("FireBossChar/BossSprite/SpitSprite:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -51,32 +53,68 @@ tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
+"update": 0,
 "values": [false]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("FireBossChar/BossSprite:scale")
+tracks/4/path = NodePath("FireBossChar/ExplosionSprite:frame")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [0]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("FireBossChar/ExplosionSprite:frame")
+tracks/5/path = NodePath("FireBossChar/BossSprite:scale")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".:MoveSpeed")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("FireBossChar/ExplosionSprite/BigExplosion:frame")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0]
+"values": [2]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("FireBossChar/ExplosionSprite/BigExplosion2:frame")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
 }
 
 [sub_resource type="Animation" id="Animation_6hpfo"]
@@ -97,7 +135,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("FireBossChar/BossSprite/ExplosionSprite:frame")
+tracks/1/path = NodePath("FireBossChar/BossSprite/SpitSprite:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -109,7 +147,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("FireBossChar/BossSprite/ExplosionSprite:visible")
+tracks/2/path = NodePath("FireBossChar/BossSprite/SpitSprite:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -117,6 +155,20 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"SpawnSlime"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_tlw8b"]
@@ -137,7 +189,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("FireBossChar/BossSprite/ExplosionSprite:visible")
+tracks/1/path = NodePath("FireBossChar/BossSprite/SpitSprite:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -165,7 +217,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("FireBossChar/BossSprite/ExplosionSprite:visible")
+tracks/1/path = NodePath("FireBossChar/BossSprite/SpitSprite:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -183,28 +235,52 @@ tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.6),
 "transitions": PackedFloat32Array(1, 1),
-"update": 1,
+"update": 0,
 "values": [true, false]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("FireBossChar/BossSprite:scale")
+tracks/3/path = NodePath("FireBossChar/ExplosionSprite:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 5]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("FireBossChar/BossSprite:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(0, 0), Vector2(0, 0)]
 }
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("FireBossChar/ExplosionSprite:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("FireBossChar/ExplosionSprite/BigExplosion:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 5]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("FireBossChar/ExplosionSprite/BigExplosion2:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
 "times": PackedFloat32Array(0, 0.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
@@ -214,6 +290,7 @@ tracks/4/keys = {
 [sub_resource type="Animation" id="Animation_eleb1"]
 resource_name = "implode"
 length = 0.6
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -229,7 +306,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("FireBossChar/BossSprite/ExplosionSprite:visible")
+tracks/1/path = NodePath("FireBossChar/BossSprite/SpitSprite:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -247,28 +324,66 @@ tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.6),
 "transitions": PackedFloat32Array(1, 1),
-"update": 1,
+"update": 0,
 "values": [true, false]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("FireBossChar/BossSprite:scale")
+tracks/3/path = NodePath("FireBossChar/ExplosionSprite:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, 0), Vector2(1, 1)]
+"values": [5, 0]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("FireBossChar/ExplosionSprite:frame")
+tracks/4/path = NodePath("FireBossChar/BossSprite:scale")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1), Vector2(1, 1)]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"AfterExplosion"
+}]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("FireBossChar/ExplosionSprite/BigExplosion:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [5, 0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("FireBossChar/ExplosionSprite/BigExplosion2:frame")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
 "times": PackedFloat32Array(0, 0.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
@@ -294,7 +409,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("FireBossChar/BossSprite/ExplosionSprite:visible")
+tracks/1/path = NodePath("FireBossChar/BossSprite/SpitSprite:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -302,6 +417,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:MoveSpeed")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [4500.0, 0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_22xvs"]
@@ -379,11 +506,22 @@ states/walk/position = Vector2(589, 158)
 transitions = ["Start", "implode", SubResource("AnimationNodeStateMachineTransition_gq4jv"), "implode", "walk", SubResource("AnimationNodeStateMachineTransition_eiju6"), "walk", "attack", SubResource("AnimationNodeStateMachineTransition_vdxxx"), "attack", "walk", SubResource("AnimationNodeStateMachineTransition_t7bq6"), "walk", "explode", SubResource("AnimationNodeStateMachineTransition_06d1r"), "explode", "implode", SubResource("AnimationNodeStateMachineTransition_8h0w1"), "walk", "death_explode", SubResource("AnimationNodeStateMachineTransition_d7y21"), "attack", "death_explode", SubResource("AnimationNodeStateMachineTransition_6ct7a"), "explode", "death_explode", SubResource("AnimationNodeStateMachineTransition_xbffv")]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_utnkn"]
+size = Vector2(27, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8uc3i"]
 size = Vector2(27, 30)
 
-[node name="Boss" type="CharacterBody2D" groups=["Enemy"]]
-collision_layer = 6
-collision_mask = 65
+[sub_resource type="CircleShape2D" id="CircleShape2D_b7ksr"]
+radius = 45.0444
+
+[node name="Boss" type="CharacterBody2D" groups=["Boss"]]
+visible = false
+collision_layer = 4
+collision_mask = 69
+script = ExtResource("1_1qc80")
+Hp = 2000
+MaxFireSlimeCount = 6
+MoveSpeed = 0.0
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 libraries = {
@@ -403,21 +541,67 @@ libraries = {
 [node name="FireBossChar" type="Node2D" parent="."]
 
 [node name="BossSprite" type="Sprite2D" parent="FireBossChar"]
+z_index = -1
 texture = ExtResource("1_aoxmq")
 hframes = 13
 frame = 6
 
-[node name="ExplosionSprite" type="Sprite2D" parent="FireBossChar/BossSprite"]
+[node name="SpitSprite" type="Sprite2D" parent="FireBossChar/BossSprite"]
 visible = false
 position = Vector2(-32, 0)
 texture = ExtResource("2_8rikl")
 hframes = 13
+
+[node name="NewSlimeMarker" type="Marker2D" parent="FireBossChar/BossSprite"]
+position = Vector2(-32, 11)
 
 [node name="ExplosionSprite" type="Sprite2D" parent="FireBossChar"]
 visible = false
 texture = ExtResource("3_pibvk")
 hframes = 6
 
+[node name="BigExplosion" type="Sprite2D" parent="FireBossChar/ExplosionSprite"]
+scale = Vector2(2, 2)
+texture = ExtResource("3_pibvk")
+hframes = 6
+frame = 2
+
+[node name="BigExplosion2" type="Sprite2D" parent="FireBossChar/ExplosionSprite"]
+scale = Vector2(3, 3)
+texture = ExtResource("3_pibvk")
+hframes = 6
+frame = 2
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 1)
+position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_utnkn")
+
+[node name="HitBoxDamage" type="Area2D" parent="." groups=["Enemy"]]
+collision_layer = 6
+collision_mask = 16
+script = ExtResource("5_borit")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxDamage"]
+position = Vector2(-0.5, 1)
+shape = SubResource("RectangleShape2D_8uc3i")
+
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="ExplosionTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="InvincibleTimer" type="Timer" parent="."]
+wait_time = 1.2
+
+[node name="Explosion" type="Area2D" parent="." groups=["Enemy"]]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Explosion"]
+shape = SubResource("CircleShape2D_b7ksr")
+
+[connection signal="OnDamageReceived" from="HitBoxDamage" to="." method="TakeDamage"]
+[connection signal="timeout" from="AttackTimer" to="." method="StartAttack"]
+[connection signal="timeout" from="ExplosionTimer" to="." method="StartExplosion"]
+[connection signal="timeout" from="InvincibleTimer" to="." method="AfterInvincibleTimer"]

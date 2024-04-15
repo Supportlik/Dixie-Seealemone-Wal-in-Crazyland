@@ -13,6 +13,7 @@ public partial class GameManager : Node
 
     private AutoLoader _autoLoader;
 
+    public bool GameIsOverFlag = false;
 
     public int InitialHearts => _initialHearts;
 
@@ -53,6 +54,8 @@ public partial class GameManager : Node
 
     public void InflictPlayerDamge()
     {
+        if (GameIsOverFlag)
+            return;
         _health--;
         _autoLoader.SignalManager.EmitSignal(
             SignalManager.SignalName.OnPlayerSetHp, _health);
@@ -62,6 +65,7 @@ public partial class GameManager : Node
 
     public void GameOver()
     {
+        GameIsOverFlag = true;
         _health = 0;
         _autoLoader.SignalManager.EmitSignal(SignalManager.SignalName
             .OnPlayerDead);
@@ -73,6 +77,7 @@ public partial class GameManager : Node
 
     public void LevelCompleted()
     {
+        GameIsOverFlag = true;
         var tween = CreateTween();
         tween.TweenInterval(_secondsAfterDeadBeforeGameOver);
         tween.TweenCallback(Callable.From(() =>
@@ -86,6 +91,7 @@ public partial class GameManager : Node
 
     public void StartGame()
     {
+        GameIsOverFlag = false;
         _health = _initialHearts;
         _autoLoader.ScoreService.ResetScore();
         _airUnlocked = false;

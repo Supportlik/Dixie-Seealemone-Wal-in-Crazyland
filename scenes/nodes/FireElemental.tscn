@@ -261,6 +261,7 @@ transitions = ["Start", "summon", SubResource("AnimationNodeStateMachineTransiti
 
 [node name="FireElemental" type="Node2D" groups=["FireElementalRoot"]]
 script = ExtResource("1_2dh1i")
+DamageOnAttack = 800
 
 [node name="DieTimer" type="Timer" parent="."]
 wait_time = 10.0

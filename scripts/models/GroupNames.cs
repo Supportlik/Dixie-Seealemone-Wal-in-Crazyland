@@ -11,5 +11,8 @@ public static class GroupNames
         Elemental = "Elemental",
         SpawnGroup = "Spawn",
         Enemy = "Enemy",
-        Player = "Player";
+        Player = "Player",
+        SummonSlime = "SummonedSlime",
+        Boss = "Boss",
+        BossPlatform = "BossPlatform";
 }
